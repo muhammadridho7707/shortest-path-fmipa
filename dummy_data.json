@@ -1,0 +1,110 @@
+{
+  "project": "Aplikasi Navigasi Shortest Path FMIPA UNIMED",
+  "matakuliah": "Matematika Diskrit",
+  "metadata": {
+    "version": "1.0.0",
+    "updatedAt": "2026-10-01",
+    "author": "Tengku Fahreza",
+    "role": "Frontend Developer - Map Integration",
+    "dataEngineers": ["Umar", "Mutiara"],
+    "satuanJarak": "meter"
+  },
+  "nodes": [
+    {
+      "id": "gerbang-utama",
+      "name": "Gerbang Utama & Pos Satpam FMIPA",
+      "category": "Fasilitas Umum",
+      "x": 80,
+      "y": 280,
+      "description": "Akses masuk utama kendaraan dan pejalan kaki"
+    },
+    {
+      "id": "dekanat",
+      "name": "Gedung Dekanat & Tata Usaha FMIPA",
+      "category": "Gedung Utama",
+      "x": 200,
+      "y": 190,
+      "description": "Kantor Dekan dan pelayanan administrasi akademik"
+    },
+    {
+      "id": "matematika",
+      "name": "Gedung Jurusan Matematika",
+      "category": "Akademik",
+      "x": 380,
+      "y": 140,
+      "description": "Program studi Matematika dan Lab Aljabar"
+    },
+    {
+      "id": "lab-komputer",
+      "name": "Laboratorium Komputer & Multimedia",
+      "category": "Laboratorium",
+      "x": 520,
+      "y": 120,
+      "description": "Lab komputasi saintifik dan riset algoritma"
+    },
+    {
+      "id": "fisika",
+      "name": "Gedung Jurusan Fisika",
+      "category": "Akademik",
+      "x": 360,
+      "y": 270,
+      "description": "Laboratorium Fisika Dasar dan Geofisika"
+    },
+    {
+      "id": "kimia",
+      "name": "Gedung Jurusan Kimia",
+      "category": "Akademik",
+      "x": 540,
+      "y": 260,
+      "description": "Laboratorium Kimia Organik dan Biokimia"
+    },
+    {
+      "id": "biologi",
+      "name": "Gedung Jurusan Biologi",
+      "category": "Akademik",
+      "x": 700,
+      "y": 200,
+      "description": "Herbarium Medanense dan Lab Botani"
+    },
+    {
+      "id": "kuliah-bersama",
+      "name": "Gedung Perkuliahan Bersama (GKB FMIPA)",
+      "category": "Akademik",
+      "x": 290,
+      "y": 390,
+      "description": "Ruang kuliah umum bersama tingkat 1"
+    },
+    {
+      "id": "musholla",
+      "name": "Musholla Al-MIPA",
+      "category": "Fasilitas Umum",
+      "x": 510,
+      "y": 390,
+      "description": "Tempat ibadah sivitas akademika FMIPA"
+    },
+    {
+      "id": "kantin",
+      "name": "Kantin FMIPA & Pujasera Mahasiswa",
+      "category": "Fasilitas Umum",
+      "x": 680,
+      "y": 360,
+      "description": "Area makan dan gazebo diskusi mahasiswa"
+    }
+  ],
+  "edges": [
+    { "source": "gerbang-utama", "target": "dekanat", "weight": 55, "description": "Jalan aspal pintu masuk" },
+    { "source": "gerbang-utama", "target": "kuliah-bersama", "weight": 70, "description": "Koridor selatan langsung ke GKB" },
+    { "source": "dekanat", "target": "matematika", "weight": 85, "description": "Selasar beratap taman tengah" },
+    { "source": "dekanat", "target": "fisika", "weight": 65, "description": "Lorong timur Dekanat ke Fisika" },
+    { "source": "matematika", "target": "lab-komputer", "weight": 45, "description": "Koridor lantai 1 Matematika ke Lab Komputer" },
+    { "source": "matematika", "target": "fisika", "weight": 50, "description": "Lorong inter-departemen Matematika - Fisika" },
+    { "source": "lab-komputer", "target": "kimia", "weight": 60, "description": "Selasar samping gedung Kimia" },
+    { "source": "fisika", "target": "kimia", "weight": 55, "description": "Jalan tengah boulevard sains" },
+    { "source": "fisika", "target": "kuliah-bersama", "weight": 75, "description": "Jalur pejalan kaki teduh ke GKB" },
+    { "source": "kimia", "target": "biologi", "weight": 65, "description": "Koridor timur Kimia ke Biologi" },
+    { "source": "kimia", "target": "musholla", "weight": 50, "description": "Jalur paving block ke Musholla" },
+    { "source": "biologi", "target": "kantin", "weight": 70, "description": "Jalan setapak taman bio ke kantin" },
+    { "source": "kuliah-bersama", "target": "musholla", "weight": 80, "description": "Jalan lingkar dalam ke Musholla" },
+    { "source": "musholla", "target": "kantin", "weight": 40, "description": "Koridor paving block ke Kantin" }
+  ]
+}
