@@ -25,4 +25,4 @@ export class Graph {
   getNeighbors(node) {
     return this.adjacencyList[node] || [];
   }
-} 
+}
