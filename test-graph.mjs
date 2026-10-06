@@ -1,4 +1,4 @@
-// test-graph.js
+// test-graph.mjs
 import { Graph } from './src/js/graph.js';
 import { graphData } from './src/js/data.js';
 
@@ -17,8 +17,8 @@ graphData.edges.forEach(edge => {
 console.log("=== ADJACENCY LIST GRAF FMIPA ===");
 console.log(JSON.stringify(graph.adjacencyList, null, 2));
 
-console.log("\n=== METADATA NODE R_101 ===");
-console.log(graph.getNodeDetails("R_101"));
+console.log("\n=== METADATA GEDUNG SYAWAL GULTOM ===");
+console.log(graph.getNodeDetails("GEDUNG_SYAWAL_GULTOM"));
 
-console.log("\n=== TETANGGA DARI KOR_A1 ===");
-console.log(graph.getNeighbors("KOR_A1"));
+console.log("\n=== TETANGGA DARI GEDUNG SYAWAL GULTOM ===");
+console.log(graph.getNeighbors("GEDUNG_SYAWAL_GULTOM"));
