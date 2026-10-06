@@ -1,5 +1,9 @@
 // src/js/graph.js
 
+// Konversi piksel SVG ke jarak nyata (meter)
+// Contoh: 1 piksel di SVG = 0.5 meter di dunia nyata
+const PIXEL_TO_METER_SCALE = 0.5;
+
 export class Graph {
   constructor() {
     this.adjacencyList = {};
@@ -35,10 +39,18 @@ export class Graph {
     return this.nodes[node] || null;
   }
 
-  // Helper untuk menghitung jarak Euclidean otomatis antara dua koordinat
+  // Helper method di dalam class untuk menghitung jarak Euclidean otomatis
   calculateDistance(x1, y1, x2, y2) {
     const dx = x2 - x1;
     const dy = y2 - y1;
     return Math.round(Math.sqrt(dx * dx + dy * dy) * 10) / 10;
   }
+}
+
+// Standalone Helper Function untuk menghitung bobot (weight) dalam meter
+export function calculateWeight(x1, y1, x2, y2) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const pixelDistance = Math.sqrt(dx * dx + dy * dy);
+  return Math.round(pixelDistance * PIXEL_TO_METER_SCALE * 10) / 10;
 }
