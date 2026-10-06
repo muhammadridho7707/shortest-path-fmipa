@@ -5,20 +5,15 @@
  * Proyek: FMIPA Map — Navigasi Shortest Path FMIPA UNIMED
  * =======================================================================
  * 
- * TODO LIST UTAMA DARI DEVOPS (RIDHO):
- * 1. initMap(containerId):
- *    - Menyorot presisi kampus FMIPA UNIMED [3.60905, 98.71707]
- *    - Menghilangkan tulisan overlay placeholder bawaan secara otomatis
- *    - Menghubungkan kontrol zoom Zulayka (#btn-zoom-in & #btn-zoom-out)
- *    - Klik peta memunculkan pin interaktif (dilengkapi tombol Hapus Pin di popup)
- * 2. addBuildingMarkers(buildingsData, onMarkerClick):
- *    - Siap menerima array data koordinat dari Umar
- * 3. drawRoute(pathCoordinates) & clearRoute():
- *    - Menggambar garis rute tebal berwarna biru menyala (neon)
+ * ATURAN WARNA DARI DEVOPS (RIDHO):
+ * - Titik Awal        : Marker Merah 🔴 (#dc2626)
+ * - Titik Akhir       : Marker Biru 🔵 (#2563eb)
+ * - Gedung Dilewati   : Marker Kuning 🟡 (#eab308)
+ * - Garis Rute        : Garis Hijau Neon 🟢 (#16a34a / #4ade80)
  * =======================================================================
  */
 
-// Koordinat Presisi Area Fakultas FMIPA UNIMED
+// Koordinat Presisi Area Kampus FMIPA Universitas Negeri Medan
 export const FMIPA_UNIMED_CENTER = [3.60711, 98.71497];
 export const DEFAULT_ZOOM = 18;
 
@@ -26,8 +21,7 @@ let mapInstance = null;
 let markersLayer = null;
 let routeGlowLayer = null;
 let routeCoreLayer = null;
-
-// Koleksi pin klik interaktif pengguna
+let routeMarkersLayer = null;
 let userMarkersLayer = null;
 
 /**
@@ -40,7 +34,7 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
     return null;
   }
 
-  // 1. Bersihkan overlay teks bawaan Zulayka ("Interactive map / Area Peta FMIPA")
+  // 1. Bersihkan tulisan overlay placeholder bawaan
   const badges = container.querySelectorAll('.fmipa-badge-tomato');
   badges.forEach((b) => {
     if (b.textContent.toLowerCase().includes('interactive map')) {
@@ -54,7 +48,7 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
     centerFallback.remove();
   }
 
-  // 2. Pastikan legenda Zulayka di bawah tetap mengapung di atas peta
+  // 2. Pastikan kotak legenda mengapung di atas kanvas peta
   const legendEl = container.querySelector('.fmipa-map-legend')?.closest('.absolute');
   if (legendEl) {
     legendEl.style.zIndex = '1000';
@@ -81,7 +75,7 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
     zoom: DEFAULT_ZOOM,
     minZoom: 15,
     maxZoom: 19,
-    zoomControl: false, // Menggunakan tombol zoom Zulayka
+    zoomControl: false,
   });
 
   // 5. Pasang TileLayer OpenStreetMap
@@ -95,14 +89,13 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
   userMarkersLayer = L.layerGroup().addTo(mapInstance);
   routeGlowLayer = L.layerGroup().addTo(mapInstance);
   routeCoreLayer = L.layerGroup().addTo(mapInstance);
+  routeMarkersLayer = L.layerGroup().addTo(mapInstance);
 
-  // 7. Interaksi Klik Peta: Menancapkan pin dengan nomor urut & tombol Hapus
+  // 7. Interaksi Klik Peta (Menancapkan pin dan tombol hapus)
   mapInstance.on('click', (e) => {
     const { lat, lng } = e.latlng;
     const formattedLat = lat.toFixed(5);
     const formattedLng = lng.toFixed(5);
-
-    // Hitung nomor urut pin
     const markerCount = userMarkersLayer.getLayers().length + 1;
 
     const pinIcon = L.divIcon({
@@ -131,7 +124,6 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
 
     const newMarker = L.marker([lat, lng], { icon: pinIcon }).addTo(userMarkersLayer);
 
-    // Popup dengan tombol Hapus Pin
     const popupContent = document.createElement('div');
     popupContent.style.fontFamily = 'sans-serif';
     popupContent.style.fontSize = '12px';
@@ -164,14 +156,12 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
 
     newMarker.bindPopup(popupContent).openPopup();
 
-    console.log(`📍 [Pin #${markerCount} Ditambahkan] Lat: ${lat}, Lng: ${lng}`);
-
     if (onMapClick) {
       onMapClick(lat, lng, newMarker);
     }
   });
 
-  // 8. Hubungkan tombol kontrol zoom Zulayka
+  // 8. Hubungkan tombol zoom Zulayka
   const btnZoomIn = document.getElementById('btn-zoom-in');
   const btnZoomOut = document.getElementById('btn-zoom-out');
 
@@ -182,7 +172,6 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
     btnZoomOut.onclick = () => mapInstance.zoomOut();
   }
 
-  // InvalidateSize agar kanvas tidak abu-abu di Live Server
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();
@@ -190,21 +179,12 @@ export function initMap(containerId = 'map-container', onMapClick = null) {
     }
   }, 250);
 
-  console.log('✅ [TODO 1 Selesai] Peta FMIPA UNIMED aktif (Pusat: [3.60905, 98.71707]).');
+  console.log('✅ [map.js] Inisialisasi peta selesai.');
   return mapInstance;
 }
 
 /**
- * Fungsi menghapus semua pin yang ditancapkan pengguna lewat klik
- */
-export function clearUserMarkers() {
-  if (userMarkersLayer) {
-    userMarkersLayer.clearLayers();
-  }
-}
-
-/**
- * [TODO 2] FUNGSI PENANDA (MARKER GEDUNG DARI UMAR)
+ * [TODO 2] FUNGSI PENANDA (MARKER GEDUNG DARI DATA UMAR)
  */
 export function addBuildingMarkers(buildingsData = [], onMarkerClick = null) {
   if (!mapInstance || !markersLayer) return;
@@ -269,16 +249,31 @@ export function addBuildingMarkers(buildingsData = [], onMarkerClick = null) {
 }
 
 /**
- * [TODO 3] FUNGSI PENGGAMBAR RUTE (POLYLINE BIRU MENYALA)
+ * [TODO 3] FUNGSI PENGGAMBAR RUTE SESUAI SPESIFIKASI RIDHO:
+ * - Titik Awal        : Marker Merah 🔴
+ * - Titik Akhir       : Marker Biru 🔵
+ * - Gedung Dilewati   : Marker Kuning 🟡
+ * - Rute (Polyline)   : Garis Hijau 🟢
+ * 
+ * Menerima array titik: [{ lat, lng, name }, ...] atau [[lat, lng], ...]
  */
-export function drawRoute(pathCoordinates = []) {
+export function drawRoute(pathPoints = []) {
   clearRoute();
 
-  if (!pathCoordinates || pathCoordinates.length < 2) return;
+  if (!pathPoints || pathPoints.length < 2) {
+    console.warn('[map.js] drawRoute membutuhkan minimal 2 titik.');
+    return;
+  }
 
-  // Lapisan Glow Luar (Aura Biru Neon)
-  const glow = L.polyline(pathCoordinates, {
-    color: '#38bdf8',
+  // 1. Ekstrak koordinat untuk Polyline
+  const polylineCoords = pathPoints.map(p => {
+    if (Array.isArray(p)) return p;
+    return [p.lat, p.lng];
+  });
+
+  // 2. Garis Rute: WARNA HIJAU (Sesuai Permintaan Ridho)
+  const glow = L.polyline(polylineCoords, {
+    color: '#4ade80', // Hijau Neon
     weight: 12,
     opacity: 0.65,
     lineCap: 'round',
@@ -286,18 +281,16 @@ export function drawRoute(pathCoordinates = []) {
   });
   routeGlowLayer.addLayer(glow);
 
-  // Lapisan Inti Garis Tebal (Biru Solid)
-  const core = L.polyline(pathCoordinates, {
-    color: '#1d4ed8',
-    weight: 5,
+  const core = L.polyline(polylineCoords, {
+    color: '#16a34a', // Hijau Emerald
+    weight: 6,
     opacity: 0.95,
     lineCap: 'round',
     lineJoin: 'round',
   });
   routeCoreLayer.addLayer(core);
 
-  // Garis Aksen Putih Penunjuk Arah
-  const dash = L.polyline(pathCoordinates, {
+  const dash = L.polyline(polylineCoords, {
     color: '#ffffff',
     weight: 2,
     opacity: 0.9,
@@ -307,15 +300,76 @@ export function drawRoute(pathCoordinates = []) {
   });
   routeCoreLayer.addLayer(dash);
 
+  // 3. Pasang Marker Titik Rute Sesuai Aturan Warna Ridho:
+  pathPoints.forEach((point, index) => {
+    const lat = Array.isArray(point) ? point[0] : point.lat;
+    const lng = Array.isArray(point) ? point[1] : point.lng;
+    const name = (!Array.isArray(point) && point.name) ? point.name : `Titik ${index + 1}`;
+
+    let bgColor = '#eab308'; // Default: Kuning (Gedung yang dilewati)
+    let label = 'Dilewati';
+    let iconChar = '🟡';
+
+    if (index === 0) {
+      bgColor = '#dc2626'; // Merah: Titik Awal
+      label = 'Titik Awal (Asal)';
+      iconChar = '🔴';
+    } else if (index === pathPoints.length - 1) {
+      bgColor = '#2563eb'; // Biru: Titik Akhir
+      label = 'Titik Akhir (Tujuan)';
+      iconChar = '🔵';
+    }
+
+    const routeMarkerIcon = L.divIcon({
+      className: 'fmipa-route-node-pin',
+      html: `
+        <div style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: ${bgColor};
+          border: 2px solid #ffffff;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+          color: #ffffff;
+          font-size: 11px;
+          font-weight: bold;
+          cursor: pointer;
+        ">
+          ${iconChar}
+        </div>
+      `,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+    });
+
+    const m = L.marker([lat, lng], { icon: routeMarkerIcon });
+    m.bindPopup(`<strong>${name}</strong><br><small>${label}</small>`);
+    routeMarkersLayer.addLayer(m);
+  });
+
+  // 4. Fokuskan kamera otomatis ke seluruh rute
   mapInstance.fitBounds(core.getBounds(), {
     padding: [50, 50],
     animate: true,
   });
+
+  console.log('✅ [map.js] Rute hijau dengan pin Merah-Kuning-Biru siap.');
 }
 
+/**
+ * FUNGSI PENDUKUNG: BERSIHKAN RUTE
+ */
 export function clearRoute() {
   if (routeCoreLayer) routeCoreLayer.clearLayers();
   if (routeGlowLayer) routeGlowLayer.clearLayers();
+  if (routeMarkersLayer) routeMarkersLayer.clearLayers();
+}
+
+export function clearUserMarkers() {
+  if (userMarkersLayer) userMarkersLayer.clearLayers();
 }
 
 export function getMap() {
