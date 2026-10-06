@@ -23,7 +23,7 @@
         rel="stylesheet"
         href="../output.css"
     >
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 </head>
 
 
@@ -893,33 +893,23 @@
 
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <!-- 2. Hubungkan initMap ke kode modul bawaan Zulayka: -->
     <script type="module">
+        import { initMap } from "../../src/js/map.js";
+        initMap("map-container");
 
-        const selectAsal =
-            document.getElementById("select-asal");
-
-        const selectTujuan =
-            document.getElementById("select-tujuan");
-
-        const btnTukar =
-            document.getElementById("btn-tukar");
-
+        const selectAsal = document.getElementById("select-asal");
+        const selectTujuan = document.getElementById("select-tujuan");
+        const btnTukar = document.getElementById("btn-tukar");
 
         btnTukar.addEventListener("click", () => {
-
             const asal = selectAsal.value;
-
             const tujuan = selectTujuan.value;
-
             selectAsal.value = tujuan;
-
             selectTujuan.value = asal;
-
         });
-
     </script>
-
-
 </body>
-
 </html>
