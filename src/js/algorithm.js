@@ -1,103 +1,116 @@
 /**
  * =======================================================================
  * File: src/js/algorithm.js
- * PIC : Algorithm & Navigation Engine (Tengku Fahreza)
+ * PIC : Algorithm Integration (Dijkstra)
  * Proyek: Navigasi Shortest Path FMIPA UNIMED
  * =======================================================================
- * Mengimplementasikan Algoritma Dijkstra untuk mencari rute berbobot
- * terpendek antar gedung berdasarkan graf jalan setapak src/js/data.js
+ * Implementasi Algoritma Dijkstra untuk mencari rute terpendek antar gedung
+ * dan persimpangan di FMIPA UNIMED berdasarkan data.js dan graph.js.
  * =======================================================================
  */
 
-import { Graph } from './graph.js';
 import { graphData } from './data.js';
+import { Graph } from './graph.js';
 
 /**
- * Membangun struktur Graf FMIPA lengkap dari data.js
+ * Membangun objek Graf FMIPA dari data.js
+ * @returns {Graph}
  */
 export function buildFMIPAGraph() {
-  const graph = new Graph();
+  const g = new Graph();
+  const nodes = graphData.nodes;
 
-  // 1. Daftarkan semua node (gedung dan titik persimpangan)
-  Object.keys(graphData.nodes).forEach((nodeId) => {
-    graph.addNode(nodeId, graphData.nodes[nodeId]);
+  Object.keys(nodes).forEach((nodeId) => {
+    const n = nodes[nodeId];
+    g.addNode(nodeId, {
+      name: n.name,
+      category: n.category,
+      x: n.x,
+      y: n.y,
+      svgId: n.svgId,
+      isBuilding: !!n.isBuilding,
+    });
   });
 
-  // 2. Hubungkan semua edge jalan setapak
-  graphData.edges.forEach((edge) => {
-    graph.addEdge(edge.from, edge.to, edge.weight);
+  const edges = graphData.edges || [];
+  edges.forEach((edge) => {
+    const from = edge.from || edge.source;
+    const to = edge.to || edge.target;
+    if (from && to) {
+      g.addEdge(from, to, edge.weight);
+    }
   });
 
-  return graph;
+  return g;
 }
 
 /**
- * Algoritma Dijkstra untuk mencari rute terpendek
- * @param {Graph} graph 
- * @param {string} startNodeId 
- * @param {string} targetNodeId 
- * @returns {Object} { found, path, distance, steps }
+ * Algoritma Dijkstra untuk mencari rute terpendek antar dua simpul
+ * @param {Graph} graph
+ * @param {string} startNodeId
+ * @param {string} targetNodeId
+ * @returns {{ distance: number, path: string[], found: boolean }}
  */
 export function dijkstra(graph, startNodeId, targetNodeId) {
-  if (!startNodeId || !targetNodeId) {
-    return { found: false, path: [], distance: 0, steps: [] };
-  }
-
   if (startNodeId === targetNodeId) {
-    const details = graph.getNodeDetails(startNodeId) || {};
-    return {
-      found: true,
-      path: [startNodeId],
-      distance: 0,
-      steps: [{ id: startNodeId, ...details }],
-    };
+    return { distance: 0, path: [startNodeId], found: true };
   }
 
   const distances = {};
   const previous = {};
-  const allNodes = Object.keys(graph.adjacencyList);
-  const unvisited = new Set(allNodes);
+  const unvisited = new Set();
+  const allNodes = Object.keys(graph.nodes);
 
-  allNodes.forEach((node) => {
-    distances[node] = Infinity;
-    previous[node] = null;
+  allNodes.forEach((nodeId) => {
+    distances[nodeId] = Infinity;
+    previous[nodeId] = null;
+    unvisited.add(nodeId);
   });
+
+  if (!graph.nodes[startNodeId] || !graph.nodes[targetNodeId]) {
+    console.warn(`[algorithm.js] Simpul '${startNodeId}' atau '${targetNodeId}' tidak ditemukan dalam graf.`);
+    return { distance: Infinity, path: [], found: false };
+  }
 
   distances[startNodeId] = 0;
 
   while (unvisited.size > 0) {
-    let currentNode = null;
-    let minDistance = Infinity;
+    let closestNode = null;
+    let shortestDistance = Infinity;
 
-    for (const node of unvisited) {
-      if (distances[node] < minDistance) {
-        minDistance = distances[node];
-        currentNode = node;
+    unvisited.forEach((nodeId) => {
+      if (distances[nodeId] < shortestDistance) {
+        shortestDistance = distances[nodeId];
+        closestNode = nodeId;
       }
+    });
+
+    if (!closestNode || shortestDistance === Infinity) {
+      break;
     }
 
-    if (!currentNode || minDistance === Infinity) break;
-    if (currentNode === targetNodeId) break;
-
-    unvisited.delete(currentNode);
-
-    const neighbors = graph.getNeighbors(currentNode);
-    for (const neighbor of neighbors) {
-      if (!unvisited.has(neighbor.node)) continue;
-
-      const alt = distances[currentNode] + neighbor.weight;
-      if (alt < distances[neighbor.node]) {
-        distances[neighbor.node] = alt;
-        previous[neighbor.node] = currentNode;
-      }
+    if (closestNode === targetNodeId) {
+      break;
     }
+
+    unvisited.delete(closestNode);
+
+    const neighbors = graph.getNeighbors(closestNode);
+    neighbors.forEach((neighbor) => {
+      if (unvisited.has(neighbor.node)) {
+        const alt = distances[closestNode] + neighbor.weight;
+        if (alt < distances[neighbor.node]) {
+          distances[neighbor.node] = alt;
+          previous[neighbor.node] = closestNode;
+        }
+      }
+    });
   }
 
   if (distances[targetNodeId] === Infinity) {
-    return { found: false, path: [], distance: 0, steps: [] };
+    return { distance: Infinity, path: [], found: false };
   }
 
-  // Rekonstruksi rute
   const path = [];
   let curr = targetNodeId;
   while (curr) {
@@ -105,36 +118,59 @@ export function dijkstra(graph, startNodeId, targetNodeId) {
     curr = previous[curr];
   }
 
-  const steps = path.map((nodeId) => {
-    const details = graph.getNodeDetails(nodeId) || {};
-    return {
-      id: nodeId,
-      ...details,
-    };
-  });
-
   return {
+    distance: Math.round(distances[targetNodeId]),
+    path: path,
     found: true,
-    path,
-    distance: Math.round(distances[targetNodeId] * 10) / 10,
-    steps,
   };
 }
 
 /**
- * Helper langsung untuk mencari rute antar ID gedung
+ * Fungsi pencarian rute terpendek yang siap pakai
+ * @param {string} startNodeId
+ * @param {string} targetNodeId
+ * @returns {{ distance: number, path: string[], steps: Array, found: boolean }}
  */
 export function findShortestPath(startNodeId, targetNodeId) {
-  const g = buildFMIPAGraph();
-  return dijkstra(g, startNodeId, targetNodeId);
+  const graph = buildFMIPAGraph();
+  const result = dijkstra(graph, startNodeId, targetNodeId);
+
+  if (!result.found) {
+    return { ...result, steps: [] };
+  }
+
+  const steps = result.path.map((nodeId) => {
+    const meta = graph.getNodeMetadata(nodeId) || {};
+    return {
+      id: nodeId,
+      name: meta.name || nodeId,
+      x: meta.x || 0,
+      y: meta.y || 0,
+      isBuilding: !!meta.isBuilding,
+      category: meta.category || '',
+    };
+  });
+
+  return {
+    distance: result.distance,
+    path: result.path,
+    steps: steps,
+    found: true,
+  };
 }
 
 /**
- * Estimasi waktu tempuh jalan kaki (kecepatan santai ~1.2 m/s atau ~72 m/menit)
+ * Menghitung estimasi waktu jalan santai (rata-rata 75 m / menit)
+ * @param {number} distanceMeters
+ * @returns {string}
  */
 export function calculateWalkingTime(distanceMeters) {
-  if (!distanceMeters || distanceMeters <= 0) return '0 Menit';
-  const minutes = Math.ceil(distanceMeters / 72);
-  if (minutes < 1) return '< 1 Menit';
-  return `~${minutes} Menit`;
+  const SPEED_M_PER_MIN = 75;
+  const minutes = distanceMeters / SPEED_M_PER_MIN;
+
+  if (minutes < 1) {
+    const seconds = Math.round(minutes * 60);
+    return `± ${seconds} detik jalan kaki`;
+  }
+  return `± ${minutes.toFixed(1)} menit jalan kaki`;
 }

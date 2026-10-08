@@ -4,16 +4,22 @@
  * PIC : Frontend Integration (Tengku Fahreza)
  * Proyek: Navigasi Shortest Path FMIPA UNIMED
  * =======================================================================
- * Menghubungkan antarmuka UI dengan modul map.js dan algorithm.js
- * =======================================================================
  */
 
-import { initMap, drawRoute, clearRoute, updateBuildingInfoPanel } from './map.js';
+import {
+  initMap,
+  drawRoute,
+  clearRoute,
+  clearUserMarkers,
+  resetMapView,
+  updateBuildingInfoPanel,
+  resetBuildingInfoPanel,
+  NODE_KEY_TO_DROPDOWN
+} from './map.js';
 import { findShortestPath, calculateWalkingTime } from './algorithm.js';
 import { graphData } from './data.js';
 
-// Pemetaan value select option HTML Zulayka ke ID Node di data.js
-const DROPDOWN_TO_NODE_ID = {
+export const DROPDOWN_TO_NODE_ID = {
   'gedung-syawal': 'GEDUNG_SYAWAL_GULTOM',
   'gedung-syawal-gultom': 'GEDUNG_SYAWAL_GULTOM',
   'gedung-fisika': 'GEDUNG_04',
@@ -38,9 +44,38 @@ const DROPDOWN_TO_NODE_ID = {
   'lab-biologi-timur': 'GEDUNG_LAB_BIOLOGI_TIMUR',
 };
 
-/**
- * Mencari rute optimal dan menampilkan hasilnya ke antarmuka
- */
+export function setGedungAsal(nodeKey, nodeData, dropdownVal) {
+  const selectAsal = document.getElementById('select-asal');
+  const targetVal = dropdownVal || NODE_KEY_TO_DROPDOWN[nodeKey] || '';
+  if (selectAsal && targetVal) {
+    selectAsal.value = targetVal;
+    selectAsal.dispatchEvent(new Event('change'));
+  }
+  if (nodeData) {
+    updateBuildingInfoPanel(nodeData, nodeKey, setGedungAsal, setGedungTujuan);
+  }
+  const selectTujuan = document.getElementById('select-tujuan');
+  if (selectTujuan && selectTujuan.value && selectTujuan.value !== targetVal) {
+    handleCariRute();
+  }
+}
+
+export function setGedungTujuan(nodeKey, nodeData, dropdownVal) {
+  const selectTujuan = document.getElementById('select-tujuan');
+  const targetVal = dropdownVal || NODE_KEY_TO_DROPDOWN[nodeKey] || '';
+  if (selectTujuan && targetVal) {
+    selectTujuan.value = targetVal;
+    selectTujuan.dispatchEvent(new Event('change'));
+  }
+  if (nodeData) {
+    updateBuildingInfoPanel(nodeData, nodeKey, setGedungAsal, setGedungTujuan);
+  }
+  const selectAsal = document.getElementById('select-asal');
+  if (selectAsal && selectAsal.value && selectAsal.value !== targetVal) {
+    handleCariRute();
+  }
+}
+
 export function handleCariRute() {
   const selectAsal = document.getElementById('select-asal');
   const selectTujuan = document.getElementById('select-tujuan');
@@ -63,11 +98,10 @@ export function handleCariRute() {
   const tujuanId = DROPDOWN_TO_NODE_ID[rawTujuan] || rawTujuan;
 
   if (asalId === tujuanId) {
-    alert('Gedung asal dan gedung tujuan tidak boleh sama.');
+    alert('Gedung asal dan tujuan tidak boleh sama.');
     return;
   }
 
-  // Hitung dengan Algoritma Dijkstra
   const result = findShortestPath(asalId, tujuanId);
 
   if (!result || !result.found || result.path.length === 0) {
@@ -77,31 +111,39 @@ export function handleCariRute() {
     return;
   }
 
-  // 1. Gambar rute di peta Leaflet
   drawRoute(result.steps);
 
-  // 2. Tampilkan panel hasil
   if (panelHasil) {
     panelHasil.classList.remove('hidden');
     panelHasil.style.display = 'block';
   }
 
-  // 3. Tuliskan jarak dan estimasi waktu
-  if (hasilJarak) hasilJarak.textContent = `${result.distance} m`;
-  if (hasilWaktu) hasilWaktu.textContent = calculateWalkingTime(result.distance);
+  if (hasilJarak) {
+    hasilJarak.textContent = `${result.distance} m`;
+  }
+  if (hasilWaktu) {
+    hasilWaktu.textContent = calculateWalkingTime(result.distance);
+  }
 
-  // 4. Tuliskan rangkaian rute gedung
   if (hasilRute) {
-    const readable = result.steps
-      .filter((s, idx) => s.isBuilding || idx === 0 || idx === result.steps.length - 1)
+    const readableSteps = result.steps
+      .filter((s, idx) => {
+        return s.isBuilding || idx === 0 || idx === result.steps.length - 1;
+      })
       .map((s) => s.name);
-    hasilRute.textContent = (readable.length > 1 ? readable : result.steps.map((s) => s.name)).join(' ➔ ');
+
+    if (readableSteps.length <= 1) {
+      hasilRute.textContent = result.steps.map((s) => s.name).join(' ➔ ');
+    } else {
+      hasilRute.textContent = readableSteps.join(' ➔ ');
+    }
+  }
+
+  if (panelHasil && window.innerWidth < 1024) {
+    panelHasil.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 
-/**
- * Menukar gedung asal dan tujuan
- */
 export function handleTukarRute() {
   const selectAsal = document.getElementById('select-asal');
   const selectTujuan = document.getElementById('select-tujuan');
@@ -117,42 +159,84 @@ export function handleTukarRute() {
 }
 
 /**
- * Inisialisasi Event Listener dan Peta
+ * Mulai Ulang / Reset Keseluruhan Status Aplikasi & Peta
  */
-export function initApp() {
-  console.log('[app.js] Menginisialisasi aplikasi navigasi FMIPA...');
+export function handleRestartApp() {
+  console.log('🔄 [app.js] Merestart aplikasi & membersihkan peta...');
 
-  // Inisialisasi peta
-  initMap('map-container');
-
-  // Pasang event tombol Cari
-  const btnCari = document.getElementById('btn-cari');
-  if (btnCari) btnCari.onclick = handleCariRute;
-
-  // Pasang event tombol Tukar
-  const btnTukar = document.getElementById('btn-tukar');
-  if (btnTukar) btnTukar.onclick = handleTukarRute;
-
-  // Update info panel saat dropdown berubah
   const selectAsal = document.getElementById('select-asal');
   const selectTujuan = document.getElementById('select-tujuan');
+  if (selectAsal) selectAsal.value = '';
+  if (selectTujuan) selectTujuan.value = '';
 
-  if (selectAsal) {
-    selectAsal.addEventListener('change', () => {
-      const node = graphData.nodes[DROPDOWN_TO_NODE_ID[selectAsal.value]];
-      if (node) updateBuildingInfoPanel(node);
-    });
+  const panelHasil = document.getElementById('panel-hasil');
+  if (panelHasil) {
+    panelHasil.classList.add('hidden');
+    panelHasil.style.display = 'none';
   }
 
-  if (selectTujuan) {
-    selectTujuan.addEventListener('change', () => {
-      const node = graphData.nodes[DROPDOWN_TO_NODE_ID[selectTujuan.value]];
-      if (node && !selectAsal?.value) updateBuildingInfoPanel(node);
-    });
-  }
+  clearRoute();
+  clearUserMarkers();
+  resetMapView();
+  resetBuildingInfoPanel();
+
+  console.log('✨ [app.js] Aplikasi berhasil di-reset.');
 }
 
-// Jalankan otomatis saat browser siap
+export function initApp() {
+  console.log('🚀 [app.js] Menginisialisasi aplikasi navigasi FMIPA UNIMED...');
+
+  initMap('map-container', {
+    onSetAsal: setGedungAsal,
+    onSetTujuan: setGedungTujuan,
+  });
+
+  const btnCari = document.getElementById('btn-cari');
+  if (btnCari) {
+    btnCari.onclick = handleCariRute;
+  }
+
+  const btnTukar = document.getElementById('btn-tukar');
+  if (btnTukar) {
+    btnTukar.onclick = handleTukarRute;
+  }
+
+  // Tombol reset di samping tombol zoom minus (-)
+  const btnResetMap = document.getElementById('btn-reset-map');
+  if (btnResetMap) {
+    btnResetMap.onclick = handleRestartApp;
+  }
+  const btnRestart = document.getElementById('btn-restart');
+  if (btnRestart) {
+    btnRestart.onclick = handleRestartApp;
+  }
+
+  const selectAsal = document.getElementById('select-asal');
+  const selectTujuan = document.getElementById('select-tujuan');
+  if (selectAsal) {
+    selectAsal.addEventListener('change', () => {
+      const val = selectAsal.value;
+      const nodeId = DROPDOWN_TO_NODE_ID[val];
+      const asalNode = nodeId ? graphData.nodes[nodeId] : null;
+      if (asalNode) {
+        updateBuildingInfoPanel(asalNode, nodeId, setGedungAsal, setGedungTujuan);
+      }
+    });
+  }
+  if (selectTujuan) {
+    selectTujuan.addEventListener('change', () => {
+      const val = selectTujuan.value;
+      const nodeId = DROPDOWN_TO_NODE_ID[val];
+      const tujuanNode = nodeId ? graphData.nodes[nodeId] : null;
+      if (tujuanNode && !selectAsal?.value) {
+        updateBuildingInfoPanel(tujuanNode, nodeId, setGedungAsal, setGedungTujuan);
+      }
+    });
+  }
+
+  console.log('✅ [app.js] Inisialisasi aplikasi selesai.');
+}
+
 if (typeof window !== 'undefined') {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initApp);
