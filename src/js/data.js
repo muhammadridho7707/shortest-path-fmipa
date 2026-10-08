@@ -42,7 +42,7 @@ export const graphData = {
     // 1. GEDUNG SYAWAL GULTOM KE WAYPOINT JALAN (TIDAK ADA GARIS LANGSUNG KE GEDUNG KIMIA/LAB)
     { from: "GEDUNG_SYAWAL_GULTOM", to: "WP_JALAN_KAMPUS_10", weight: calculateWeight(1056, 534, 968, 328) },
     { from: "GEDUNG_04", to: "WP_JALAN_KAMPUS_10", weight: calculateWeight(1072, 446, 968, 328) },
-    
+
     // 2. KONEKSI RANTAI WAYPOINT UTARA
     { from: "WP_JALAN_KAMPUS_10", to: "WP_JALAN_KAMPUS_09", weight: calculateWeight(968, 328, 968, 56) },
     { from: "WP_JALAN_KAMPUS_09", to: "WP_JALAN_KAMPUS_08", weight: calculateWeight(968, 56, 820, 50) },
