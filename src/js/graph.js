@@ -1,7 +1,8 @@
 // src/js/graph.js
-import { graphNodes } from './data.js';
+import { graphNodes, graphData } from './data.js';
 
-const PIXEL_TO_METER_SCALE = 0.5;   // ← tambahkan konstanta ini di atas
+// Konversi piksel SVG ke meter di dunia nyata (1 px = 0.5 meter)
+const PIXEL_TO_METER_SCALE = 0.5;
 
 import { graphNodes, graphData } from './data.js';
 
@@ -15,6 +16,7 @@ function getDistance(nodeA, nodeB) {
   const dy = nodeA.y - nodeB.y;
   const distPixels = Math.sqrt(dx * dx + dy * dy);
   const distMeters = Math.round(distPixels * PIXEL_TO_METER_SCALE);
+  
   return distMeters === 0 ? 5 : distMeters;
 }
 
@@ -28,7 +30,7 @@ const allNodes = {
   ...graphNodes.waypoints
 };
 
-// 2. Definisi Koneksi Mentah
+// Raw Connections (Tanpa Edge A yang nyelip)
 const rawConnections = {
   // --- Gedung Bersama (12) & Koridor Sayap ---
 // Raw Connections (Tanpa Edge A yang nyelip)
@@ -47,7 +49,6 @@ const rawConnections = {
   'kor-06': ['kor-05'],
   'kor-18': ['kor-05', 'pintu-gedung-12-selatan-barat'],
 
-  // --- Area Lab Biologi, Lab Kimia & Lab Matematika ---
   'pintu-gedung-lab-biologi-barat': ['kor-08', 'GEDUNG_LAB_BIOLOGI_BARAT'],
   'GEDUNG_LAB_BIOLOGI_BARAT': ['pintu-gedung-lab-biologi-barat'],
 
@@ -79,7 +80,6 @@ const rawConnections = {
   'kor-15': ['kor-14', 'kor-16', 'pintu-gedung-syawal-gultom-selatan', 'pintu-gedung-06'],
   'kor-16': ['kor-15', 'kor-09', 'pintu-gedung-kimia'],
 
-  // --- Pintu Gedung Utama ke Koridor Lingkar & ID Gedung ---
   'pintu-gedung-syawal-gultom-barat': ['kor-09', 'GEDUNG_SYAWAL_GULTOM'],
   'pintu-gedung-syawal-gultom-timur': ['kor-13', 'GEDUNG_SYAWAL_GULTOM'],
   'pintu-gedung-syawal-gultom-selatan': ['kor-15', 'GEDUNG_SYAWAL_GULTOM'],
@@ -104,21 +104,38 @@ const rawConnections = {
   'GEDUNG_LAB_FISIKA': ['pintu-gedung-lab-fisika']
 };
 
-// 3. Ekspor Adjacency List Object
-export const graphAdjacency = {};
+// Buat array edges terstruktur untuk di-export
+export const generatedEdges = [];
+const processedPairs = new Set();
 
+Object.keys(rawConnections).forEach(from => {
+  rawConnections[from].forEach(to => {
+    const pairKey = [from, to].sort().join('--');
+    if (!processedPairs.has(pairKey)) {
+      processedPairs.add(pairKey);
+      const nodeA = allNodes[from];
+      const nodeB = allNodes[to];
+      if (nodeA && nodeB) {
+        generatedEdges.push({
+          from,
+          to,
+          weight: getDistance(nodeA, nodeB)
+        });
+      }
+    }
+  });
+});
+
+export const graphAdjacency = {};
 Object.keys(rawConnections).forEach(fromNodeId => {
   graphAdjacency[fromNodeId] = [];
-
   rawConnections[fromNodeId].forEach(toNodeId => {
     const nodeA = allNodes[fromNodeId];
     const nodeB = allNodes[toNodeId];
-
     if (nodeA && nodeB) {
-      const weight = getDistance(nodeA, nodeB);
       graphAdjacency[fromNodeId].push({
         node: toNodeId,
-        weight: weight
+        weight: getDistance(nodeA, nodeB)
       });
     }
   });
