@@ -1,279 +1,563 @@
 /**
  * =======================================================================
  * File: src/js/map.js
- * PIC : Tengku Fahreza (Frontend Map Integration)
- * Proyek: FMIPA Map — Navigasi Shortest Path FMIPA UNIMED
- * =======================================================================
- * 
- * ATURAN WARNA DARI DEVOPS (RIDHO):
- * - Titik Awal        : Marker Merah 🔴 (#dc2626)
- * - Titik Akhir       : Marker Biru 🔵 (#2563eb)
- * - Gedung Dilewati   : Marker Kuning 🟡 (#eab308)
- * - Garis Rute        : Garis Hijau Neon 🟢 (#16a34a / #4ade80)
+ * PIC : Frontend Developer - Map Integration (Tengku Fahreza)
+ * Proyek: Navigasi Shortest Path FMIPA UNIMED
  * =======================================================================
  */
 
-// Koordinat Presisi Area Kampus FMIPA Universitas Negeri Medan
-export const FMIPA_UNIMED_CENTER = [3.60711, 98.71497];
-export const DEFAULT_ZOOM = 18;
+import { graphData } from './data.js';
+
+// Ukuran kanvas SVG asli FMIPA UNIMED
+export const SVG_WIDTH = 2028;
+export const SVG_HEIGHT = 1138;
+export const MAP_BOUNDS = [
+  [0, 0],
+  [SVG_HEIGHT, SVG_WIDTH],
+];
+
+// Pemetaan ID Node ke value dropdown HTML
+export const NODE_KEY_TO_DROPDOWN = {
+  GEDUNG_SYAWAL_GULTOM: 'gedung-syawal',
+  GEDUNG_04: 'gedung-fisika',
+  GEDUNG_05: 'gedung-biologi',
+  GEDUNG_KIMIA: 'gedung-kimia',
+  GEDUNG_02: 'gedung-matematika',
+  GEDUNG_06: 'gedung-bilingual',
+  GEDUNG_12: 'gedung-bersama',
+  GEDUNG_LAB_FISIKA: 'lab-fisika',
+  GEDUNG_09: 'lab-matematika',
+  GEDUNG_LAB_KIMIA: 'lab-kimia',
+  GEDUNG_LAB_BIOLOGI_BARAT: 'lab-biologi',
+  GEDUNG_LAB_BIOLOGI_TIMUR: 'lab-biologi-timur',
+};
 
 let mapInstance = null;
-let markersLayer = null;
+let svgOverlay = null;
+let neutralMarkersLayer = null;
 let routeGlowLayer = null;
 let routeCoreLayer = null;
 let routeMarkersLayer = null;
-let userMarkersLayer = null;
+let userPinLayer = null;
+let highlightLayer = null;        // ← BARU
+let activeAsalNodeId = null;      // ← BARU: simpan node ID asal aktif
+let activeTujuanNodeId = null;    // ← BARU: simpan node ID tujuan aktif
+
+let activeCallbackSetAsal = null;
+let activeCallbackSetTujuan = null;
+let userPinIdCounter = 0;
+
+export function svgToLatLng(x, y) {
+  return [SVG_HEIGHT - y, x];
+}
+
+export function latLngToSvg(lat, lng) {
+  return {
+    x: Math.round(lng),
+    y: Math.round(SVG_HEIGHT - lat),
+  };
+}
 
 /**
- * [TODO 1] INISIALISASI PETA LEAFLET
+ * Render marker highlight merah (asal) & biru (tujuan) di atas neutral markers
  */
-export function initMap(containerId = 'map-container', onMapClick = null) {
-  const container = document.getElementById(containerId);
-  if (!container) {
-    console.error(`[map.js] Container #${containerId} tidak ditemukan.`);
-    return null;
-  }
+export function updateSelectionHighlight(asalId, tujuanId) {
+  activeAsalNodeId = asalId || null;
+  activeTujuanNodeId = tujuanId || null;
 
-  // 1. Bersihkan tulisan overlay placeholder bawaan
-  const badges = container.querySelectorAll('.fmipa-badge-tomato');
-  badges.forEach((b) => {
-    if (b.textContent.toLowerCase().includes('interactive map')) {
-      const centerOverlay = b.closest('.absolute');
-      if (centerOverlay) centerOverlay.remove();
-    }
-  });
+  if (!mapInstance || !highlightLayer) return;
+  highlightLayer.clearLayers();
 
-  const centerFallback = container.querySelector('.pointer-events-none.absolute');
-  if (centerFallback && centerFallback.textContent.includes('Peta interaktif')) {
-    centerFallback.remove();
-  }
+  const allNodes = graphData.nodes;
 
-  // 2. Pastikan kotak legenda mengapung di atas kanvas peta
-  const legendEl = container.querySelector('.fmipa-map-legend')?.closest('.absolute');
-  if (legendEl) {
-    legendEl.style.zIndex = '1000';
-  }
+  function makeHighlightMarker(nodeId, color, iconChar, label) {
+    const node = allNodes[nodeId];
+    if (!node || !node.x || !node.y) return;
 
-  // 3. Buat kanvas peta jika belum ada
-  container.style.position = 'relative';
-  let mapCanvas = document.getElementById('leaflet-map-canvas');
-  if (!mapCanvas) {
-    mapCanvas = document.createElement('div');
-    mapCanvas.id = 'leaflet-map-canvas';
-    mapCanvas.style.position = 'absolute';
-    mapCanvas.style.top = '0';
-    mapCanvas.style.left = '0';
-    mapCanvas.style.width = '100%';
-    mapCanvas.style.height = '100%';
-    mapCanvas.style.zIndex = '0';
-    container.prepend(mapCanvas);
-  }
-
-  // 4. Inisialisasi Peta Leaflet
-  mapInstance = L.map(mapCanvas, {
-    center: FMIPA_UNIMED_CENTER,
-    zoom: DEFAULT_ZOOM,
-    minZoom: 15,
-    maxZoom: 19,
-    zoomControl: false,
-  });
-
-  // 5. Pasang TileLayer OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap contributors',
-  }).addTo(mapInstance);
-
-  // 6. Siapkan Layer Group
-  markersLayer = L.layerGroup().addTo(mapInstance);
-  userMarkersLayer = L.layerGroup().addTo(mapInstance);
-  routeGlowLayer = L.layerGroup().addTo(mapInstance);
-  routeCoreLayer = L.layerGroup().addTo(mapInstance);
-  routeMarkersLayer = L.layerGroup().addTo(mapInstance);
-
-  // 7. Interaksi Klik Peta (Menancapkan pin dan tombol hapus)
-  mapInstance.on('click', (e) => {
-    const { lat, lng } = e.latlng;
-    const formattedLat = lat.toFixed(5);
-    const formattedLng = lng.toFixed(5);
-    const markerCount = userMarkersLayer.getLayers().length + 1;
-
-    const pinIcon = L.divIcon({
-      className: 'fmipa-click-pin',
+    const latLng = svgToLatLng(node.x, node.y);
+    const icon = L.divIcon({
+      className: 'fmipa-selected-pin',
       html: `
         <div style="
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 30px;
-          height: 30px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
-          background: #C54F2D;
-          border: 2px solid #FFFDF7;
-          box-shadow: 0 4px 10px rgba(197, 79, 45, 0.5);
-          color: #FFFDF7;
-          font-size: 13px;
-          cursor: pointer;
-        ">
-          📍
+          background: ${color};
+          border: 3px solid #ffffff;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: bold;
+          animation: fmipa-pulse 1.2s ease-in-out infinite alternate;
+        " title="${label}">
+          ${iconChar}
         </div>
       `,
-      iconSize: [30, 30],
-      iconAnchor: [15, 15],
+      iconSize: [40, 40],
+      iconAnchor: [20, 20],
     });
 
-    const newMarker = L.marker([lat, lng], { icon: pinIcon }).addTo(userMarkersLayer);
+    L.marker(latLng, { icon, interactive: false, zIndexOffset: 1000 })
+      .addTo(highlightLayer);
+  }
 
-    const popupContent = document.createElement('div');
-    popupContent.style.fontFamily = 'sans-serif';
-    popupContent.style.fontSize = '12px';
-    popupContent.style.lineHeight = '1.4';
-    popupContent.innerHTML = `
-      <strong style="color: #292524; font-size: 13px; display: block; margin-bottom: 2px;">
-        Titik #${markerCount}
-      </strong>
-      <p style="margin: 0 0 8px 0; color: #78716c; font-size: 11px;">
-        Lat: ${formattedLat}<br>Lng: ${formattedLng}
-      </p>
-      <button class="btn-hapus-pin" style="
-        background: #ef4444;
-        color: white;
-        border: none;
-        padding: 5px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: bold;
-        cursor: pointer;
-        width: 100%;
-      ">
-        🗑️ Hapus Pin Ini
-      </button>
-    `;
+  if (activeAsalNodeId) {
+    const n = allNodes[activeAsalNodeId];
+    makeHighlightMarker(activeAsalNodeId, '#dc2626', '🔴', n?.label || activeAsalNodeId);
+  }
+  if (activeTujuanNodeId) {
+    const n = allNodes[activeTujuanNodeId];
+    makeHighlightMarker(activeTujuanNodeId, '#2563eb', '🔵', n?.label || activeTujuanNodeId);
+  }
+}
 
-    popupContent.querySelector('.btn-hapus-pin').onclick = () => {
-      userMarkersLayer.removeLayer(newMarker);
-    };
+/**
+ * Clear highlight (dipanggil saat reset)
+ */
+export function clearSelectionHighlight() {
+  activeAsalNodeId = null;
+  activeTujuanNodeId = null;
+  if (highlightLayer) highlightLayer.clearLayers();
+}
 
-    newMarker.bindPopup(popupContent).openPopup();
+/**
+ * Inisialisasi peta Leaflet dengan overlay map.svg & pembatas zoom presisi
+ */
+export function initMap(containerId = 'map-container', callbacks = {}) {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.error(`[map.js] Elemen container '#${containerId}' tidak ditemukan.`);
+    return null;
+  }
 
-    if (onMapClick) {
-      onMapClick(lat, lng, newMarker);
-    }
+  if (mapInstance) {
+    mapInstance.remove();
+    mapInstance = null;
+  }
+
+  if (callbacks.onSetAsal) activeCallbackSetAsal = callbacks.onSetAsal;
+  if (callbacks.onSetTujuan) activeCallbackSetTujuan = callbacks.onSetTujuan;
+
+  // Latar kanvas serasi agar tidak tampak celah kosong
+  container.style.backgroundColor = '#fbf8ef';
+  container.style.overflow = 'hidden';
+
+  mapInstance = L.map(containerId, {
+    crs: L.CRS.Simple,
+    minZoom: -1.0, // Dikunci otomatis oleh updateZoomConstraints
+    maxZoom: 2.5,
+    zoomSnap: 0.1,
+    zoomDelta: 0.35,
+    attributionControl: false,
+    zoomControl: false,
+    maxBounds: MAP_BOUNDS,
+    maxBoundsViscosity: 1.0, // Dinding kokoh: peta tidak dapat ditarik keluar layar
+    bounceAtZoomLimits: true,
   });
 
-  // 8. Hubungkan tombol zoom Zulayka
+  const svgCandidates = [
+    './map.svg',
+    '../../map.svg',
+    'map.svg',
+    '/map.svg',
+    'assets/map.svg',
+  ];
+
+  function tryLoadSvg(index) {
+    if (index >= svgCandidates.length) {
+      console.warn('[map.js] Menggunakan fallback background kanvas FMIPA.');
+      return;
+    }
+    const currentUrl = svgCandidates[index];
+    const img = new Image();
+    img.onload = () => {
+      svgOverlay = L.imageOverlay(currentUrl, MAP_BOUNDS).addTo(mapInstance);
+      console.log(`[map.js] Berhasil memuat map.svg dari: ${currentUrl}`);
+    };
+    img.onerror = () => {
+      tryLoadSvg(index + 1);
+    };
+    img.src = currentUrl;
+  }
+  tryLoadSvg(0);
+
+  neutralMarkersLayer = L.layerGroup().addTo(mapInstance);
+  routeGlowLayer = L.layerGroup().addTo(mapInstance);
+  routeCoreLayer = L.layerGroup().addTo(mapInstance);
+  routeMarkersLayer = L.layerGroup().addTo(mapInstance);
+  userPinLayer = L.layerGroup().addTo(mapInstance);
+  highlightLayer = L.layerGroup().addTo(mapInstance);
+
+  mapInstance.fitBounds(MAP_BOUNDS);
+
+  // Kunci batas zoom out minimum agar pinggiran peta tidak pernah kosong terpotong
+  function updateZoomConstraints() {
+    if (!mapInstance) return;
+    try {
+      const fitZoom = mapInstance.getBoundsZoom(MAP_BOUNDS, false);
+      mapInstance.setMinZoom(fitZoom);
+    } catch (err) {
+      console.warn('[map.js] Catatan minZoom:', err);
+    }
+  }
+
+  updateZoomConstraints();
+
+  // Klik sembarang tempat pada peta untuk membuat pin manual
+  mapInstance.on('click', (e) => {
+    if (e.originalEvent && e.originalEvent._fmipaHandled) return;
+    createUserPin(e.latlng.lat, e.latlng.lng);
+  });
+
+  // Render 12 gedung FMIPA dengan pin netral
+  renderNeutralMarkers();
+
+  // Hubungkan tombol zoom jika tersedia
   const btnZoomIn = document.getElementById('btn-zoom-in');
   const btnZoomOut = document.getElementById('btn-zoom-out');
+  if (btnZoomIn) btnZoomIn.onclick = () => mapInstance && mapInstance.zoomIn();
+  if (btnZoomOut) btnZoomOut.onclick = () => mapInstance && mapInstance.zoomOut();
 
-  if (btnZoomIn) {
-    btnZoomIn.onclick = () => mapInstance.zoomIn();
+  // Hubungkan tombol reset peta di sebelah tombol minus (-)
+  const btnResetMap = document.getElementById('btn-reset-map');
+const btnRestart = document.getElementById('btn-restart');
+const onResetClicked = () => {
+  // 1. Reset visual peta
+  resetMapView();
+  clearRoute();
+  clearUserMarkers();
+  clearSelectionHighlight(); 
+  resetBuildingInfoPanel();
+
+  // 2. Reset dropdown — pakai dispatchEvent supaya listener lain ikut ter-trigger
+  const selectAsal = document.getElementById('select-asal');
+  const selectTujuan = document.getElementById('select-tujuan');
+  if (selectAsal) {
+    selectAsal.value = '';
+    selectAsal.dispatchEvent(new Event('change'));
   }
-  if (btnZoomOut) {
-    btnZoomOut.onclick = () => mapInstance.zoomOut();
+  if (selectTujuan) {
+    selectTujuan.value = '';
+    selectTujuan.dispatchEvent(new Event('change'));
   }
+
+  // 3. Hide panel hasil — hapus inline style juga, jangan cuma class
+  const panelHasil = document.getElementById('panel-hasil');
+  if (panelHasil) {
+    panelHasil.classList.add('hidden');
+    panelHasil.style.display = '';   // ← KOSONGKAN, jangan 'none'
+  }
+};
+if (btnResetMap) btnResetMap.onclick = onResetClicked;
+if (btnRestart) btnRestart.onclick = onResetClicked;
+
+  // Responsif saat ukuran layar atau jendela browser berubah
+  window.addEventListener('resize', () => {
+    if (mapInstance) {
+      mapInstance.invalidateSize();
+      updateZoomConstraints();
+    }
+  });
 
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();
-      mapInstance.setView(FMIPA_UNIMED_CENTER, DEFAULT_ZOOM);
+      mapInstance.fitBounds(MAP_BOUNDS);
+      updateZoomConstraints();
     }
   }, 250);
 
-  console.log('✅ [map.js] Inisialisasi peta selesai.');
   return mapInstance;
 }
 
 /**
- * [TODO 2] FUNGSI PENANDA (MARKER GEDUNG DARI DATA UMAR)
+ * Membuat pin manual pengguna yang DAPAT DIHAPUS kapan saja
  */
-export function addBuildingMarkers(buildingsData = [], onMarkerClick = null) {
-  if (!mapInstance || !markersLayer) return;
+export function createUserPin(lat, lng) {
+  if (!mapInstance || !userPinLayer) return null;
 
-  markersLayer.clearLayers();
+  userPinIdCounter++;
+  const pinId = `pin_${Date.now()}_${userPinIdCounter}`;
+  const pos = latLngToSvg(lat, lng);
 
-  const list = Array.isArray(buildingsData)
-    ? buildingsData
-    : Object.keys(buildingsData).map(k => ({ id: k, ...buildingsData[k] }));
+  const pinIcon = L.divIcon({
+    className: 'fmipa-user-pin',
+    html: `
+      <div style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #C54F2D;
+        border: 2px solid #FFFDF7;
+        box-shadow: 0 4px 10px rgba(197, 79, 45, 0.5);
+        color: #FFFDF7;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      " title="Klik untuk opsi hapus atau klik kanan untuk hapus instan">
+        📍
+      </div>
+    `,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+  });
 
-  list.forEach((b) => {
-    const lat = b.lat !== undefined ? b.lat : (b.coordinates ? b.coordinates[0] : null);
-    const lng = b.lng !== undefined ? b.lng : (b.coordinates ? b.coordinates[1] : null);
+  const marker = L.marker([lat, lng], { icon: pinIcon }).addTo(userPinLayer);
 
-    if (lat === null || lng === null) return;
+  const popupHtml = `
+    <div style="font-family: inherit; font-size: 12px; min-width: 170px; line-height: 1.4;">
+      <strong style="color: #292524; font-size: 13px; display: block; margin-bottom: 2px;">
+        Titik Penanda #${userPinIdCounter}
+      </strong>
+      <p style="margin: 0 0 8px 0; color: #78716c; font-size: 11px;">
+        Koordinat: (${pos.x}, ${pos.y})
+      </p>
+      <button id="btn-delete-${pinId}" style="
+        width: 100%;
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      ">
+        🗑️ Hapus Pin Ini
+      </button>
+      <small style="display: block; text-align: center; color: #a8a29e; font-size: 10px; margin-top: 4px;">
+        (Bisa klik kanan pin untuk hapus langsung)
+      </small>
+    </div>
+  `;
 
-    const icon = L.divIcon({
-      className: 'fmipa-building-pin',
+  marker.bindPopup(popupHtml);
+
+  marker.on('popupopen', () => {
+    const btnDel = document.getElementById(`btn-delete-${pinId}`);
+    if (btnDel) {
+      btnDel.onclick = (ev) => {
+        if (ev) ev.stopPropagation();
+        userPinLayer.removeLayer(marker);
+      };
+    }
+  });
+
+  marker.on('contextmenu', (ev) => {
+    L.DomEvent.stopPropagation(ev);
+    userPinLayer.removeLayer(marker);
+  });
+  marker.on('dblclick', (ev) => {
+    L.DomEvent.stopPropagation(ev);
+    userPinLayer.removeLayer(marker);
+  });
+
+  marker.openPopup();
+  return marker;
+}
+
+/**
+ * Menampilkan 12 gedung FMIPA dengan tombol '📍 Set Awal' dan '🎯 Set Tujuan'
+ */
+export function renderNeutralMarkers(callbacks = {}) {
+  if (!mapInstance || !neutralMarkersLayer) return;
+  neutralMarkersLayer.clearLayers();
+
+  const onSetAsal = callbacks.onSetAsal || activeCallbackSetAsal;
+  const onSetTujuan = callbacks.onSetTujuan || activeCallbackSetTujuan;
+
+  const nodes = graphData.nodes;
+  Object.keys(nodes).forEach((key) => {
+    const node = nodes[key];
+    if (!node.isBuilding) return;
+
+    const latLng = svgToLatLng(node.x, node.y);
+    const dropdownValue = NODE_KEY_TO_DROPDOWN[key] || '';
+
+    const neutralIcon = L.divIcon({
+      className: 'fmipa-neutral-pin',
       html: `
         <div style="
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 30px;
-          height: 30px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
-          background: #C54F2D;
-          border: 2px solid #FFFDF7;
-          box-shadow: 0 4px 10px rgba(197, 79, 45, 0.45);
-          font-size: 13px;
+          background: #475569;
+          border: 2px solid #ffffff;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+          color: #ffffff;
+          font-size: 14px;
           cursor: pointer;
-        ">
+          transition: transform 0.2s;
+        " title="${node.label || node.name || key}">
           🏛️
         </div>
       `,
-      iconSize: [30, 30],
-      iconAnchor: [15, 15],
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
     });
 
-    const marker = L.marker([lat, lng], { icon });
+    const marker = L.marker(latLng, { icon: neutralIcon }).addTo(neutralMarkersLayer);
 
-    marker.bindPopup(`
-      <div style="font-family: sans-serif; font-size: 12px; min-width: 150px; line-height: 1.4;">
-        <strong style="color: #292524; font-size: 13px; display: block; margin-bottom: 2px;">
-          ${b.name || b.id}
-        </strong>
-        <span style="font-size: 10px; background: #FFF4D3; color: #C54F2D; border: 1px solid #EEBF43; padding: 1px 6px; border-radius: 4px; display: inline-block; margin-bottom: 4px;">
-          FMIPA UNIMED
-        </span>
-        <p style="margin: 0; color: #78716c; font-size: 11px;">
-          ${b.description || 'Gedung FMIPA UNIMED'}
+    const popupHtml = `
+      <div style="font-family: inherit; font-size: 12px; min-width: 190px; line-height: 1.4;">
+        <strong style="color: #1e293b; font-size: 13px; display: block; margin-bottom: 2px;">
+  ${node.label || node.name || key}
+</strong>
+<span style="font-size: 10px; ...">
+  ${node.category || 'Gedung FMIPA'}
+</span>
+        <p style="margin: 0 0 8px 0; color: #64748b; font-size: 11px;">
+          Koordinat: (${node.x}, ${node.y})
         </p>
+        <div style="display: flex; gap: 6px; margin-top: 4px;">
+          <button id="popup-set-asal-${key}" style="
+            flex: 1;
+            background: #dc2626;
+            color: #ffffff;
+            border: none;
+            padding: 6px 4px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          ">
+            📍 Set Awal
+          </button>
+          <button id="popup-set-tujuan-${key}" style="
+            flex: 1;
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 6px 4px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+          ">
+            🎯 Set Tujuan
+          </button>
+        </div>
       </div>
-    `);
+    `;
 
-    marker.on('click', () => {
-      if (onMarkerClick) onMarkerClick(b);
+    marker.bindPopup(popupHtml);
+
+    marker.on('popupopen', () => {
+      const btnAsal = document.getElementById(`popup-set-asal-${key}`);
+      const btnTujuan = document.getElementById(`popup-set-tujuan-${key}`);
+      if (btnAsal) {
+        btnAsal.onclick = (ev) => {
+          if (ev) ev.stopPropagation();
+          if (onSetAsal) onSetAsal(key, node, dropdownValue);
+          marker.closePopup();
+        };
+      }
+      if (btnTujuan) {
+        btnTujuan.onclick = (ev) => {
+          if (ev) ev.stopPropagation();
+          if (onSetTujuan) onSetTujuan(key, node, dropdownValue);
+          marker.closePopup();
+        };
+      }
     });
 
-    marker.addTo(markersLayer);
+    marker.on('click', (e) => {
+      if (e.originalEvent) e.originalEvent._fmipaHandled = true;
+      updateBuildingInfoPanel(node, key, onSetAsal, onSetTujuan);
+    });
   });
 }
 
-/**
- * [TODO 3] FUNGSI PENGGAMBAR RUTE SESUAI SPESIFIKASI RIDHO:
- * - Titik Awal        : Marker Merah 🔴
- * - Titik Akhir       : Marker Biru 🔵
- * - Gedung Dilewati   : Marker Kuning 🟡
- * - Rute (Polyline)   : Garis Hijau 🟢
- * 
- * Menerima array titik: [{ lat, lng, name }, ...] atau [[lat, lng], ...]
- */
-export function drawRoute(pathPoints = []) {
-  clearRoute();
+export function updateBuildingInfoPanel(buildingNode, nodeKey, onSetAsal = null, onSetTujuan = null) {
+  const namaEl = document.getElementById('nama-gedung');
+  const daftarEl = document.getElementById('daftar-ruangan');
+  const panelActions = document.getElementById('panel-gedung-actions');
 
-  if (!pathPoints || pathPoints.length < 2) {
-    console.warn('[map.js] drawRoute membutuhkan minimal 2 titik.');
+  if (namaEl && buildingNode) {
+  namaEl.textContent = buildingNode.label || buildingNode.name || 'Gedung';
+}
+
+  const dropdownValue = nodeKey ? NODE_KEY_TO_DROPDOWN[nodeKey] : '';
+  const cbAsal = onSetAsal || activeCallbackSetAsal;
+  const cbTujuan = onSetTujuan || activeCallbackSetTujuan;
+
+  if (panelActions) {
+    panelActions.classList.remove('hidden');
+    const btnAsal = document.getElementById('btn-set-asal');
+    const btnTujuan = document.getElementById('btn-set-tujuan');
+    if (btnAsal) {
+      btnAsal.onclick = () => {
+        if (cbAsal && buildingNode) cbAsal(nodeKey, buildingNode, dropdownValue);
+      };
+    }
+    if (btnTujuan) {
+      btnTujuan.onclick = () => {
+        if (cbTujuan && buildingNode) cbTujuan(nodeKey, buildingNode, dropdownValue);
+      };
+    }
+  }
+
+  if (daftarEl) {
+    daftarEl.innerHTML = `
+      <div class="rounded-xl border border-dashed border-[#D2BE91] bg-[#FFFDF7] px-4 py-3 text-xs text-stone-500">
+        Data ruangan untuk <strong>${buildingNode ? (buildingNode.label || buildingNode.name) : 'gedung ini'}</strong> siap diselaraskan dengan pembaruan tim.
+      </div>
+    `;
+  }
+}
+
+export function resetBuildingInfoPanel() {
+  const namaEl = document.getElementById('nama-gedung');
+  const daftarEl = document.getElementById('daftar-ruangan');
+  const panelActions = document.getElementById('panel-gedung-actions');
+
+  if (namaEl) namaEl.textContent = 'Informasi gedung';
+  if (panelActions) panelActions.classList.add('hidden');
+  if (daftarEl) {
+    daftarEl.innerHTML = `
+      <div class="rounded-xl border border-dashed border-[#D2BE91] bg-[#FFFDF7] px-4 py-3 text-sm text-stone-500">
+        Pilih gedung pada peta untuk melihat informasi ruangan yang tersedia.
+      </div>
+    `;
+  }
+}
+
+/**
+ * Menggambar lintasan Dijkstra pada peta Leaflet
+ */
+export function drawRoute(steps = []) {
+  clearRoute();
+  if (!steps || steps.length < 2) {
+    console.warn('[map.js] drawRoute membutuhkan minimal 2 titik lintasan.');
     return;
   }
 
-  // 1. Ekstrak koordinat untuk Polyline
-  const polylineCoords = pathPoints.map(p => {
-    if (Array.isArray(p)) return p;
-    return [p.lat, p.lng];
-  });
+  const polylineCoords = steps.map((s) => svgToLatLng(s.x, s.y));
 
-  // 2. Garis Rute: WARNA HIJAU (Sesuai Permintaan Ridho)
+  // 1. Garis Glow Hijau
   const glow = L.polyline(polylineCoords, {
-    color: '#4ade80', // Hijau Neon
+    color: '#4ade80',
     weight: 12,
     opacity: 0.65,
     lineCap: 'round',
@@ -281,8 +565,9 @@ export function drawRoute(pathPoints = []) {
   });
   routeGlowLayer.addLayer(glow);
 
+  // 2. Garis Inti Rute Hijau Emerald
   const core = L.polyline(polylineCoords, {
-    color: '#16a34a', // Hijau Emerald
+    color: '#16a34a',
     weight: 6,
     opacity: 0.95,
     lineCap: 'round',
@@ -290,6 +575,7 @@ export function drawRoute(pathPoints = []) {
   });
   routeCoreLayer.addLayer(core);
 
+  // 3. Garis Putus-putus Tengah
   const dash = L.polyline(polylineCoords, {
     color: '#ffffff',
     weight: 2,
@@ -300,76 +586,119 @@ export function drawRoute(pathPoints = []) {
   });
   routeCoreLayer.addLayer(dash);
 
-  // 3. Pasang Marker Titik Rute Sesuai Aturan Warna Ridho:
-  pathPoints.forEach((point, index) => {
-    const lat = Array.isArray(point) ? point[0] : point.lat;
-    const lng = Array.isArray(point) ? point[1] : point.lng;
-    const name = (!Array.isArray(point) && point.name) ? point.name : `Titik ${index + 1}`;
+  // 4. Pin Berwarna pada Titik Rute
+  steps.forEach((step, idx) => {
+    const latLng = svgToLatLng(step.x, step.y);
+    const isStart = idx === 0;
+    const isEnd = idx === steps.length - 1;
 
-    let bgColor = '#eab308'; // Default: Kuning (Gedung yang dilewati)
-    let label = 'Dilewati';
+    if (!isStart && !isEnd && !step.isBuilding) {
+      const dotIcon = L.divIcon({
+        className: 'fmipa-waypoint-dot',
+        html: `
+          <div style="
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #eab308;
+            border: 2px solid #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+          " title="${step.name}"></div>
+        `,
+        iconSize: [10, 10],
+        iconAnchor: [5, 5],
+      });
+      const wpMarker = L.marker(latLng, { icon: dotIcon });
+      wpMarker.bindPopup(`<strong>${step.name}</strong><br><small>Titik Jalur</small>`);
+      routeMarkersLayer.addLayer(wpMarker);
+      return;
+    }
+
+    let bgColor = '#eab308';
+    let label = 'Titik Dilewati';
     let iconChar = '🟡';
 
-    if (index === 0) {
-      bgColor = '#dc2626'; // Merah: Titik Awal
-      label = 'Titik Awal (Asal)';
+    if (isStart) {
+      bgColor = '#dc2626';
+      label = 'Titik Asal (Mulai)';
       iconChar = '🔴';
-    } else if (index === pathPoints.length - 1) {
-      bgColor = '#2563eb'; // Biru: Titik Akhir
-      label = 'Titik Akhir (Tujuan)';
+    } else if (isEnd) {
+      bgColor = '#2563eb';
+      label = 'Titik Tujuan (Sampai)';
       iconChar = '🔵';
     }
 
-    const routeMarkerIcon = L.divIcon({
-      className: 'fmipa-route-node-pin',
+    const pinIcon = L.divIcon({
+      className: 'fmipa-route-pin',
       html: `
         <div style="
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background: ${bgColor};
           border: 2px solid #ffffff;
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 3px 8px rgba(0,0,0,0.4);
           color: #ffffff;
-          font-size: 11px;
+          font-size: 13px;
           font-weight: bold;
           cursor: pointer;
         ">
           ${iconChar}
         </div>
       `,
-      iconSize: [28, 28],
-      iconAnchor: [14, 14],
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
     });
 
-    const m = L.marker([lat, lng], { icon: routeMarkerIcon });
-    m.bindPopup(`<strong>${name}</strong><br><small>${label}</small>`);
+    const m = L.marker(latLng, { icon: pinIcon });
+    m.bindPopup(`
+      <strong style="font-size: 13px;">${step.name}</strong><br>
+      <span style="font-size: 11px; color: ${bgColor}; font-weight: bold;">${label}</span>
+    `);
     routeMarkersLayer.addLayer(m);
   });
 
-  // 4. Fokuskan kamera otomatis ke seluruh rute
+  // Pusatkan tampilan pada rute
   mapInstance.fitBounds(core.getBounds(), {
     padding: [50, 50],
     animate: true,
   });
-
-  console.log('✅ [map.js] Rute hijau dengan pin Merah-Kuning-Biru siap.');
 }
 
-/**
- * FUNGSI PENDUKUNG: BERSIHKAN RUTE
- */
 export function clearRoute() {
-  if (routeCoreLayer) routeCoreLayer.clearLayers();
   if (routeGlowLayer) routeGlowLayer.clearLayers();
+  if (routeCoreLayer) routeCoreLayer.clearLayers();
   if (routeMarkersLayer) routeMarkersLayer.clearLayers();
 }
 
 export function clearUserMarkers() {
-  if (userMarkersLayer) userMarkersLayer.clearLayers();
+  if (userPinLayer) userPinLayer.clearLayers();
+}
+
+/**
+ * Reset posisi zoom & tampilan peta ke ukuran penuh
+ */
+export function resetMapView() {
+  if (mapInstance) {
+    mapInstance.fitBounds(MAP_BOUNDS, {
+      padding: [0, 0],
+      animate: true,
+    });
+    try {
+      const fitZoom = mapInstance.getBoundsZoom(MAP_BOUNDS, false);
+      mapInstance.setMinZoom(fitZoom);
+    } catch (e) {}
+  }
+}
+
+export function addBuildingMarkers(onBuildingSelect) {
+  renderNeutralMarkers({
+    onSetAsal: onBuildingSelect,
+    onSetTujuan: onBuildingSelect,
+  });
 }
 
 export function getMap() {

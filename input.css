@@ -1191,3 +1191,27 @@ input:disabled {
         scroll-behavior: auto !important;
     }
 }
+@keyframes fmipa-pulse {
+  from { transform: scale(1); opacity: 1; }
+  to   { transform: scale(1.15); opacity: 0.85; }
+}
+/* Override paksa tombol Jadikan Titik Awal/Tujuan */
+#panel-gedung-actions button#btn-set-asal {
+  background-color: #C54F2D !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+#panel-gedung-actions button#btn-set-tujuan {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+#panel-gedung-actions button#btn-set-asal:hover {
+  background-color: #a84022 !important;
+}
+
+#panel-gedung-actions button#btn-set-tujuan:hover {
+  background-color: #1d4ed8 !important;
+}
