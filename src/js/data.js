@@ -373,6 +373,11 @@ export const graphData = {
     "weight": 16
   },
   {
+    "from": "kor-04",
+    "to": "pintu-gedung-lab-kimia",
+    "weight": 67
+  },
+  {
     "from": "kor-05",
     "to": "kor-06",
     "weight": 64
@@ -381,6 +386,11 @@ export const graphData = {
     "from": "kor-05",
     "to": "kor-18",
     "weight": 39
+  },
+  {
+    "from": "kor-18",
+    "to": "kor-19",
+    "weight": 85
   },
   {
     "from": "pintu-gedung-lab-biologi-barat",
