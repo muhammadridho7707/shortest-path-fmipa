@@ -328,6 +328,11 @@ export const graphData = {
     "weight": 5
   },
   {
+    "from": "pintu-gedung-12-utara",
+    "to": "pintu-gedung-lab-fisika",
+    "weight": 70
+  },
+  {
     "from": "pintu-gedung-12-selatan",
     "to": "kor-05",
     "weight": 13
