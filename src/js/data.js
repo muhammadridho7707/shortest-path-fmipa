@@ -307,6 +307,18 @@ export const graphNodes = {
       "x": 948,
       "y": 637,
       "label": "Pintu Lab Kimia (07), utara - perkiraan (tidak ada di sketsa)"
+    },
+    "wp-fisika-bersama-1": {
+      "id": "wp-fisika-bersama-1",
+      "x": 947,
+      "y": 416,
+      "label": "Tikungan Lab Fisika - Gedung 12"
+    },
+    "wp-biologi-kimia-1": {
+      "id": "wp-biologi-kimia-1",
+      "x": 735,
+      "y": 637,
+      "label": "Tikungan Lab Biologi - Lab Kimia"
     }
   }
 };
@@ -329,8 +341,8 @@ export const graphData = {
   },
   {
     "from": "pintu-gedung-12-utara",
-    "to": "pintu-gedung-lab-fisika",
-    "weight": 70
+    "to": "wp-fisika-bersama-1",
+    "weight": 68
   },
   {
     "from": "pintu-gedung-12-selatan",
@@ -424,13 +436,13 @@ export const graphData = {
   },
   {
     "from": "pintu-gedung-lab-biologi-timur",
-    "to": "pintu-gedung-lab-kimia",
-    "weight": 124
+    "to": "wp-biologi-kimia-1",
+    "weight": 19
   },
   {
-    "from": "pintu-gedung-lab-biologi-timur",
-    "to": "GEDUNG_LAB_KIMIA",
-    "weight": 124
+    "from": "wp-biologi-kimia-1",
+    "to": "pintu-gedung-lab-kimia",
+    "weight": 107
   },
   {
     "from": "GEDUNG_LAB_BIOLOGI_TIMUR",
@@ -616,6 +628,11 @@ export const graphData = {
     "from": "pintu-gedung-06",
     "to": "GEDUNG_06",
     "weight": 5
+  },
+  {
+    "from": "pintu-gedung-lab-fisika",
+    "to": "wp-fisika-bersama-1",
+    "weight": 19
   },
   {
     "from": "pintu-gedung-lab-fisika",
