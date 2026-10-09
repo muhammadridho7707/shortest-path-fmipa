@@ -343,6 +343,11 @@ export const graphData = {
     "weight": 73
   },
   {
+    "from": "pintu-gedung-12-selatan",
+    "to": "pintu-gedung-lab-biologi-barat",
+    "weight": 83
+  },
+  {
     "from": "pintu-gedung-12-timur",
     "to": "kor-04",
     "weight": 4
@@ -416,6 +421,21 @@ export const graphData = {
     "from": "pintu-gedung-lab-biologi-timur",
     "to": "GEDUNG_LAB_BIOLOGI_TIMUR",
     "weight": 5
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-timur",
+    "to": "pintu-gedung-lab-kimia",
+    "weight": 124
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-timur",
+    "to": "GEDUNG_LAB_KIMIA",
+    "weight": 124
+  },
+  {
+    "from": "GEDUNG_LAB_BIOLOGI_TIMUR",
+    "to": "GEDUNG_LAB_KIMIA",
+    "weight": 124
   },
   {
     "from": "pintu-gedung-09",
@@ -581,6 +601,16 @@ export const graphData = {
     "from": "pintu-gedung-02",
     "to": "GEDUNG_02",
     "weight": 5
+  },
+  {
+    "from": "pintu-gedung-02",
+    "to": "pintu-gedung-06",
+    "weight": 51
+  },
+  {
+    "from": "GEDUNG_02",
+    "to": "GEDUNG_06",
+    "weight": 51
   },
   {
     "from": "pintu-gedung-06",
