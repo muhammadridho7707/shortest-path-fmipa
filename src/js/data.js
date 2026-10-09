@@ -3,85 +3,85 @@ export const graphNodes = {
     "GEDUNG_SYAWAL_GULTOM": {
       "svgId": "gedung-syawal-gultom",
       "label": "Gedung Syawal (01)",
-      "x": 186,
-      "y": 100,
+      "x": 1150,
+      "y": 572,
       "isBuilding": true
     },
     "GEDUNG_04": {
       "svgId": "gedung-04",
       "label": "Gedung Fisika (04)",
-      "x": 279,
-      "y": 128,
+      "x": 1180,
+      "y": 490,
       "isBuilding": true
     },
     "GEDUNG_05": {
       "svgId": "gedung-05",
       "label": "Gedung Biologi (05)",
-      "x": 301,
-      "y": 137,
+      "x": 1320,
+      "y": 480,
       "isBuilding": true
     },
     "GEDUNG_KIMIA": {
       "svgId": "gedung-kimia",
       "label": "Gedung Kimia (03)",
-      "x": 260,
-      "y": 159,
+      "x": 1130,
+      "y": 610,
       "isBuilding": true
     },
     "GEDUNG_02": {
       "svgId": "gedung-02",
       "label": "Gedung Matematika (02)",
-      "x": 292,
-      "y": 159,
+      "x": 1310,
+      "y": 650,
       "isBuilding": true
     },
     "GEDUNG_06": {
       "svgId": "gedung-06",
       "label": "Gedung Bilingual (06)",
-      "x": 306,
-      "y": 427,
+      "x": 1162,
+      "y": 726,
       "isBuilding": true
     },
     "GEDUNG_12": {
       "svgId": "gedung-12",
       "label": "Gedung Bersama (12)",
-      "x": 220,
-      "y": 139,
+      "x": 812,
+      "y": 470,
       "isBuilding": true
     },
     "GEDUNG_LAB_FISIKA": {
       "svgId": "gedung-lab-fisika",
       "label": "Lab Fisika (08)",
-      "x": 322,
-      "y": 280,
+      "x": 947,
+      "y": 400,
       "isBuilding": true
     },
     "GEDUNG_09": {
       "svgId": "gedung-09",
       "label": "Lab Matematika (09)",
-      "x": 207,
-      "y": 186,
+      "x": 803,
+      "y": 700,
       "isBuilding": true
     },
     "GEDUNG_LAB_KIMIA": {
       "svgId": "gedung-lab-kimia",
       "label": "Lab Kimia (07)",
-      "x": 220,
-      "y": 187,
+      "x": 948,
+      "y": 637,
       "isBuilding": true
     },
     "GEDUNG_LAB_BIOLOGI_BARAT": {
       "svgId": "gedung-lab-biologi-barat",
       "label": "Lab Biologi Baru (11)",
-      "x": 123,
-      "y": 92,
+      "x": 652,
+      "y": 605,
       "isBuilding": true
     },
     "GEDUNG_LAB_BIOLOGI_TIMUR": {
       "svgId": "gedung-lab-biologi-timur",
       "label": "Lab Biologi Lama (10)",
-      "x": 133,
-      "y": 146,
+      "x": 701,
+      "y": 622,
       "isBuilding": true
     }
   },
@@ -349,7 +349,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-12-utara",
     "to": "GEDUNG_12",
-    "weight": 327
+    "weight": 27
   },
   {
     "from": "pintu-gedung-12-utara",
@@ -364,7 +364,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-12-selatan",
     "to": "GEDUNG_12",
-    "weight": 364
+    "weight": 46
   },
   {
     "from": "pintu-gedung-12-selatan",
@@ -379,7 +379,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-12-timur",
     "to": "GEDUNG_12",
-    "weight": 413
+    "weight": 76
   },
   {
     "from": "pintu-gedung-12-selatan-barat",
@@ -439,7 +439,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-lab-fisika",
     "to": "GEDUNG_LAB_FISIKA",
-    "weight": 316
+    "weight": 11
   },
   {
     "from": "wp-fisika-bersama-1",
@@ -459,7 +459,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-lab-biologi-barat",
     "to": "GEDUNG_LAB_BIOLOGI_BARAT",
-    "weight": 368
+    "weight": 5
   },
   {
     "from": "pintu-gedung-lab-biologi-timur",
@@ -469,7 +469,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-lab-biologi-timur",
     "to": "GEDUNG_LAB_BIOLOGI_TIMUR",
-    "weight": 371
+    "weight": 5
   },
   {
     "from": "pintu-gedung-lab-biologi-timur",
@@ -484,7 +484,7 @@ export const graphData = {
   {
     "from": "GEDUNG_LAB_BIOLOGI_TIMUR",
     "to": "GEDUNG_LAB_KIMIA",
-    "weight": 48
+    "weight": 124
   },
   {
     "from": "pintu-gedung-09",
@@ -494,7 +494,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-09",
     "to": "GEDUNG_09",
-    "weight": 394
+    "weight": 5
   },
   {
     "from": "pintu-gedung-09-barat",
@@ -504,7 +504,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-09-barat",
     "to": "GEDUNG_09",
-    "weight": 367
+    "weight": 34
   },
   {
     "from": "pintu-gedung-lab-kimia",
@@ -514,7 +514,7 @@ export const graphData = {
   {
     "from": "pintu-gedung-lab-kimia",
     "to": "GEDUNG_LAB_KIMIA",
-    "weight": 428
+    "weight": 5
   },
   {
     "from": "kor-08",
@@ -614,37 +614,37 @@ export const graphData = {
   {
     "from": "pintu-gedung-syawal-gultom-barat",
     "to": "GEDUNG_SYAWAL_GULTOM",
-    "weight": 505
+    "weight": 36
   },
   {
     "from": "pintu-gedung-syawal-gultom-timur",
     "to": "GEDUNG_SYAWAL_GULTOM",
-    "weight": 562
+    "weight": 28
   },
   {
     "from": "pintu-gedung-syawal-gultom-selatan",
     "to": "GEDUNG_SYAWAL_GULTOM",
-    "weight": 553
+    "weight": 31
   },
   {
     "from": "pintu-gedung-04",
     "to": "GEDUNG_04",
-    "weight": 426
+    "weight": 62
   },
   {
     "from": "pintu-gedung-05",
     "to": "GEDUNG_05",
-    "weight": 507
+    "weight": 31
   },
   {
     "from": "pintu-gedung-kimia",
     "to": "GEDUNG_KIMIA",
-    "weight": 469
+    "weight": 43
   },
   {
     "from": "pintu-gedung-02",
     "to": "GEDUNG_02",
-    "weight": 542
+    "weight": 33
   },
   {
     "from": "pintu-gedung-02",
@@ -654,12 +654,12 @@ export const graphData = {
   {
     "from": "GEDUNG_02",
     "to": "GEDUNG_06",
-    "weight": 134
+    "weight": 83
   },
   {
     "from": "pintu-gedung-06",
     "to": "GEDUNG_06",
-    "weight": 453
+    "weight": 5
   }
 ]
 };

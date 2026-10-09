@@ -14,23 +14,21 @@ function getDistance(nodeA, nodeB) {
   return distMeters === 0 ? 5 : distMeters;
 }
 
-// FUNGSI CENTROID: Menghitung titik tengah bangunan asli dari path SVG
-function extractBuildingCentroid(svgData, gedungId) {
-  const pathRegex = new RegExp(`<path[^>]*id="${gedungId}-bentuk-1"[^>]*d="([^"]+)"`, 'i');
-  const match = svgData.match(pathRegex);
-  if (!match) return null;
-
-  const coords = match[1].match(/-?\d+(\.\d+)?/g);
-  if (!coords || coords.length < 4) return null;
-
-  let sumX = 0, sumY = 0, count = 0;
-  for (let i = 0; i < coords.length - 1; i += 2) {
-    sumX += parseFloat(coords[i]);
-    sumY += parseFloat(coords[i + 1]);
-    count++;
-  }
-  return { x: Math.round(sumX / count), y: Math.round(sumY / count) };
-}
+// CENTROID GEDUNG MANUAL DARI MAP.SVG (PRESISI & BEBAS BUG PARSING)
+const gedungCentroid = {
+  'gedung-syawal-gultom': { x: 1150, y: 572 },
+  'gedung-04': { x: 1180, y: 490 },
+  'gedung-05': { x: 1320, y: 480 },
+  'gedung-kimia': { x: 1130, y: 610 },
+  'gedung-02': { x: 1310, y: 650 },
+  'gedung-06': { x: 1162, y: 726 },
+  'gedung-12': { x: 812, y: 470 },
+  'gedung-lab-fisika': { x: 947, y: 400 },
+  'gedung-09': { x: 803, y: 700 },
+  'gedung-lab-kimia': { x: 948, y: 637 },
+  'gedung-lab-biologi-barat': { x: 652, y: 605 },
+  'gedung-lab-biologi-timur': { x: 701, y: 622 }
+};
 
 function extractBuildingsAndWaypoints(svgFilePath) {
   if (!fs.existsSync(svgFilePath)) {
@@ -93,7 +91,7 @@ function extractBuildingsAndWaypoints(svgFilePath) {
     };
   }
 
-  // 1B. WAYPOINT TIKUNGAN UNTUK JALUR BERBELOK (MASALAH #1 & #3)
+  // 1B. WAYPOINT TIKUNGAN UNTUK JALUR BERBELOK (PAS)
   const extraWaypoints = {
     'wp-fisika-bersama-1': { id: 'wp-fisika-bersama-1', x: 947, y: 350, label: 'Tikungan Lab Fisika 1' },
     'wp-fisika-bersama-2': { id: 'wp-fisika-bersama-2', x: 880, y: 350, label: 'Tikungan Lab Fisika 2' },
@@ -103,10 +101,10 @@ function extractBuildingsAndWaypoints(svgFilePath) {
 
   Object.assign(nodesResult.waypoints, extraWaypoints);
 
-  // 2. EKSTRAKSI GEDUNG MENGGUNAKAN CENTROID (MASALAH #2)
+  // 2. EKSTRAKSI GEDUNG DENGAN KOORDINAT CENTROID MANUAL
   Object.keys(gedungToPintuMap).forEach(id => {
     const keyName = id.toUpperCase().replace(/-/g, '_');
-    const centroid = extractBuildingCentroid(svgData, id);
+    const centroid = gedungCentroid[id];
 
     if (centroid) {
       nodesResult.gedung[keyName] = {
@@ -117,7 +115,6 @@ function extractBuildingsAndWaypoints(svgFilePath) {
         isBuilding: true
       };
     } else {
-      // Fallback ke posisi pintu jika path bentuk gedung tidak ditemukan
       const pintuId = gedungToPintuMap[id];
       const pintuNode = nodesResult.waypoints[pintuId];
       if (pintuNode) {
@@ -135,7 +132,7 @@ function extractBuildingsAndWaypoints(svgFilePath) {
   return nodesResult;
 }
 
-// 3. DEFINISI KONEKSI RAW CONNECTIONS DENGAN TIKUNGAN LENGKAP
+// 3. DEFINISI KONEKSI RAW CONNECTIONS LENGKAP
 const rawConnections = {
   // GEDUNG BERSAMA (12)
   'pintu-gedung-12-utara': ['kor-01', 'GEDUNG_12', 'wp-fisika-bersama-3'],
