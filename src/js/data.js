@@ -316,5 +316,281 @@ export const graphData = {
     ...graphNodes.gedung,
     ...graphNodes.waypoints
   },
-  edges: []
+  edges: [
+  {
+    "from": "pintu-gedung-12-utara",
+    "to": "kor-01",
+    "weight": 16
+  },
+  {
+    "from": "pintu-gedung-12-utara",
+    "to": "GEDUNG_12",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-12-utara",
+    "to": "pintu-gedung-lab-fisika",
+    "weight": 70
+  },
+  {
+    "from": "pintu-gedung-12-selatan",
+    "to": "kor-05",
+    "weight": 13
+  },
+  {
+    "from": "pintu-gedung-12-selatan",
+    "to": "GEDUNG_12",
+    "weight": 73
+  },
+  {
+    "from": "pintu-gedung-12-timur",
+    "to": "kor-04",
+    "weight": 4
+  },
+  {
+    "from": "pintu-gedung-12-timur",
+    "to": "GEDUNG_12",
+    "weight": 87
+  },
+  {
+    "from": "pintu-gedung-12-selatan-barat",
+    "to": "kor-18",
+    "weight": 13
+  },
+  {
+    "from": "kor-01",
+    "to": "kor-02",
+    "weight": 65
+  },
+  {
+    "from": "kor-01",
+    "to": "kor-03",
+    "weight": 28
+  },
+  {
+    "from": "kor-03",
+    "to": "kor-04",
+    "weight": 73
+  },
+  {
+    "from": "kor-03",
+    "to": "kor-05",
+    "weight": 16
+  },
+  {
+    "from": "kor-04",
+    "to": "pintu-gedung-lab-kimia",
+    "weight": 67
+  },
+  {
+    "from": "kor-05",
+    "to": "kor-06",
+    "weight": 64
+  },
+  {
+    "from": "kor-05",
+    "to": "kor-18",
+    "weight": 39
+  },
+  {
+    "from": "kor-18",
+    "to": "kor-19",
+    "weight": 85
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-barat",
+    "to": "kor-08",
+    "weight": 51
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-barat",
+    "to": "GEDUNG_LAB_BIOLOGI_BARAT",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-timur",
+    "to": "kor-17",
+    "weight": 42
+  },
+  {
+    "from": "pintu-gedung-lab-biologi-timur",
+    "to": "GEDUNG_LAB_BIOLOGI_TIMUR",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-09",
+    "to": "kor-07",
+    "weight": 3
+  },
+  {
+    "from": "pintu-gedung-09",
+    "to": "GEDUNG_09",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-09-barat",
+    "to": "kor-19",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-09-barat",
+    "to": "GEDUNG_09",
+    "weight": 34
+  },
+  {
+    "from": "pintu-gedung-lab-kimia",
+    "to": "kor-09",
+    "weight": 82
+  },
+  {
+    "from": "pintu-gedung-lab-kimia",
+    "to": "GEDUNG_LAB_KIMIA",
+    "weight": 5
+  },
+  {
+    "from": "kor-08",
+    "to": "kor-17",
+    "weight": 21
+  },
+  {
+    "from": "kor-17",
+    "to": "kor-19",
+    "weight": 21
+  },
+  {
+    "from": "kor-19",
+    "to": "kor-07",
+    "weight": 34
+  },
+  {
+    "from": "kor-09",
+    "to": "kor-10",
+    "weight": 17
+  },
+  {
+    "from": "kor-09",
+    "to": "kor-16",
+    "weight": 17
+  },
+  {
+    "from": "kor-09",
+    "to": "pintu-gedung-syawal-gultom-barat",
+    "weight": 10
+  },
+  {
+    "from": "kor-10",
+    "to": "kor-11",
+    "weight": 17
+  },
+  {
+    "from": "kor-10",
+    "to": "pintu-gedung-04",
+    "weight": 43
+  },
+  {
+    "from": "kor-11",
+    "to": "kor-12",
+    "weight": 17
+  },
+  {
+    "from": "kor-11",
+    "to": "pintu-gedung-lab-fisika",
+    "weight": 123
+  },
+  {
+    "from": "kor-12",
+    "to": "kor-13",
+    "weight": 17
+  },
+  {
+    "from": "kor-12",
+    "to": "pintu-gedung-05",
+    "weight": 58
+  },
+  {
+    "from": "kor-13",
+    "to": "kor-14",
+    "weight": 17
+  },
+  {
+    "from": "kor-13",
+    "to": "pintu-gedung-syawal-gultom-timur",
+    "weight": 10
+  },
+  {
+    "from": "kor-14",
+    "to": "kor-15",
+    "weight": 17
+  },
+  {
+    "from": "kor-14",
+    "to": "pintu-gedung-02",
+    "weight": 49
+  },
+  {
+    "from": "kor-15",
+    "to": "kor-16",
+    "weight": 17
+  },
+  {
+    "from": "kor-15",
+    "to": "pintu-gedung-syawal-gultom-selatan",
+    "weight": 10
+  },
+  {
+    "from": "kor-15",
+    "to": "pintu-gedung-06",
+    "weight": 55
+  },
+  {
+    "from": "kor-16",
+    "to": "pintu-gedung-kimia",
+    "weight": 37
+  },
+  {
+    "from": "pintu-gedung-syawal-gultom-barat",
+    "to": "GEDUNG_SYAWAL_GULTOM",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-syawal-gultom-timur",
+    "to": "GEDUNG_SYAWAL_GULTOM",
+    "weight": 64
+  },
+  {
+    "from": "pintu-gedung-syawal-gultom-selatan",
+    "to": "GEDUNG_SYAWAL_GULTOM",
+    "weight": 49
+  },
+  {
+    "from": "pintu-gedung-04",
+    "to": "GEDUNG_04",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-05",
+    "to": "GEDUNG_05",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-kimia",
+    "to": "GEDUNG_KIMIA",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-02",
+    "to": "GEDUNG_02",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-06",
+    "to": "GEDUNG_06",
+    "weight": 5
+  },
+  {
+    "from": "pintu-gedung-lab-fisika",
+    "to": "GEDUNG_LAB_FISIKA",
+    "weight": 5
+  }
+]
 };

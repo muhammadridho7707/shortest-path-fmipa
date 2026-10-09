@@ -1,26 +1,27 @@
 // src/js/graph.js
-import { graphNodes } from './data.js';
+import { graphNodes, graphData } from './data.js';
 
-const PIXEL_TO_METER_SCALE = 0.5;   // ← tambahkan konstanta ini di atas
+// Konversi piksel SVG ke meter di dunia nyata (1 px = 0.5 meter)
+const PIXEL_TO_METER_SCALE = 0.5;
 
+// Helper: Menghitung Jarak Euclidean sebagai bobot jalur (dalam METER)
 function getDistance(nodeA, nodeB) {
   if (!nodeA || !nodeB) return 5;
   const dx = nodeA.x - nodeB.x;
   const dy = nodeA.y - nodeB.y;
   const distPixels = Math.sqrt(dx * dx + dy * dy);
   const distMeters = Math.round(distPixels * PIXEL_TO_METER_SCALE);
+  
   return distMeters === 0 ? 5 : distMeters;
 }
 
-// 1. Gabungkan semua node untuk kemudahan lookup koordinat
 const allNodes = {
   ...graphNodes.gedung,
   ...graphNodes.waypoints
 };
 
-// 2. Definisi Koneksi Mentah
+// Raw Connections (Tanpa Edge A yang nyelip)
 const rawConnections = {
-  // --- Gedung Bersama (12) & Koridor Sayap ---
   'pintu-gedung-12-utara': ['kor-01', 'GEDUNG_12'],
   'pintu-gedung-12-selatan': ['kor-05', 'GEDUNG_12'],
   'pintu-gedung-12-timur': ['kor-04', 'GEDUNG_12'],
@@ -35,7 +36,6 @@ const rawConnections = {
   'kor-06': ['kor-05'],
   'kor-18': ['kor-05', 'pintu-gedung-12-selatan-barat'],
 
-  // --- Area Lab Biologi, Lab Kimia & Lab Matematika ---
   'pintu-gedung-lab-biologi-barat': ['kor-08', 'GEDUNG_LAB_BIOLOGI_BARAT'],
   'GEDUNG_LAB_BIOLOGI_BARAT': ['pintu-gedung-lab-biologi-barat'],
 
@@ -46,7 +46,8 @@ const rawConnections = {
   'pintu-gedung-09-barat': ['kor-19', 'GEDUNG_09'],
   'GEDUNG_09': ['pintu-gedung-09', 'pintu-gedung-09-barat'],
 
-  'pintu-gedung-lab-kimia': ['kor-04', 'kor-09', 'GEDUNG_LAB_KIMIA'],
+  // EDGE A DIPERBAIKI: Hapus 'kor-04' dari pintu lab kimia
+  'pintu-gedung-lab-kimia': ['kor-09', 'GEDUNG_LAB_KIMIA'],
   'GEDUNG_LAB_KIMIA': ['pintu-gedung-lab-kimia'],
 
   'kor-08': ['pintu-gedung-lab-biologi-barat', 'kor-17'],
@@ -54,8 +55,7 @@ const rawConnections = {
   'kor-19': ['kor-17', 'pintu-gedung-09-barat', 'kor-07'],
   'kor-07': ['kor-19', 'pintu-gedung-09'],
 
-  // --- Gedung Syawal Gultom (01) & Koridor Lingkar ---
-  'kor-09': ['kor-10', 'kor-16', 'pintu-gedung-syawal-gultom-barat'],
+  'kor-09': ['kor-10', 'kor-16', 'pintu-gedung-syawal-gultom-barat', 'pintu-gedung-lab-kimia'],
   'kor-10': ['kor-09', 'kor-11', 'pintu-gedung-04'],
   'kor-11': ['kor-10', 'kor-12', 'pintu-gedung-lab-fisika'],
   'kor-12': ['kor-11', 'kor-13', 'pintu-gedung-05'],
@@ -64,7 +64,6 @@ const rawConnections = {
   'kor-15': ['kor-14', 'kor-16', 'pintu-gedung-syawal-gultom-selatan', 'pintu-gedung-06'],
   'kor-16': ['kor-15', 'kor-09', 'pintu-gedung-kimia'],
 
-  // --- Pintu Gedung Utama ke Koridor Lingkar & ID Gedung ---
   'pintu-gedung-syawal-gultom-barat': ['kor-09', 'GEDUNG_SYAWAL_GULTOM'],
   'pintu-gedung-syawal-gultom-timur': ['kor-13', 'GEDUNG_SYAWAL_GULTOM'],
   'pintu-gedung-syawal-gultom-selatan': ['kor-15', 'GEDUNG_SYAWAL_GULTOM'],
@@ -89,27 +88,43 @@ const rawConnections = {
   'GEDUNG_LAB_FISIKA': ['pintu-gedung-lab-fisika']
 };
 
-// 3. Ekspor Adjacency List Object
-export const graphAdjacency = {};
+// Buat array edges terstruktur untuk di-export
+export const generatedEdges = [];
+const processedPairs = new Set();
 
+Object.keys(rawConnections).forEach(from => {
+  rawConnections[from].forEach(to => {
+    const pairKey = [from, to].sort().join('--');
+    if (!processedPairs.has(pairKey)) {
+      processedPairs.add(pairKey);
+      const nodeA = allNodes[from];
+      const nodeB = allNodes[to];
+      if (nodeA && nodeB) {
+        generatedEdges.push({
+          from,
+          to,
+          weight: getDistance(nodeA, nodeB)
+        });
+      }
+    }
+  });
+});
+
+export const graphAdjacency = {};
 Object.keys(rawConnections).forEach(fromNodeId => {
   graphAdjacency[fromNodeId] = [];
-
   rawConnections[fromNodeId].forEach(toNodeId => {
     const nodeA = allNodes[fromNodeId];
     const nodeB = allNodes[toNodeId];
-
     if (nodeA && nodeB) {
-      const weight = getDistance(nodeA, nodeB);
       graphAdjacency[fromNodeId].push({
         node: toNodeId,
-        weight: weight
+        weight: getDistance(nodeA, nodeB)
       });
     }
   });
 });
 
-// 4. Ekspor Class Graph
 export class Graph {
   constructor() {
     this.nodes = {};
@@ -147,14 +162,9 @@ export class Graph {
   }
 
   initDefaultEdges() {
-    Object.keys(rawConnections).forEach(from => {
-      rawConnections[from].forEach(to => {
-        const nodeA = allNodes[from];
-        const nodeB = allNodes[to];
-        if (nodeA && nodeB) {
-          this.addEdge(from, to, getDistance(nodeA, nodeB));
-        }
-      });
+    const edgesToLoad = graphData.edges && graphData.edges.length > 0 ? graphData.edges : generatedEdges;
+    edgesToLoad.forEach(edge => {
+      this.addEdge(edge.from, edge.to, edge.weight);
     });
   }
 }
