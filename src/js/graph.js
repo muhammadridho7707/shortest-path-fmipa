@@ -3,10 +3,13 @@ import { graphNodes } from './data.js';
 
 // Helper: Menghitung Jarak Euclidean sebagai bobot jalur (weight)
 function getDistance(nodeA, nodeB) {
-  if (!nodeA || !nodeB) return 1;
+  if (!nodeA || !nodeB) return 10;
   const dx = nodeA.x - nodeB.x;
   const dy = nodeA.y - nodeB.y;
-  return Math.round(Math.sqrt(dx * dx + dy * dy));
+  const dist = Math.round(Math.sqrt(dx * dx + dy * dy));
+  
+  // Jika koordinat berhimpitan (jarak 0), tetapkan bobot minimal 10
+  return dist === 0 ? 10 : dist;
 }
 
 // 1. Gabungkan semua node untuk kemudahan lookup koordinat
@@ -125,7 +128,7 @@ export class Graph {
     if (!this.nodes[from]) this.addNode(from, allNodes[from] || {});
     if (!this.nodes[to]) this.addNode(to, allNodes[to] || {});
 
-    const calcWeight = weight || getDistance(this.nodes[from], this.nodes[to]);
+    const calcWeight = weight !== null ? weight : getDistance(this.nodes[from], this.nodes[to]);
 
     if (!this.adjacencyList[from].some(e => e.node === to)) {
       this.adjacencyList[from].push({ node: to, weight: calcWeight });

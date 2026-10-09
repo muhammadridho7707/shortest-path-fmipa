@@ -2,63 +2,87 @@ export const graphNodes = {
   "gedung": {
     "GEDUNG_SYAWAL_GULTOM": {
       "svgId": "gedung-syawal-gultom",
+      "label": "Gedung Syawal (01)",
       "x": 1079,
-      "y": 546
+      "y": 571,
+      "isBuilding": true
     },
     "GEDUNG_04": {
       "svgId": "gedung-04",
-      "x": 1079,
-      "y": 546
+      "label": "Gedung Fisika (04)",
+      "x": 1057,
+      "y": 473,
+      "isBuilding": true
     },
     "GEDUNG_05": {
       "svgId": "gedung-05",
-      "x": 1168,
-      "y": 510
+      "label": "Gedung Biologi (05)",
+      "x": 1261,
+      "y": 462,
+      "isBuilding": true
     },
     "GEDUNG_KIMIA": {
       "svgId": "gedung-kimia",
-      "x": 1079,
-      "y": 598
+      "label": "Gedung Kimia (03)",
+      "x": 1057,
+      "y": 655,
+      "isBuilding": true
     },
     "GEDUNG_02": {
       "svgId": "gedung-02",
-      "x": 1206,
-      "y": 598
+      "label": "Gedung Matematika (02)",
+      "x": 1247,
+      "y": 670,
+      "isBuilding": true
     },
     "GEDUNG_06": {
       "svgId": "gedung-06",
-      "x": 1021,
-      "y": 684
+      "label": "Gedung Bilingual (06)",
+      "x": 1162,
+      "y": 726,
+      "isBuilding": true
     },
     "GEDUNG_12": {
       "svgId": "gedung-12",
-      "x": 672,
-      "y": 410
+      "label": "Gedung Bersama (12)",
+      "x": 812,
+      "y": 416,
+      "isBuilding": true
     },
     "GEDUNG_LAB_FISIKA": {
       "svgId": "gedung-lab-fisika",
-      "x": 887,
-      "y": 405
+      "label": "Lab Fisika (08)",
+      "x": 947,
+      "y": 378,
+      "isBuilding": true
     },
     "GEDUNG_09": {
       "svgId": "gedung-09",
-      "x": 707,
-      "y": 696
+      "label": "Lab Matematika (09)",
+      "x": 803,
+      "y": 700,
+      "isBuilding": true
     },
     "GEDUNG_LAB_KIMIA": {
       "svgId": "gedung-lab-kimia",
-      "x": 883,
-      "y": 638
+      "label": "Lab Kimia (07)",
+      "x": 948,
+      "y": 637,
+      "isBuilding": true
     },
     "GEDUNG_LAB_BIOLOGI_BARAT": {
       "svgId": "gedung-lab-biologi-barat",
-      "x": 621,
-      "y": 603
+      "label": "Lab Biologi Baru (11)",
+      "x": 652,
+      "y": 605,
+      "isBuilding": true
     },
     "GEDUNG_LAB_BIOLOGI_TIMUR": {
       "svgId": "gedung-lab-biologi-timur",
-      "x": 667,
-      "y": 607
+      "label": "Lab Biologi Lama (10)",
+      "x": 701,
+      "y": 622,
+      "isBuilding": true
     }
   },
   "waypoints": {
@@ -287,7 +311,6 @@ export const graphNodes = {
   }
 };
 
-// Bagian tambahan untuk kompatibilitas test-graph.mjs
 export const graphData = {
   nodes: {
     ...graphNodes.gedung,
