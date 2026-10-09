@@ -1,75 +1,297 @@
-// src/js/data.js
-import { calculateWeight } from './graph.js';
+export const graphNodes = {
+  "gedung": {
+    "GEDUNG_SYAWAL_GULTOM": {
+      "svgId": "gedung-syawal-gultom",
+      "x": 1079,
+      "y": 546
+    },
+    "GEDUNG_04": {
+      "svgId": "gedung-04",
+      "x": 1079,
+      "y": 546
+    },
+    "GEDUNG_05": {
+      "svgId": "gedung-05",
+      "x": 1168,
+      "y": 510
+    },
+    "GEDUNG_KIMIA": {
+      "svgId": "gedung-kimia",
+      "x": 1079,
+      "y": 598
+    },
+    "GEDUNG_02": {
+      "svgId": "gedung-02",
+      "x": 1206,
+      "y": 598
+    },
+    "GEDUNG_06": {
+      "svgId": "gedung-06",
+      "x": 1021,
+      "y": 684
+    },
+    "GEDUNG_12": {
+      "svgId": "gedung-12",
+      "x": 672,
+      "y": 410
+    },
+    "GEDUNG_LAB_FISIKA": {
+      "svgId": "gedung-lab-fisika",
+      "x": 887,
+      "y": 405
+    },
+    "GEDUNG_09": {
+      "svgId": "gedung-09",
+      "x": 707,
+      "y": 696
+    },
+    "GEDUNG_LAB_KIMIA": {
+      "svgId": "gedung-lab-kimia",
+      "x": 883,
+      "y": 638
+    },
+    "GEDUNG_LAB_BIOLOGI_BARAT": {
+      "svgId": "gedung-lab-biologi-barat",
+      "x": 621,
+      "y": 603
+    },
+    "GEDUNG_LAB_BIOLOGI_TIMUR": {
+      "svgId": "gedung-lab-biologi-timur",
+      "x": 667,
+      "y": 607
+    }
+  },
+  "waypoints": {
+    "kor-01": {
+      "id": "kor-01",
+      "x": 812,
+      "y": 448,
+      "label": "kor-01: Gedung Bersama, simpang koridor sayap utara"
+    },
+    "kor-02": {
+      "id": "kor-02",
+      "x": 682,
+      "y": 448,
+      "label": "kor-02: Gedung Bersama, ujung barat koridor sayap utara"
+    },
+    "kor-03": {
+      "id": "kor-03",
+      "x": 812,
+      "y": 504,
+      "label": "kor-03: Gedung Bersama, simpang koridor sayap tengah"
+    },
+    "kor-04": {
+      "id": "kor-04",
+      "x": 958,
+      "y": 504,
+      "label": "kor-04: Gedung Bersama, ujung timur koridor sayap tengah"
+    },
+    "kor-05": {
+      "id": "kor-05",
+      "x": 812,
+      "y": 536,
+      "label": "kor-05: Gedung Bersama, simpang koridor sayap selatan"
+    },
+    "kor-06": {
+      "id": "kor-06",
+      "x": 684,
+      "y": 536,
+      "label": "kor-06: Gedung Bersama, ujung barat koridor sayap selatan"
+    },
+    "kor-07": {
+      "id": "kor-07",
+      "x": 803,
+      "y": 706,
+      "label": "kor-07: Lab Matematika, ujung timur koridor"
+    },
+    "kor-08": {
+      "id": "kor-08",
+      "x": 652,
+      "y": 706,
+      "label": "kor-08: Lab Biologi Baru, ujung selatan koridor"
+    },
+    "kor-09": {
+      "id": "kor-09",
+      "x": 1098,
+      "y": 572,
+      "label": "kor-09: Gedung Syawal, koridor lingkar sisi barat"
+    },
+    "kor-10": {
+      "id": "kor-10",
+      "x": 1111,
+      "y": 540,
+      "label": "kor-10: Gedung Syawal, koridor lingkar barat laut (ke Fisika)"
+    },
+    "kor-11": {
+      "id": "kor-11",
+      "x": 1142,
+      "y": 527,
+      "label": "kor-11: Gedung Syawal, koridor lingkar sisi utara"
+    },
+    "kor-12": {
+      "id": "kor-12",
+      "x": 1174,
+      "y": 540,
+      "label": "kor-12: Gedung Syawal, koridor lingkar timur laut (ke Biologi)"
+    },
+    "kor-13": {
+      "id": "kor-13",
+      "x": 1187,
+      "y": 572,
+      "label": "kor-13: Gedung Syawal, koridor lingkar sisi timur"
+    },
+    "kor-14": {
+      "id": "kor-14",
+      "x": 1174,
+      "y": 604,
+      "label": "kor-14: Gedung Syawal, koridor lingkar tenggara (ke Matematika)"
+    },
+    "kor-15": {
+      "id": "kor-15",
+      "x": 1142,
+      "y": 617,
+      "label": "kor-15: Gedung Syawal, koridor lingkar sisi selatan"
+    },
+    "kor-16": {
+      "id": "kor-16",
+      "x": 1111,
+      "y": 604,
+      "label": "kor-16: Gedung Syawal, koridor lingkar barat daya (ke Kimia)"
+    },
+    "kor-17": {
+      "id": "kor-17",
+      "x": 693,
+      "y": 706,
+      "label": "kor-17: Lab Biologi Lama, ujung selatan koridor"
+    },
+    "kor-18": {
+      "id": "kor-18",
+      "x": 735,
+      "y": 536,
+      "label": "kor-18: Gedung Bersama, tengah koridor sayap selatan"
+    },
+    "kor-19": {
+      "id": "kor-19",
+      "x": 735,
+      "y": 706,
+      "label": "kor-19: Lab Matematika, sisi barat koridor"
+    },
+    "pintu-gedung-12-utara": {
+      "id": "pintu-gedung-12-utara",
+      "x": 812,
+      "y": 416,
+      "label": "Pintu Gedung Bersama (12), utara"
+    },
+    "pintu-gedung-12-selatan": {
+      "id": "pintu-gedung-12-selatan",
+      "x": 812,
+      "y": 562,
+      "label": "Pintu Gedung Bersama (12), selatan"
+    },
+    "pintu-gedung-12-selatan-barat": {
+      "id": "pintu-gedung-12-selatan-barat",
+      "x": 735,
+      "y": 562,
+      "label": "Pintu Gedung Bersama (12), selatan sisi barat"
+    },
+    "pintu-gedung-12-timur": {
+      "id": "pintu-gedung-12-timur",
+      "x": 958,
+      "y": 511,
+      "label": "Pintu Gedung Bersama (12), ujung timur sayap tengah"
+    },
+    "pintu-gedung-lab-fisika": {
+      "id": "pintu-gedung-lab-fisika",
+      "x": 947,
+      "y": 378,
+      "label": "Pintu Lab Fisika (08), utara"
+    },
+    "pintu-gedung-04": {
+      "id": "pintu-gedung-04",
+      "x": 1057,
+      "y": 473,
+      "label": "Pintu Gedung Fisika (04), ujung barat laut"
+    },
+    "pintu-gedung-05": {
+      "id": "pintu-gedung-05",
+      "x": 1261,
+      "y": 462,
+      "label": "Pintu Gedung Biologi (05), ujung timur laut"
+    },
+    "pintu-gedung-kimia": {
+      "id": "pintu-gedung-kimia",
+      "x": 1057,
+      "y": 655,
+      "label": "Pintu Gedung Kimia (03), ujung barat daya"
+    },
+    "pintu-gedung-02": {
+      "id": "pintu-gedung-02",
+      "x": 1247,
+      "y": 670,
+      "label": "Pintu Gedung Matematika (02), ujung tenggara"
+    },
+    "pintu-gedung-syawal-gultom-barat": {
+      "id": "pintu-gedung-syawal-gultom-barat",
+      "x": 1079,
+      "y": 571,
+      "label": "Pintu Gedung Syawal (01), barat"
+    },
+    "pintu-gedung-syawal-gultom-timur": {
+      "id": "pintu-gedung-syawal-gultom-timur",
+      "x": 1206,
+      "y": 572,
+      "label": "Pintu Gedung Syawal (01), timur"
+    },
+    "pintu-gedung-syawal-gultom-selatan": {
+      "id": "pintu-gedung-syawal-gultom-selatan",
+      "x": 1154,
+      "y": 634,
+      "label": "Pintu Gedung Syawal (01), selatan"
+    },
+    "pintu-gedung-lab-biologi-barat": {
+      "id": "pintu-gedung-lab-biologi-barat",
+      "x": 652,
+      "y": 605,
+      "label": "Pintu Lab Biologi Baru (11), utara"
+    },
+    "pintu-gedung-lab-biologi-timur": {
+      "id": "pintu-gedung-lab-biologi-timur",
+      "x": 701,
+      "y": 622,
+      "label": "Pintu Lab Biologi Lama (10), timur"
+    },
+    "pintu-gedung-09": {
+      "id": "pintu-gedung-09",
+      "x": 803,
+      "y": 700,
+      "label": "Pintu Lab Matematika (09), utara sisi timur"
+    },
+    "pintu-gedung-09-barat": {
+      "id": "pintu-gedung-09-barat",
+      "x": 735,
+      "y": 696,
+      "label": "Pintu Lab Matematika (09), utara sisi barat"
+    },
+    "pintu-gedung-06": {
+      "id": "pintu-gedung-06",
+      "x": 1162,
+      "y": 726,
+      "label": "Pintu Gedung Bilingual (06), timur"
+    },
+    "pintu-gedung-lab-kimia": {
+      "id": "pintu-gedung-lab-kimia",
+      "x": 948,
+      "y": 637,
+      "label": "Pintu Lab Kimia (07), utara - perkiraan (tidak ada di sketsa)"
+    }
+  }
+};
 
+// Bagian tambahan untuk kompatibilitas test-graph.mjs
 export const graphData = {
-  config: {
-    pixelToMeterScale: 0.5,
-    svgWidth: 1920,
-    svgHeight: 1080
-  },
-
   nodes: {
-    // === GEDUNG FMIPA ===
-    GEDUNG_SYAWAL_GULTOM: { name: "Gedung Syawal Gultom", category: "Gedung Utama", x: 1056, y: 534, svgId: "gedung-syawal-gultom", isBuilding: true },
-    GEDUNG_04: { name: "Gedung Fisika (04)", category: "Gedung Perkuliahan", x: 1072, y: 446, svgId: "gedung-04", isBuilding: true },
-    GEDUNG_05: { name: "Gedung Biologi (05)", category: "Gedung Perkuliahan", x: 1222, y: 450, svgId: "gedung-05", isBuilding: true },
-    GEDUNG_KIMIA: { name: "Gedung Kimia", category: "Gedung Perkuliahan", x: 1072, y: 596, svgId: "gedung-kimia", isBuilding: true },
-    GEDUNG_02: { name: "Gedung Matematika (02)", category: "Gedung Perkuliahan", x: 1196, y: 610, svgId: "gedung-02", isBuilding: true },
-    GEDUNG_06: { name: "Gedung Bilingual (06)", category: "Gedung Perkuliahan", x: 1052, y: 690, svgId: "gedung-06", isBuilding: true },
-    GEDUNG_12: { name: "Gedung Bersama (12)", category: "Gedung Perkuliahan", x: 670, y: 411, svgId: "gedung-12", isBuilding: true },
-    GEDUNG_LAB_FISIKA: { name: "Lab Fisika", category: "Laboratorium", x: 876, y: 393, svgId: "gedung-lab-fisika", isBuilding: true },
-    GEDUNG_09: { name: "Lab Komputer (09)", category: "Laboratorium", x: 712, y: 684, svgId: "gedung-09", isBuilding: true },
-    GEDUNG_LAB_KIMIA: { name: "Lab Kimia", category: "Laboratorium", x: 879, y: 632, svgId: "gedung-lab-kimia", isBuilding: true },
-    GEDUNG_LAB_BIOLOGI_BARAT: { name: "Lab Biologi Barat", category: "Laboratorium", x: 665, y: 740, svgId: "gedung-lab-biologi-barat", isBuilding: true },
-    GEDUNG_LAB_BIOLOGI_TIMUR: { name: "Lab Biologi Timur", category: "Laboratorium", x: 672, y: 584, svgId: "gedung-lab-biologi-timur", isBuilding: true },
-
-    // === WAYPOINTS PERSIMPANGAN JALAN SETAPAK ===
-    WP_JALAN_KAMPUS_08: { name: "Simpang Jalan 08", category: "Jalan Setapak", x: 820, y: 50, isBuilding: false },
-    WP_JALAN_KAMPUS_09: { name: "Simpang Jalan 09", category: "Jalan Setapak", x: 968, y: 56, isBuilding: false },
-    WP_JALAN_KAMPUS_10: { name: "Simpang Jalan 10", category: "Jalan Setapak", x: 968, y: 328, isBuilding: false },
-    WP_JALAN_KAMPUS_18: { name: "Simpang Jalan 18", category: "Jalan Setapak", x: 1476, y: 350, isBuilding: false },
-    WP_JALAN_KAMPUS_19: { name: "Simpang Jalan 19", category: "Jalan Setapak", x: 1474, y: 390, isBuilding: false },
-    WP_JALAN_KAMPUS_20: { name: "Simpang Jalan 20", category: "Jalan Setapak", x: 1384, y: 494, isBuilding: false },
-    WP_JALAN_KAMPUS_21: { name: "Simpang Jalan 21", category: "Jalan Setapak", x: 1382, y: 604, isBuilding: false },
-    WP_JALAN_KAMPUS_23: { name: "Simpang Jalan 23", category: "Jalan Setapak", x: 1384, y: 680, isBuilding: false },
-    WP_JALUR_SETAPAK_1: { name: "Jalur Setapak 1", category: "Jalan Setapak", x: 1112, y: 670, isBuilding: false },
-    WP_JALUR_SETAPAK_2: { name: "Jalur Setapak 2", category: "Jalan Setapak", x: 1166, y: 660, isBuilding: false },
-    WP_JALUR_SETAPAK_3: { name: "Jalur Setapak 3", category: "Jalan Setapak", x: 1228, y: 692, isBuilding: false },
-    WP_JALUR_SETAPAK_4: { name: "Jalur Setapak 4", category: "Jalan Setapak", x: 1250, y: 670, isBuilding: false }
+    ...graphNodes.gedung,
+    ...graphNodes.waypoints
   },
-
-  edges: [
-    // 1. GEDUNG SYAWAL GULTOM KE WAYPOINT JALAN (TIDAK ADA GARIS LANGSUNG KE GEDUNG KIMIA/LAB)
-    { from: "GEDUNG_SYAWAL_GULTOM", to: "WP_JALAN_KAMPUS_10", weight: calculateWeight(1056, 534, 968, 328) },
-    { from: "GEDUNG_04", to: "WP_JALAN_KAMPUS_10", weight: calculateWeight(1072, 446, 968, 328) },
-
-    // 2. KONEKSI RANTAI WAYPOINT UTARA
-    { from: "WP_JALAN_KAMPUS_10", to: "WP_JALAN_KAMPUS_09", weight: calculateWeight(968, 328, 968, 56) },
-    { from: "WP_JALAN_KAMPUS_09", to: "WP_JALAN_KAMPUS_08", weight: calculateWeight(968, 56, 820, 50) },
-
-    // 3. KONEKSI TIMUR (GEDUNG 05 & 02)
-    { from: "WP_JALAN_KAMPUS_10", to: "WP_JALAN_KAMPUS_20", weight: calculateWeight(968, 328, 1384, 494) },
-    { from: "GEDUNG_05", to: "WP_JALAN_KAMPUS_20", weight: calculateWeight(1222, 450, 1384, 494) },
-    { from: "WP_JALAN_KAMPUS_20", to: "WP_JALAN_KAMPUS_19", weight: calculateWeight(1384, 494, 1474, 390) },
-    { from: "WP_JALAN_KAMPUS_19", to: "WP_JALAN_KAMPUS_18", weight: calculateWeight(1474, 390, 1476, 350) },
-    { from: "WP_JALAN_KAMPUS_20", to: "WP_JALAN_KAMPUS_21", weight: calculateWeight(1384, 494, 1382, 604) },
-    { from: "GEDUNG_02", to: "WP_JALAN_KAMPUS_21", weight: calculateWeight(1196, 610, 1382, 604) },
-    { from: "WP_JALAN_KAMPUS_21", to: "WP_JALAN_KAMPUS_23", weight: calculateWeight(1382, 604, 1384, 680) },
-
-    // 4. KONEKSI SELATAN (GEDUNG KIMIA & BILINGUAL 06)
-    { from: "GEDUNG_KIMIA", to: "WP_JALUR_SETAPAK_1", weight: calculateWeight(1072, 596, 1112, 670) },
-    { from: "WP_JALUR_SETAPAK_1", to: "GEDUNG_06", weight: calculateWeight(1112, 670, 1052, 690) },
-    { from: "WP_JALUR_SETAPAK_1", to: "WP_JALUR_SETAPAK_2", weight: calculateWeight(1112, 670, 1166, 660) },
-    { from: "WP_JALUR_SETAPAK_2", to: "WP_JALUR_SETAPAK_3", weight: calculateWeight(1166, 660, 1228, 692) },
-    { from: "WP_JALUR_SETAPAK_3", to: "WP_JALUR_SETAPAK_4", weight: calculateWeight(1228, 692, 1250, 670) },
-
-    // 5. KOMPLEKS LAB & GEDUNG 12
-    { from: "WP_JALAN_KAMPUS_10", to: "GEDUNG_LAB_KIMIA", weight: calculateWeight(968, 328, 879, 632) },
-    { from: "GEDUNG_LAB_KIMIA", to: "GEDUNG_LAB_FISIKA", weight: calculateWeight(879, 632, 876, 393) },
-    { from: "GEDUNG_LAB_FISIKA", to: "GEDUNG_12", weight: calculateWeight(876, 393, 670, 411) },
-    { from: "GEDUNG_LAB_KIMIA", to: "GEDUNG_09", weight: calculateWeight(879, 632, 712, 684) },
-    { from: "GEDUNG_09", to: "GEDUNG_LAB_BIOLOGI_BARAT", weight: calculateWeight(712, 684, 665, 740) },
-    { from: "GEDUNG_LAB_BIOLOGI_BARAT", to: "GEDUNG_LAB_BIOLOGI_TIMUR", weight: calculateWeight(665, 740, 672, 584) },
-    { from: "GEDUNG_LAB_BIOLOGI_TIMUR", to: "GEDUNG_12", weight: calculateWeight(672, 584, 670, 411) }
-  ]
+  edges: []
 };
