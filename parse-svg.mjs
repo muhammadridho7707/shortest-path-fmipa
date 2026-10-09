@@ -14,11 +14,9 @@ function getDistance(nodeA, nodeB) {
   return distMeters === 0 ? 5 : distMeters;
 }
 
-// MASALAH #2: Fungsi penghitung titik tengah (centroid) gedung dari path SVG
+// FUNGSI CENTROID: Menghitung titik tengah bangunan asli dari path SVG
 function extractBuildingCentroid(svgData, gedungId) {
-  const pathRegex = new RegExp(
-    `<path[^>]*id="${gedungId}-bentuk-1"[^>]*d="([^"]+)"`, 'i'
-  );
+  const pathRegex = new RegExp(`<path[^>]*id="${gedungId}-bentuk-1"[^>]*d="([^"]+)"`, 'i');
   const match = svgData.match(pathRegex);
   if (!match) return null;
 
@@ -95,17 +93,17 @@ function extractBuildingsAndWaypoints(svgFilePath) {
     };
   }
 
-  // 1B. MASALAH #1 & #3: TAMBAHAN WAYPOINT TIKUNGAN LORONG
+  // 1B. WAYPOINT TIKUNGAN UNTUK JALUR BERBELOK (MASALAH #1 & #3)
   const extraWaypoints = {
-    'wp-fisika-bersama-1': { id: 'wp-fisika-bersama-1', x: 947, y: 350, label: 'Tikungan 1' },
-    'wp-fisika-bersama-2': { id: 'wp-fisika-bersama-2', x: 880, y: 350, label: 'Tikungan 2' },
-    'wp-fisika-bersama-3': { id: 'wp-fisika-bersama-3', x: 880, y: 416, label: 'Tikungan 3' },
+    'wp-fisika-bersama-1': { id: 'wp-fisika-bersama-1', x: 947, y: 350, label: 'Tikungan Lab Fisika 1' },
+    'wp-fisika-bersama-2': { id: 'wp-fisika-bersama-2', x: 880, y: 350, label: 'Tikungan Lab Fisika 2' },
+    'wp-fisika-bersama-3': { id: 'wp-fisika-bersama-3', x: 880, y: 416, label: 'Tikungan Lab Fisika 3' },
     'wp-biologi-kimia-1': { id: 'wp-biologi-kimia-1', x: 735, y: 637, label: 'Tikungan Lab Biologi - Lab Kimia' }
   };
 
   Object.assign(nodesResult.waypoints, extraWaypoints);
 
-  // 2. EKSTRAKSI GEDUNG DENGAN TITIK CENTROID REAL
+  // 2. EKSTRAKSI GEDUNG MENGGUNAKAN CENTROID (MASALAH #2)
   Object.keys(gedungToPintuMap).forEach(id => {
     const keyName = id.toUpperCase().replace(/-/g, '_');
     const centroid = extractBuildingCentroid(svgData, id);
@@ -137,9 +135,9 @@ function extractBuildingsAndWaypoints(svgFilePath) {
   return nodesResult;
 }
 
-// 3. DEFINISI KONEKSI DENGAN PERBAIKAN RUTE WAYPOINT
+// 3. DEFINISI KONEKSI RAW CONNECTIONS DENGAN TIKUNGAN LENGKAP
 const rawConnections = {
-  // GEDUNG BERSAMA (12) & KORIDOR UTARA
+  // GEDUNG BERSAMA (12)
   'pintu-gedung-12-utara': ['kor-01', 'GEDUNG_12', 'wp-fisika-bersama-3'],
   'pintu-gedung-12-selatan': ['kor-05', 'GEDUNG_12', 'pintu-gedung-lab-biologi-barat'],
   'pintu-gedung-12-timur': ['kor-04', 'GEDUNG_12'],
@@ -154,22 +152,29 @@ const rawConnections = {
   'kor-06': ['kor-05'],
   'kor-18': ['kor-05', 'pintu-gedung-12-selatan-barat', 'kor-19'],
 
+  // TIKUNGAN LAB FISIKA ↔ GEDUNG 12 (3 STEP TIKUNGAN)
+  'pintu-gedung-lab-fisika': ['kor-11', 'wp-fisika-bersama-1', 'GEDUNG_LAB_FISIKA'],
+  'wp-fisika-bersama-1': ['pintu-gedung-lab-fisika', 'wp-fisika-bersama-2'],
+  'wp-fisika-bersama-2': ['wp-fisika-bersama-1', 'wp-fisika-bersama-3'],
+  'wp-fisika-bersama-3': ['wp-fisika-bersama-2', 'pintu-gedung-12-utara'],
+  'GEDUNG_LAB_FISIKA': ['pintu-gedung-lab-fisika'],
+
   // SHORTCUT LAB BIOLOGI BARAT ↔ GEDUNG BERSAMA (12)
   'pintu-gedung-lab-biologi-barat': ['kor-08', 'GEDUNG_LAB_BIOLOGI_BARAT', 'pintu-gedung-12-selatan'],
   'GEDUNG_LAB_BIOLOGI_BARAT': ['pintu-gedung-lab-biologi-barat'],
 
-  // SHORTCUT LAB BIOLOGI TIMUR ↔ WAYPOINT TIKUNGAN ↔ LAB KIMIA
+  // SHORTCUT LAB BIOLOGI TIMUR ↔ LAB KIMIA
   'pintu-gedung-lab-biologi-timur': ['kor-17', 'GEDUNG_LAB_BIOLOGI_TIMUR', 'wp-biologi-kimia-1'],
   'wp-biologi-kimia-1': ['pintu-gedung-lab-biologi-timur', 'pintu-gedung-lab-kimia'],
-  'GEDUNG_LAB_BIOLOGI_TIMUR': ['pintu-gedung-lab-biologi-timur'],
+  'GEDUNG_LAB_BIOLOGI_TIMUR': ['pintu-gedung-lab-biologi-timur', 'GEDUNG_LAB_KIMIA'],
 
   'pintu-gedung-09': ['kor-07', 'GEDUNG_09'],
   'pintu-gedung-09-barat': ['kor-19', 'GEDUNG_09'],
   'GEDUNG_09': ['pintu-gedung-09', 'pintu-gedung-09-barat'],
 
-  // SHORTCUT LAB KIMIA ↔ LAB BIOLOGI TIMUR & GEDUNG BERSAMA
+  // LAB KIMIA
   'pintu-gedung-lab-kimia': ['kor-09', 'kor-04', 'GEDUNG_LAB_KIMIA', 'wp-biologi-kimia-1'],
-  'GEDUNG_LAB_KIMIA': ['pintu-gedung-lab-kimia'],
+  'GEDUNG_LAB_KIMIA': ['pintu-gedung-lab-kimia', 'GEDUNG_LAB_BIOLOGI_TIMUR'],
 
   'kor-08': ['pintu-gedung-lab-biologi-barat', 'kor-17'],
   'kor-17': ['kor-08', 'pintu-gedung-lab-biologi-timur', 'kor-19'],
@@ -201,20 +206,13 @@ const rawConnections = {
 
   // SHORTCUT GEDUNG 02 (MATEMATIKA) ↔ GEDUNG 06 (BILINGUAL)
   'pintu-gedung-02': ['kor-14', 'GEDUNG_02', 'pintu-gedung-06'],
-  'GEDUNG_02': ['pintu-gedung-02'],
+  'GEDUNG_02': ['pintu-gedung-02', 'GEDUNG_06'],
 
   'pintu-gedung-06': ['kor-15', 'GEDUNG_06', 'pintu-gedung-02'],
-  'GEDUNG_06': ['pintu-gedung-06'],
-
-  // WAYPOINT FIX: TIKUNGAN FISIKA ↔ GEDUNG 12
-  'pintu-gedung-lab-fisika': ['kor-11', 'wp-fisika-bersama-1', 'GEDUNG_LAB_FISIKA'],
-  'wp-fisika-bersama-1': ['pintu-gedung-lab-fisika', 'wp-fisika-bersama-2'],
-  'wp-fisika-bersama-2': ['wp-fisika-bersama-1', 'wp-fisika-bersama-3'],
-  'wp-fisika-bersama-3': ['wp-fisika-bersama-2', 'pintu-gedung-12-utara'],
-  'GEDUNG_LAB_FISIKA': ['pintu-gedung-lab-fisika']
+  'GEDUNG_06': ['pintu-gedung-06', 'GEDUNG_02']
 };
 
-// EKSEKUSI PENULISAN FILE
+// EKSEKUSI PENULISAN FILE AUTOMATIS
 const assetMapPath = path.join(process.cwd(), 'public', 'assets', 'map.svg');
 const result = extractBuildingsAndWaypoints(assetMapPath);
 

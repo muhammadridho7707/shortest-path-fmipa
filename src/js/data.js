@@ -312,19 +312,19 @@ export const graphNodes = {
       "id": "wp-fisika-bersama-1",
       "x": 947,
       "y": 350,
-      "label": "Tikungan 1"
+      "label": "Tikungan Lab Fisika 1"
     },
     "wp-fisika-bersama-2": {
       "id": "wp-fisika-bersama-2",
       "x": 880,
       "y": 350,
-      "label": "Tikungan 2"
+      "label": "Tikungan Lab Fisika 2"
     },
     "wp-fisika-bersama-3": {
       "id": "wp-fisika-bersama-3",
       "x": 880,
       "y": 416,
-      "label": "Tikungan 3"
+      "label": "Tikungan Lab Fisika 3"
     },
     "wp-biologi-kimia-1": {
       "id": "wp-biologi-kimia-1",
@@ -427,6 +427,31 @@ export const graphData = {
     "weight": 85
   },
   {
+    "from": "pintu-gedung-lab-fisika",
+    "to": "kor-11",
+    "weight": 123
+  },
+  {
+    "from": "pintu-gedung-lab-fisika",
+    "to": "wp-fisika-bersama-1",
+    "weight": 14
+  },
+  {
+    "from": "pintu-gedung-lab-fisika",
+    "to": "GEDUNG_LAB_FISIKA",
+    "weight": 316
+  },
+  {
+    "from": "wp-fisika-bersama-1",
+    "to": "wp-fisika-bersama-2",
+    "weight": 34
+  },
+  {
+    "from": "wp-fisika-bersama-2",
+    "to": "wp-fisika-bersama-3",
+    "weight": 33
+  },
+  {
     "from": "pintu-gedung-lab-biologi-barat",
     "to": "kor-08",
     "weight": 51
@@ -455,6 +480,11 @@ export const graphData = {
     "from": "wp-biologi-kimia-1",
     "to": "pintu-gedung-lab-kimia",
     "weight": 107
+  },
+  {
+    "from": "GEDUNG_LAB_BIOLOGI_TIMUR",
+    "to": "GEDUNG_LAB_KIMIA",
+    "weight": 48
   },
   {
     "from": "pintu-gedung-09",
@@ -530,11 +560,6 @@ export const graphData = {
     "from": "kor-11",
     "to": "kor-12",
     "weight": 17
-  },
-  {
-    "from": "kor-11",
-    "to": "pintu-gedung-lab-fisika",
-    "weight": 123
   },
   {
     "from": "kor-12",
@@ -627,29 +652,14 @@ export const graphData = {
     "weight": 51
   },
   {
+    "from": "GEDUNG_02",
+    "to": "GEDUNG_06",
+    "weight": 134
+  },
+  {
     "from": "pintu-gedung-06",
     "to": "GEDUNG_06",
     "weight": 453
-  },
-  {
-    "from": "pintu-gedung-lab-fisika",
-    "to": "wp-fisika-bersama-1",
-    "weight": 14
-  },
-  {
-    "from": "pintu-gedung-lab-fisika",
-    "to": "GEDUNG_LAB_FISIKA",
-    "weight": 316
-  },
-  {
-    "from": "wp-fisika-bersama-1",
-    "to": "wp-fisika-bersama-2",
-    "weight": 34
-  },
-  {
-    "from": "wp-fisika-bersama-2",
-    "to": "wp-fisika-bersama-3",
-    "weight": 33
   }
 ]
 };
