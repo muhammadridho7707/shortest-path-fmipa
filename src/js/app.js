@@ -201,16 +201,6 @@ export function initApp() {
     btnTukar.onclick = handleTukarRute;
   }
 
-  // Tombol reset di samping tombol zoom minus (-)
-  const btnResetMap = document.getElementById('btn-reset-map');
-  if (btnResetMap) {
-    btnResetMap.onclick = handleRestartApp;
-  }
-  const btnRestart = document.getElementById('btn-restart');
-  if (btnRestart) {
-    btnRestart.onclick = handleRestartApp;
-  }
-
   const selectAsal = document.getElementById('select-asal');
   const selectTujuan = document.getElementById('select-tujuan');
   if (selectAsal) {

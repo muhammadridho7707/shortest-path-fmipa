@@ -154,15 +154,35 @@ export function initMap(containerId = 'map-container', callbacks = {}) {
 
   // Hubungkan tombol reset peta di sebelah tombol minus (-)
   const btnResetMap = document.getElementById('btn-reset-map');
-  const btnRestart = document.getElementById('btn-restart');
-  const onResetClicked = () => {
-    resetMapView();
-    clearRoute();
-    clearUserMarkers();
-    resetBuildingInfoPanel();
-  };
-  if (btnResetMap) btnResetMap.onclick = onResetClicked;
-  if (btnRestart) btnRestart.onclick = onResetClicked;
+const btnRestart = document.getElementById('btn-restart');
+const onResetClicked = () => {
+  // 1. Reset visual peta
+  resetMapView();
+  clearRoute();
+  clearUserMarkers();
+  resetBuildingInfoPanel();
+
+  // 2. Reset dropdown — pakai dispatchEvent supaya listener lain ikut ter-trigger
+  const selectAsal = document.getElementById('select-asal');
+  const selectTujuan = document.getElementById('select-tujuan');
+  if (selectAsal) {
+    selectAsal.value = '';
+    selectAsal.dispatchEvent(new Event('change'));
+  }
+  if (selectTujuan) {
+    selectTujuan.value = '';
+    selectTujuan.dispatchEvent(new Event('change'));
+  }
+
+  // 3. Hide panel hasil — hapus inline style juga, jangan cuma class
+  const panelHasil = document.getElementById('panel-hasil');
+  if (panelHasil) {
+    panelHasil.classList.add('hidden');
+    panelHasil.style.display = '';   // ← KOSONGKAN, jangan 'none'
+  }
+};
+if (btnResetMap) btnResetMap.onclick = onResetClicked;
+if (btnRestart) btnRestart.onclick = onResetClicked;
 
   // Responsif saat ukuran layar atau jendela browser berubah
   window.addEventListener('resize', () => {

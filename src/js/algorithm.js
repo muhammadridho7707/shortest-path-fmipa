@@ -140,7 +140,7 @@ export function findShortestPath(startNodeId, targetNodeId) {
   }
 
   const steps = result.path.map((nodeId) => {
-    const meta = graph.getNodeMetadata(nodeId) || {};
+    const meta = graph.getNodeDetails(nodeId) || {};
     return {
       id: nodeId,
       name: meta.name || nodeId,
