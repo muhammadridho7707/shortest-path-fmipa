@@ -95,7 +95,7 @@ function extractBuildingsAndWaypoints(svgFilePath) {
   return nodesResult;
 }
 
-// 3. DEFINISI KONEKSI FAKTA FISIK (Tanpa Edge A yang nyelip)
+// 3. DEFINISI KONEKSI FAKTA FISIK (DENGAN BRIDGE EDGES)
 const rawConnections = {
   'pintu-gedung-12-utara': ['kor-01', 'GEDUNG_12'],
   'pintu-gedung-12-selatan': ['kor-05', 'GEDUNG_12'],
@@ -106,10 +106,15 @@ const rawConnections = {
   'kor-01': ['kor-02', 'kor-03', 'pintu-gedung-12-utara'],
   'kor-02': ['kor-01'],
   'kor-03': ['kor-01', 'kor-04', 'kor-05'],
-  'kor-04': ['kor-03', 'pintu-gedung-12-timur'],
+  
+  // TAMBAHAN BRIDGE 1: Sambungkan kor-04 ke pintu-gedung-lab-kimia
+  'kor-04': ['kor-03', 'pintu-gedung-12-timur', 'pintu-gedung-lab-kimia'],
+  
   'kor-05': ['kor-03', 'kor-06', 'kor-18', 'pintu-gedung-12-selatan'],
   'kor-06': ['kor-05'],
-  'kor-18': ['kor-05', 'pintu-gedung-12-selatan-barat'],
+  
+  // TAMBAHAN BRIDGE 2: Sambungkan kor-18 ke kor-19
+  'kor-18': ['kor-05', 'pintu-gedung-12-selatan-barat', 'kor-19'],
 
   'pintu-gedung-lab-biologi-barat': ['kor-08', 'GEDUNG_LAB_BIOLOGI_BARAT'],
   'GEDUNG_LAB_BIOLOGI_BARAT': ['pintu-gedung-lab-biologi-barat'],
@@ -121,13 +126,16 @@ const rawConnections = {
   'pintu-gedung-09-barat': ['kor-19', 'GEDUNG_09'],
   'GEDUNG_09': ['pintu-gedung-09', 'pintu-gedung-09-barat'],
 
-  // Hapus 'kor-04' dari pintu lab kimia agar tidak melompat gedung
-  'pintu-gedung-lab-kimia': ['kor-09', 'GEDUNG_LAB_KIMIA'],
+  // TAMBAHAN BRIDGE 1: Sambungkan pintu-gedung-lab-kimia ke kor-04
+  'pintu-gedung-lab-kimia': ['kor-09', 'kor-04', 'GEDUNG_LAB_KIMIA'],
   'GEDUNG_LAB_KIMIA': ['pintu-gedung-lab-kimia'],
 
   'kor-08': ['pintu-gedung-lab-biologi-barat', 'kor-17'],
   'kor-17': ['kor-08', 'pintu-gedung-lab-biologi-timur', 'kor-19'],
-  'kor-19': ['kor-17', 'pintu-gedung-09-barat', 'kor-07'],
+  
+  // TAMBAHAN BRIDGE 2: Sambungkan kor-19 ke kor-18
+  'kor-19': ['kor-17', 'pintu-gedung-09-barat', 'kor-07', 'kor-18'],
+  
   'kor-07': ['kor-19', 'pintu-gedung-09'],
 
   'kor-09': ['kor-10', 'kor-16', 'pintu-gedung-syawal-gultom-barat', 'pintu-gedung-lab-kimia'],
