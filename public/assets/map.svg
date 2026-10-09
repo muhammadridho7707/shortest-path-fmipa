@@ -1,340 +1,920 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" version="1.1" width="2028" height="1138" viewBox="0 0 2028 1138" id="peta-fmipa-unimed" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo4ZDQyYWY5Ni1kMDVhLTRlZGEtODZiYS0wYWE4NDhiOWIxNTkAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCQPnS5i1EO0K+ojO/9RbjEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo3ODcxNWIwOC0xNjJhLTRhNDYtYmExNC0yYTk1OWNiMjIxNDhscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoA0nittzcIIy9DqUQhSuLRgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggRoLG3Mb9zBdo+3x2vgqfAm6a3wgihs4moi3/BNYjvl+kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaJVxV5KqiSmDMGbo316DplIAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYILxg8BZ6yF/DxAruPRbMvAdA+LdN+YSV4584tPXKA+X4ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQHJZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjhkNDJhZjk2LWQwNWEtNGVkYS04NmJhLTBhYTg0OGI5YjE1OS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjg5M2UzNGUyLTNmYWItNDkyNC1hYWE4LWFhZTEzZGUyZDU3OXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBGgsbcxv3MF2j7fHa+Cp8CbprfCCKGziaiLf8E1iO+X6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggQEheQxHNIOvSIMyuNq8CjEhwKKz/KKDyjQ3SgI/YvI+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggjb+ybjg1YoHOyFQqZNRJGkItmaca2NFMg19Es0hzzBd0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQF7PMowpvNDLnyVSk5gl396b4uEAW+OdjCWPmRcct7CDHk2d1mZgwe7yGAiEin1E3CdvlWoa1meUAOByisxSliY=</c2pa:manifest></metadata>
-  <title>Peta Area FMIPA - Universitas Negeri Medan</title>
-  <desc>Peta dasar area FMIPA Unimed. Bentuk gedung dan jalan ditelusuri dari tampilan OpenStreetMap. Nama gedung FMIPA dicocokkan dengan label Google Maps; gedung lain masih bernomor sementara.</desc>
-  <sodipodi:namedview id="namedview" pagecolor="#ffffff" bordercolor="#999999" borderopacity="1" inkscape:document-units="px" inkscape:pageopacity="0" showgrid="false" />
-  <g inkscape:groupmode="layer" inkscape:label="Latar" id="layer-latar">
-    <rect id="latar-luar" x="0" y="0" width="2028" height="1138" style="fill:#f2efe9" />
-    <path id="lahan-kampus" d="M 156,-4 L 154,206 L 140,224 L 124,600 L 124,784 L 140,804 L 1000,838 L 2032,884 L 2032,-4 Z" style="fill:#ffffe5" />
-    <path id="lahan-selatan-1" d="M 136,936 L 660,940 L 690,922 L 1386,942 L 1386,1150 L 136,1150 Z" style="fill:#ebdbe8" />
-    <path id="lahan-selatan-2" d="M 1386,944 L 1684,956 L 1684,1150 L 1386,1150 Z" style="fill:#ffffe5" />
-    <path id="area-parkir-1" d="M 510,328 L 586,328 L 586,606 L 510,606 Z" style="fill:#eeeeee" />
-    <path id="area-parkir-2" d="M 966,350 L 986,350 L 986,452 L 966,452 Z" style="fill:#eeeeee" />
-    <path id="area-parkir-3" d="M 1600,-4 L 1736,-4 L 1736,64 L 1600,64 Z" style="fill:#eeeeee" />
+<svg
+   version="1.1"
+   width="2028"
+   height="1162"
+   viewBox="0 0 2050 1162"
+   id="peta-fmipa-unimed"
+   role="img"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1293">
+    <mask
+       id="imagine-text-gaps-5kww5d"
+       maskUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="2050" height="1162" fill="#ffffff" id="rect1094" />
+      <rect x="1086" y="454.84097" width="106.40606" height="17.545364" fill="#000000" rx="2" id="rect1096" />
+      <rect x="1239.694" y="521.841" width="52.612183" height="41.545349" fill="#000000" rx="2" id="rect1098" />
+      <rect x="1084.7095" y="652.841" width="60.580933" height="29.545349" fill="#000000" rx="2" id="rect1100" />
+      <rect x="1215.5121" y="579.841" width="70.97583" height="41.545349" fill="#000000" rx="2" id="rect1102" />
+      <rect x="1110.7577" y="557.841" width="62.484741" height="28.416565" fill="#000000" rx="2" id="rect1104" />
+      <rect x="840.00134" y="472.71219" width="131.99738" height="18.674145" fill="#000000" rx="2" id="rect1106" />
+      <rect x="890.99225" y="416.71219" width="70.015503" height="32.174133" fill="#000000" rx="2" id="rect1108" />
+      <rect x="617.51489" y="649.841" width="26.970249" height="17.545364" fill="#000000" rx="2" id="rect1110" />
+      <rect x="663.21161" y="649.841" width="27.576759" height="17.545364" fill="#000000" rx="2" id="rect1112" />
+      <rect x="558" y="759.841" width="122.29321" height="30.545349" fill="#000000" rx="2" id="rect1114" />
+      <rect x="712.41907" y="717.841" width="113.1619" height="17.545364" fill="#000000" rx="2" id="rect1116" />
+      <rect x="903.00171" y="684.71222" width="89.996635" height="18.674145" fill="#000000" rx="2" id="rect1118" />
+      <rect x="1054.3375" y="699.71222" width="83.325073" height="32.174133" fill="#000000" rx="2" id="rect1120" />
+      <rect x="435.8284" y="39.112198" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1122" />
+      <rect x="1293.4403" y="7.4409771" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1124" />
+      <rect x="1497.3284" y="13.012196" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1126" />
+      <rect x="1099.3284" y="208.01219" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1128" />
+      <rect x="1280.7284" y="123.0122" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1130" />
+      <rect x="1600.4283" y="156.11218" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1132" />
+      <rect x="1973.4283" y="221.01219" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1134" />
+      <rect x="289.3284" y="311.01218" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1136" />
+      <rect x="500.3284" y="315.01218" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1138" />
+      <rect x="1291.3284" y="235.01219" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1140" />
+      <rect x="248.65692" y="416.81219" width="20.686144" height="18.674145" fill="#000000" rx="2" id="rect1142" />
+      <rect x="419.3284" y="472.11218" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1144" />
+      <rect x="1591.5283" y="496.11218" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1146" />
+      <rect x="257.02841" y="590.11224" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1148" />
+      <rect x="494.02841" y="627.01221" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1150" />
+      <rect x="988.44031" y="587.44098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1152" />
+      <rect x="685.94031" y="749.44098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1154" />
+      <rect x="1308.4403" y="802.44098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1156" />
+      <rect x="886.44031" y="543.94098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1158" />
+      <rect x="861.32843" y="781.01221" width="21.343195" height="18.674145" fill="#000000" rx="2" id="rect1160" />
+      <rect x="974.7403" y="465.44098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1162" />
+      <rect x="956.44031" y="522.94098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1164" />
+      <rect x="850.44031" y="698.94098" width="19.119329" height="16.416584" fill="#000000" rx="2" id="rect1166" />
+      <rect x="629" y="293.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1168" />
+      <rect x="625" y="413.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1170" />
+      <rect x="594" y="493.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1172" />
+      <rect x="620" y="575.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1174" />
+      <rect x="709" y="567.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1176" />
+      <rect x="708" y="629.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1178" />
+      <rect x="815" y="596.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1180" />
+      <rect x="923" y="596.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1182" />
+      <rect x="923" y="545.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1184" />
+      <rect x="1038" y="576.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1186" />
+      <rect x="1030" y="607.841" width="19.624752" height="17.545364" fill="#000000" rx="2" id="rect1188" />
+      <rect x="1008" y="659.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1190" />
+      <rect x="820" y="298.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1192" />
+      <rect x="972" y="304.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1194" />
+      <rect x="976" y="345.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1196" />
+      <rect x="924" y="340.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1198" />
+      <rect x="1016" y="418.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1200" />
+      <rect x="999" y="520.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1202" />
+      <rect x="1046" y="419.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1204" />
+      <rect x="1236" y="408.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1206" />
+      <rect x="1277" y="414.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1208" />
+      <rect x="1301" y="440.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1210" />
+      <rect x="1315" y="534.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1212" />
+      <rect x="1307" y="575.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1214" />
+      <rect x="1301" y="629.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1216" />
+      <rect x="1289" y="692.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1218" />
+      <rect x="1190" y="727.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1220" />
+      <rect x="1184" y="679.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1222" />
+      <rect x="1164" y="643.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1224" />
+      <rect x="1387" y="325.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1226" />
+      <rect x="1387" y="475.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1228" />
+      <rect x="1336" y="476.84097" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1230" />
+      <rect x="1389" y="585.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1232" />
+      <rect x="1390" y="651.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1234" />
+      <rect x="1192" y="745.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1236" />
+      <rect x="1192" y="783.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1238" />
+      <rect x="1214" y="784.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1240" />
+      <rect x="1244" y="779.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1242" />
+      <rect x="1284" y="744.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1244" />
+      <rect x="1336" y="701.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1246" />
+      <rect x="1218" y="731.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1248" />
+      <rect x="741" y="597.841" width="20.231262" height="17.545364" fill="#000000" rx="2" id="rect1250" />
+      <rect x="-15.97263" y="412.19708" width="179.94527" height="24.318047" fill="#000000" rx="2" id="rect1252" />
+      <rect x="325.71954" y="857.19708" width="288.56085" height="24.318047" fill="#000000" rx="2" id="rect1254" />
+      <rect x="1191.7196" y="885.19708" width="288.56085" height="24.318047" fill="#000000" rx="2" id="rect1256" />
+      <rect x="526.6629" y="475.68195" width="22.674145" height="29.961948" fill="#000000" rx="2" id="rect1258" />
+      <rect x="964.6629" y="397.68195" width="22.674145" height="29.961948" fill="#000000" rx="2" id="rect1260" />
+      <rect x="1660.663" y="15.681953" width="22.674145" height="29.961948" fill="#000000" rx="2" id="rect1262" />
+      <rect x="1768.4025" y="1111.5834" width="251.59755" height="19.802925" fill="#000000" rx="2" id="rect1264" />
+      <rect x="40" y="978.71222" width="77.142014" height="18.674145" fill="#000000" rx="2" id="rect1266" />
+      <rect x="78" y="1003.5834" width="96.600838" height="19.802925" fill="#000000" rx="2" id="rect1268" />
+      <rect x="78" y="1025.5834" width="135.19839" height="19.802925" fill="#000000" rx="2" id="rect1270" />
+      <rect x="78" y="1047.5834" width="78.068619" height="19.802925" fill="#000000" rx="2" id="rect1272" />
+      <rect x="78" y="1069.5834" width="39.066734" height="19.802925" fill="#000000" rx="2" id="rect1274" />
+      <rect x="78" y="1091.5834" width="85.296188" height="19.802925" fill="#000000" rx="2" id="rect1276" />
+      <rect x="318" y="1003.5834" width="180.63602" height="19.802925" fill="#000000" rx="2" id="rect1278" />
+      <rect x="318" y="1025.5834" width="170.52754" height="19.802925" fill="#000000" rx="2" id="rect1280" />
+      <rect x="318" y="1047.5834" width="93.231346" height="19.802925" fill="#000000" rx="2" id="rect1282" />
+      <rect x="572" y="1003.5834" width="61.692879" height="19.802925" fill="#000000" rx="2" id="rect1284" />
+      <rect x="572" y="1025.5834" width="175.59862" height="19.802925" fill="#000000" rx="2" id="rect1286" />
+      <rect x="572" y="1047.5834" width="151.035" height="19.802925" fill="#000000" rx="2" id="rect1288" />
+      <rect x="1922.6874" y="1071.5834" width="47.625248" height="19.802925" fill="#000000" rx="2" id="rect1290" />
+    </mask>
+  </defs>
+  <title id="title1295">Peta Area FMIPA - Universitas Negeri Medan</title>
+  <desc id="desc1297">Peta area FMIPA Unimed. Jalan dan gedung di luar FMIPA ditelusuri dari tampilan OpenStreetMap. Bentuk gedung FMIPA, nama gedung, jalur, koridor dan pintu mengikuti gambar dari tim (Oktober 2026). Skala perkiraan 0,36 meter per px.</desc>
+  
+  <!-- LAYER: LATAR -->
+  <g id="layer-latar" style="color:#0b0b0b;font-weight:400;font-size:16px;font-family:anthropic-sans, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter" transform="translate(-6.0859763,1.6598117)">
+    <rect id="latar-luar" x="0" y="0" width="2028" height="1138" style="fill:#f2efe9;stroke:none" />
+    <path id="lahan-kampus" d="m 156,-4 -2,210 -14,18 -16,376 v 184 l 16,20 860,34 1032,46 V -4 Z" style="fill:#ffffe5;stroke:none" />
+    <path id="lahan-selatan-1" d="m 136,936 524,4 30,-18 696,20 v 208 H 136 Z" style="fill:#ebdbe8;stroke:none" />
+    <path id="lahan-selatan-2" d="m 1386,944 298,12 v 194 h -298 z" style="fill:#ffffe5;stroke:none" />
+    <path id="area-parkir-1" d="m 510,328 h 76 v 278 h -76 z" style="fill:#eeeeee;stroke:none" />
+    <path id="area-parkir-2" d="m 966,350 h 20 v 86 h -20 z" style="fill:#eeeeee;stroke:none" />
+    <path id="area-parkir-3" d="m 1600,-4 h 136 v 68 h -136 z" style="fill:#eeeeee;stroke:none" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Jalan sekitar" id="layer-jalan-sekitar">
-    <path id="jalan-sekitar-1-tepi" d="M 234,910 L 232,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-2-tepi" d="M 558,912 L 556,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-3-tepi" d="M 882,916 L 880,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-4-tepi" d="M 1224,924 L 1220,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-5-tepi" d="M 1444,932 L 1436,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-6-tepi" d="M 1710,940 L 1706,990 L 1692,1024 L 1692,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-7-tepi" d="M 1706,990 L 1724,1024 L 1724,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-8-tepi" d="M 1932,948 L 1944,1152" style="fill:none;stroke:#d8d4cb;stroke-width:12;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-1" d="M 234,910 L 232,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-2" d="M 558,912 L 556,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-3" d="M 882,916 L 880,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-4" d="M 1224,924 L 1220,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-5" d="M 1444,932 L 1436,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-6" d="M 1710,940 L 1706,990 L 1692,1024 L 1692,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-7" d="M 1706,990 L 1724,1024 L 1724,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-sekitar-8" d="M 1932,948 L 1944,1152" style="fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;stroke-linejoin:round" />
+
+  <!-- LAYER: JALAN SEKITAR -->
+  <g id="layer-jalan-sekitar" style="fill:#000000;stroke:none">
+    <path id="jalan-sekitar-1-tepi" d="m 234,910 -2,242" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-2-tepi" d="m 558,912 -2,240" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-3-tepi" d="m 882,916 -2,236" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-4-tepi" d="m 1224,924 -4,228" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-5-tepi" d="m 1444,932 -8,220" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-6-tepi" d="m 1710,940 -4,50 -14,34 v 128" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-7-tepi" d="m 1706,990 18,34 v 128" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-8-tepi" d="m 1932,948 12,204" style="fill:none;stroke:#d8d4cb;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-sekitar-1" d="m 234,910 -2,242" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-2" d="m 558,912 -2,240" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-3" d="m 882,916 -2,236" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-4" d="m 1224,924 -4,228" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-5" d="m 1444,932 -8,220" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-6" d="m 1710,940 -4,50 -14,34 v 128" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-7" d="m 1706,990 18,34 v 128" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-sekitar-8" d="m 1932,948 12,204" style="fill:none;stroke:#ffffff;stroke-width:9px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Jalan kampus (tepi)" id="layer-jalan-kampus-tepi">
-    <path id="jalan-kampus-01-tepi" d="M 90,214 L 360,216 L 622,220" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-02-tepi" d="M 628,-6 L 626,120 L 622,220 L 622,318" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-03-tepi" d="M 622,318 L 618,432 L 618,492" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-04-tepi" d="M 618,432 L 556,432" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-05-tepi" d="M 256,582 L 526,582" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-06-tepi" d="M 622,318 L 820,322 L 968,328 L 1380,344 L 1476,350 L 1756,358 L 2040,362" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-07-tepi" d="M 626,44 L 820,50 L 1000,56 L 1394,70 L 1580,72 L 1770,76 L 2040,74" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-08-tepi" d="M 820,50 L 814,322" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-09-tepi" d="M 968,56 L 968,300" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-10-tepi" d="M 968,328 L 962,400" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-11-tepi" d="M 1042,-6 L 1042,56" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-12-tepi" d="M 1396,-6 L 1394,70 L 1388,200 L 1380,344 L 1380,500 L 1382,604" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-13-tepi" d="M 1580,-6 L 1580,72" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-14-tepi" d="M 1584,26 L 1724,26" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-15-tepi" d="M 1774,-6 L 1770,76 L 1760,224 L 1756,358 L 1754,606" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-16-tepi" d="M 1760,224 L 1860,226" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-17-tepi" d="M 1878,296 L 1878,362" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-18-tepi" d="M 1476,350 L 1474,390 L 1664,404 L 1674,392 L 1680,356" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-19-tepi" d="M 1474,390 L 1458,426 L 1460,604" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-20-tepi" d="M 1384,494 L 1336,502 L 1312,530" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-21-tepi" d="M 1382,604 L 1754,606" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-22-tepi" d="M 1382,604 L 1384,680 L 1362,876" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-23-tepi" d="M 1384,680 L 1400,876" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-24-tepi" d="M 1754,606 L 1752,710 L 1726,888" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-25-tepi" d="M 1752,710 L 1780,888" style="fill:none;stroke:#d3cec3;stroke-width:15;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="putaran-parkir-tepi" d="M 526,380 A 15,15 0 0 1 556,380 L 556,572 A 15,15 0 0 1 526,572 Z" style="fill:none;stroke:#d3cec3;stroke-width:15" />
+
+  <!-- LAYER: JALAN KAMPUS TEPI -->
+  <g id="layer-jalan-kampus-tepi" style="fill:#000000;stroke:none">
+    <path id="jalan-kampus-01-tepi" d="m 90,214 270,2 262,4" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-02-tepi" d="m 628,-6 -2,126 -4,100 v 98" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-03-tepi" d="m 622,318 -4,114 v 60" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-04-tepi" d="M 618,432 H 556" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-05-tepi" d="M 256,582 H 526" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-06-tepi" d="m 622,318 198,4 148,6 412,16 96,6 280,8 284,4" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-07-tepi" d="m 626,44 194,6 180,6 394,14 186,2 190,4 270,-2" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-08-tepi" d="m 820,50 -6,272" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-09-tepi" d="M 968,56 V 300" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-10-tepi" d="m 968,328 -6,72" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-11-tepi" d="M 1042,-6 V 56" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-12-tepi" d="m 1396,-6 -2,76 -6,130 -8,144 v 156 l 2,104" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-13-tepi" d="M 1580,-6 V 72" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-14-tepi" d="m 1584,26 h 140" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-kampus-15-tepi" d="m 1774,-6 -4,82 -10,148 -4,134 -2,248" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-16-tepi" d="m 1760,224 100,2" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-17-tepi" d="m 1878,296 v 66" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-18-tepi" d="m 1476,350 -2,40 190,14 10,-12 6,-36" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-19-tepi" d="m 1474,390 -16,36 2,178" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-20-tepi" d="m 1384,494 -48,8 -24,28" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-21-tepi" d="m 1382,604 372,2" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-22-tepi" d="m 1382,604 2,76 -22,196" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-23-tepi" d="m 1384,680 16,196" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-24-tepi" d="m 1754,606 -2,104 -26,178" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-25-tepi" d="m 1752,710 28,178" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="putaran-parkir-tepi" d="m 526,380 a 15,15 0 0 1 30,0 v 192 a 15,15 0 0 1 -30,0 z" style="fill:none;stroke:#d3cec3;stroke-width:15px;stroke-linecap:butt;stroke-linejoin:miter" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Jalan kampus" id="layer-jalan-kampus">
-    <path id="jalan-kampus-01" d="M 90,214 L 360,216 L 622,220" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-02" d="M 628,-6 L 626,120 L 622,220 L 622,318" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-03" d="M 622,318 L 618,432 L 618,492" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-04" d="M 618,432 L 556,432" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-05" d="M 256,582 L 526,582" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-06" d="M 622,318 L 820,322 L 968,328 L 1380,344 L 1476,350 L 1756,358 L 2040,362" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-07" d="M 626,44 L 820,50 L 1000,56 L 1394,70 L 1580,72 L 1770,76 L 2040,74" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-08" d="M 820,50 L 814,322" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-09" d="M 968,56 L 968,300" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-10" d="M 968,328 L 962,400" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-11" d="M 1042,-6 L 1042,56" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-12" d="M 1396,-6 L 1394,70 L 1388,200 L 1380,344 L 1380,500 L 1382,604" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-13" d="M 1580,-6 L 1580,72" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-14" d="M 1584,26 L 1724,26" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-15" d="M 1774,-6 L 1770,76 L 1760,224 L 1756,358 L 1754,606" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-16" d="M 1760,224 L 1860,226" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-17" d="M 1878,296 L 1878,362" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-18" d="M 1476,350 L 1474,390 L 1664,404 L 1674,392 L 1680,356" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-19" d="M 1474,390 L 1458,426 L 1460,604" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-20" d="M 1384,494 L 1336,502 L 1312,530" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-21" d="M 1382,604 L 1754,606" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-22" d="M 1382,604 L 1384,680 L 1362,876" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-23" d="M 1384,680 L 1400,876" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-24" d="M 1754,606 L 1752,710 L 1726,888" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-kampus-25" d="M 1752,710 L 1780,888" style="fill:none;stroke:#ffffff;stroke-width:11;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="putaran-parkir" d="M 526,380 A 15,15 0 0 1 556,380 L 556,572 A 15,15 0 0 1 526,572 Z" style="fill:none;stroke:#ffffff;stroke-width:11" />
+
+  <!-- LAYER: JALAN KAMPUS -->
+  <g id="layer-jalan-kampus" style="fill:#000000;stroke:none">
+    <path id="jalan-kampus-01" d="m 90,214 270,2 262,4" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-02" d="m 628,-6 -2,126 -4,100 v 98" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-03" d="m 622,318 -4,114 v 60" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-04" d="M 618,432 H 556" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-05" d="M 256,582 H 526" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-06" d="m 622,318 198,4 148,6 412,16 96,6 280,8 284,4" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-07" d="m 626,44 194,6 180,6 394,14 186,2 190,4 270,-2" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-08" d="m 820,50 -6,272" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-09" d="M 968,56 V 300" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-10" d="m 968,328 -6,72" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-11" d="M 1042,-6 V 56" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-12" d="m 1396,-6 -2,76 -6,130 -8,144 v 156 l 2,104" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-13" d="M 1580,-6 V 72" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-14" d="m 1584,26 h 140" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-kampus-15" d="m 1774,-6 -4,82 -10,148 -4,134 -2,248" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-16" d="m 1760,224 100,2" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-17" d="m 1878,296 v 66" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-18" d="m 1476,350 -2,40 190,14 10,-12 6,-36" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-19" d="m 1474,390 -16,36 2,178" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-20" d="m 1384,494 -48,8 -24,28" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-21" d="m 1382,604 372,2" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-22" d="m 1382,604 2,76 -22,196" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-23" d="m 1384,680 16,196" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-24" d="m 1754,606 -2,104 -26,178" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalan-kampus-25" d="m 1752,710 28,178" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="putaran-parkir" d="m 526,380 a 15,15 0 0 1 30,0 v 192 a 15,15 0 0 1 -30,0 z" style="fill:none;stroke:#ffffff;stroke-width:11px;stroke-linecap:butt;stroke-linejoin:miter" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Jalan utama" id="layer-jalan-utama">
-    <path id="jalan-utama-1-tepi" d="M 72,-12 L 66,400 L 60,860 L 52,1152" style="fill:none;stroke:#c9c5bc;stroke-width:72;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-utama-2-tepi" d="M -12,856 L 1000,882 L 2040,924" style="fill:none;stroke:#c9c5bc;stroke-width:72;stroke-linecap:round;stroke-linejoin:round" />
-    <path id="jalan-utama-1" inkscape:label="Jalan Selamat Ketaren" d="M 72,-12 L 66,400 L 60,860 L 52,1152" style="fill:none;stroke:#ffffff;stroke-width:68;stroke-linecap:round;stroke-linejoin:round"><title>Jalan Selamat Ketaren</title></path>
-    <path id="jalan-utama-2" inkscape:label="Jalan Williem Iskandar Pasar V Barat" d="M -12,856 L 1000,882 L 2040,924" style="fill:none;stroke:#ffffff;stroke-width:68;stroke-linecap:round;stroke-linejoin:round"><title>Jalan Williem Iskandar Pasar V Barat</title></path>
-    <path id="jalan-utama-1-marka" d="M 72,-12 L 66,400 L 60,860 L 52,1152" style="fill:none;stroke:#dcd8cf;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14,12" />
-    <path id="jalan-utama-2-marka" d="M -12,856 L 1000,882 L 2040,924" style="fill:none;stroke:#dcd8cf;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14,12" />
+
+  <!-- LAYER: JALAN UTAMA -->
+  <g id="layer-jalan-utama" style="fill:#000000;stroke:none">
+    <path id="jalan-utama-1-tepi" d="m 72,-12 -6,412 -6,460 -8,292" style="fill:none;stroke:#c9c5bc;stroke-width:72px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-utama-2-tepi" d="m -12,856 1012,26 1040,42" style="fill:none;stroke:#c9c5bc;stroke-width:72px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-utama-1" d="m 72,-12 -6,412 -6,460 -8,292" style="fill:none;stroke:#ffffff;stroke-width:68px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)">
+      <title id="title1380">Jalan Selamat Ketaren</title>
+    </path>
+    <path id="jalan-utama-2" d="m -12,856 1012,26 1040,42" style="fill:none;stroke:#ffffff;stroke-width:68px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)">
+      <title id="title1383">Jalan Williem Iskandar Pasar V Barat</title>
+    </path>
+    <path id="jalan-utama-1-marka" d="m 72,-12 -6,412 -6,460 -8,292" style="fill:none;stroke:#dcd8cf;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14px, 12px" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalan-utama-2-marka" d="m -12,856 1012,26 1040,42" style="fill:none;stroke:#dcd8cf;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14px, 12px" mask="url(#imagine-text-gaps-5kww5d)" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Jalur setapak" id="layer-jalur-setapak">
-    <path id="jalur-setapak-1" d="M 1112,670 L 1140,672 L 1162,660 L 1166,644" style="fill:none;stroke:#9aa3ad;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3,6" />
-    <path id="jalur-setapak-2" d="M 1166,660 L 1176,690 L 1180,724 L 1184,756 L 1204,776 L 1236,778 L 1264,762 L 1280,744 L 1310,714 L 1336,696 L 1380,670" style="fill:none;stroke:#9aa3ad;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3,6" />
-    <path id="jalur-setapak-3" d="M 1228,692 L 1226,720 L 1246,744" style="fill:none;stroke:#d9806f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3,6" />
-    <path id="jalur-setapak-4" d="M 1250,670 L 1282,710 L 1246,746 L 1244,776" style="fill:none;stroke:#d9806f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3,6" />
-    <path id="jalur-setapak-5" d="M 1756,464 L 1900,464 L 1814,558 L 1804,534" style="fill:none;stroke:#d9806f;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3,6" />
+
+  <!-- LAYER: JALUR SETAPAK -->
+  <g id="layer-jalur-setapak" style="fill:#000000;stroke:none">
+    <path id="jalur-setapak-2" d="m 1166,660 10,30 4,34 4,32 20,20 32,2 28,-16 16,-18 30,-30 26,-18 44,-26" style="fill:none;stroke:#9aa3ad;stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalur-setapak-3" d="m 1228,692 -2,28 20,24" style="fill:none;stroke:#9aa3ad;stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:round" mask="url(#imagine-text-gaps-5kww5d)" />
+    <path id="jalur-setapak-4" d="m 1250,670 32,40 -36,36 -2,30" style="fill:none;stroke:#9aa3ad;stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:round" />
+    <path id="jalur-setapak-5" d="m 1756,464 h 144 l -86,94 -10,-24" style="fill:none;stroke:#9aa3ad;stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:round" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Bangunan sekitar" id="layer-bangunan-sekitar">
-    <path id="bangunan-sekitar-1" d="M 137.2,965.2 L 74.8,965.2 L 74.8,916.8 L 137.2,916.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-2" d="M 217.1,964.8 L 196.7,963.1 L 198.9,936.7 L 219.3,938.4 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-3" d="M 1425.2,999.2 L 1396.8,999.2 L 1396.8,948.8 L 1425.2,948.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-4" d="M 711.2,1093.2 L 592.8,1089.2 L 597,966.7 L 715.4,970.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-5" d="M 1421.2,1059.2 L 1390.8,1059.2 L 1390.8,1022.8 L 1421.2,1022.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-6" d="M 703.5,1143.3 L 608.5,1136.8 L 610.8,1102.7 L 705.8,1109.2 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-7" d="M 1568.1,1139.1 L 1498.6,1137 L 1499.7,1100.7 L 1569.2,1102.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-8" d="M 1653.2,1077.2 L 1510.5,1075.2 L 1510.8,1050.8 L 1653.5,1052.8 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
-    <path id="bangunan-sekitar-9" d="M 244,968 L 548,968 L 548,1090 L 244,1090 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5;stroke-linejoin:round" />
+
+  <!-- LAYER: BANGUNAN SEKITAR -->
+  <g id="layer-bangunan-sekitar" style="fill:#000000;stroke:none">
+    <path id="bangunan-sekitar-1" d="M 137.2,965.2 H 74.8 v -48.4 h 62.4 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-2" d="m 217.1,964.8 -20.4,-1.7 2.2,-26.4 20.4,1.7 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-3" d="m 1425.2,999.2 h -28.4 v -50.4 h 28.4 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-4" d="m 711.2,1093.2 -118.4,-4 4.2,-122.5 118.4,4.1 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-5" d="m 1421.2,1059.2 h -30.4 v -36.4 h 30.4 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-6" d="m 703.5,1143.3 -95,-6.5 2.3,-34.1 95,6.5 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-7" d="m 1568.1,1139.1 -69.5,-2.1 1.1,-36.3 69.5,2.1 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-8" d="m 1653.2,1077.2 -142.7,-2 0.3,-24.4 142.7,2 z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
+    <path id="bangunan-sekitar-9" d="m 244,968 h 304 v 122 H 244 Z" style="fill:#e2dbd4;stroke:#cfc5bb;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round" />
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Gedung lain" id="layer-gedung-lain">
-    <path id="gedung-lain-01" inkscape:label="Gedung lain 01" d="M 396,-4 L 408,-4 L 448,38 L 524,40 L 524,80 L 420,80 L 372,24 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 01</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-02" inkscape:label="Gedung lain 02" d="M 1343.2,17.2 L 1262.8,17.2 L 1262.8,-1.2 L 1343.2,-1.2 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 02</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-03" inkscape:label="Gedung lain 03" d="M 1571.2,45.2 L 1444.8,45.2 L 1444.8,-1.2 L 1571.2,-1.2 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 03</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-04" inkscape:label="Gedung lain 04" d="M 1030.4,291.2 L 1026.8,146.8 L 1189.6,142.8 L 1193.2,287.2 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 04</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-05" inkscape:label="Gedung lain 05" d="M 1347.1,157.2 L 1234.7,155.1 L 1235.6,106.8 L 1348,108.9 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 05</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-06" inkscape:label="Gedung lain 06" d="M 1665.8,219.5 L 1550.7,213.1 L 1556.4,110.7 L 1671.5,117.1 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 06</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-07" inkscape:label="Gedung lain 07" d="M 1990,120 L 2032,120 L 2032,338 L 1990,338 L 1990,288 L 1918,288 L 1918,174 L 1990,174 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 07</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-08" inkscape:label="Gedung lain 08" d="M 373.3,357.2 L 224.8,353.2 L 226.7,282.8 L 375.2,286.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 08</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-09" inkscape:label="Gedung lain 09" d="M 551.2,353.2 L 470.8,353.2 L 470.8,294.8 L 551.2,294.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 09</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-10" inkscape:label="Gedung lain 10" d="M 1355.2,273.2 L 1246.8,269.2 L 1248.8,214.8 L 1357.2,218.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 10</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-11" inkscape:label="Gedung lain 11" d="M 289.2,483.2 L 226.8,482.1 L 228.9,368.4 L 291.3,369.5 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 11</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-17" inkscape:label="Gedung lain 17" d="M 465.1,565.3 L 390.8,563.5 L 394.8,396.8 L 469.2,398.6 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 17</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-21" inkscape:label="Gedung lain 21" d="M 1506,430 L 1704,434 L 1702,570 L 1650,570 L 1648,582 L 1504,580 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 21</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-22" inkscape:label="Gedung lain 22" d="M 208,522 L 296,524 L 296,578 L 254,578 L 254,608 L 362,608 L 362,656 L 208,656 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 22</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-23" inkscape:label="Gedung lain 23" d="M 434.8,657.2 L 434.2,616.8 L 574.6,614.7 L 575.2,655.2 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 23</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-27" inkscape:label="Gedung lain 27" d="M 1023.2,615.2 L 976.8,615.2 L 976.8,588.8 L 1023.2,588.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 27</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-29" inkscape:label="Gedung lain 29" d="M 699.2,769.2 L 674.8,769.2 L 674.8,736.8 L 699.2,736.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 29</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-31" inkscape:label="Gedung lain 31" d="M 1016,692 L 1046,692 L 1046,756 L 1016,756 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 31</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-33" inkscape:label="Gedung lain 33" d="M 1333.2,819.2 L 1302.8,819.2 L 1302.8,802.8 L 1333.2,802.8 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round"><title>Gedung 33</title><desc>Belum diidentifikasi / bukan gedung FMIPA.</desc></path>
-    <path id="gedung-lain-34" inkscape:label="Gedung lain 34" d="M 864,524 L 910,524 L 910,580 L 864,580 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round;stroke-dasharray:7,5"><title>Gedung 34</title><desc>Bentuk dan posisi perkiraan.</desc></path>
-    <path id="gedung-lain-35" inkscape:label="Gedung lain 35" d="M 836,764 L 898,764 L 898,822 L 836,822 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2;stroke-linejoin:round;stroke-dasharray:7,5"><title>Gedung 35</title><desc>Bentuk dan posisi perkiraan.</desc></path>
+
+  <!-- LAYER: GEDUNG LAIN -->
+  <g id="layer-gedung-lain" style="fill:#000000;stroke:none">
+    <path id="gedung-lain-01" d="m 396,-4 h 12 l 40,42 76,2 V 80 H 420 L 372,24 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1404">Gedung 01</title>
+      <desc id="desc1406">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-02" d="m 1343.2,17.2 h -80.4 V -1.2 h 80.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1409">Gedung 02</title>
+      <desc id="desc1411">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-03" d="M 1571.2,45.2 H 1444.8 V -1.2 h 126.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1414">Gedung 03</title>
+      <desc id="desc1416">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-04" d="m 1030.4,291.2 -3.6,-144.4 162.8,-4 3.6,144.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1419">Gedung 04</title>
+      <desc id="desc1421">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-05" d="m 1347.1,157.2 -112.4,-2.1 0.9,-48.3 112.4,2.1 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1424">Gedung 05</title>
+      <desc id="desc1426">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-06" d="m 1665.8,219.5 -115.1,-6.4 5.7,-102.4 115.1,6.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1429">Gedung 06</title>
+      <desc id="desc1431">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-07" d="m 1990,120 h 42 v 218 h -42 v -50 h -72 V 174 h 72 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1434">Gedung 07</title>
+      <desc id="desc1436">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-08" d="m 373.3,357.2 -148.5,-4 1.9,-70.4 148.5,4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1439">Gedung 08</title>
+      <desc id="desc1441">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-09" d="m 551.2,353.2 h -80.4 v -58.4 h 80.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1444">Gedung 09</title>
+      <desc id="desc1446">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-10" d="m 1355.2,273.2 -108.4,-4 2,-54.4 108.4,4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1449">Gedung 10</title>
+      <desc id="desc1451">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-11" d="m 289.2,483.2 -62.4,-1.1 2.1,-113.7 62.4,1.1 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1454">Gedung 11</title>
+      <desc id="desc1456">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-17" d="m 465.1,565.3 -74.3,-1.8 4,-166.7 74.4,1.8 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1459">Gedung 17</title>
+      <desc id="desc1461">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-21" d="m 1506,430 198,4 -2,136 h -52 l -2,12 -144,-2 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1464">Gedung 21</title>
+      <desc id="desc1466">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-22" d="m 208,522 88,2 v 54 h -42 v 30 h 108 v 48 H 208 Z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1469">Gedung 22</title>
+      <desc id="desc1471">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-23" d="m 434.8,657.2 -0.6,-40.4 140.4,-2.1 0.6,40.5 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1474">Gedung 23</title>
+      <desc id="desc1476">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
+    <path id="gedung-lain-33" d="m 1333.2,819.2 h -30.4 v -16.4 h 30.4 z" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1479">Gedung 33</title>
+      <desc id="desc1481">Belum diidentifikasi / bukan gedung FMIPA.</desc>
+    </path>
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Gedung FMIPA" id="layer-gedung-fmipa">
-    <g id="gedung-04" inkscape:label="Gedung Fisika (04)">
-      <title>Gedung Fisika (04)</title><desc>Menara digambar perkiraan (tidak ada di peta dasar).</desc>
-      <path id="gedung-04-bentuk-1" d="M 1072,446 L 1112,486 L 1072,526 L 1032,486 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+
+  <!-- LAYER: GEDUNG FMIPA -->
+  <g id="layer-gedung-fmipa" style="fill:#000000;stroke:none">
+    <g id="bangunan-pendukung" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+      <path id="bangunan-pendukung-27" d="m 958.6,585.3 12.9,-7.1 h 62 v 34.5 h -69 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1485">Bangunan 27 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-29" d="m 686,742.4 h 19 v 31 h -19 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1488">Bangunan 29 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-34" d="m 862.7,542.5 h 17.5 v -16.7 h 31.6 v 53.6 h -31.6 v -14.3 h -17.5 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1491">Bangunan 34 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-35" d="m 833.4,769.8 h 15.2 v -9.5 l 38.6,-3.6 15.3,8.3 v 40.5 l -10.6,10.7 h -44.4 v -27.4 h -14.1 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1494">Bangunan 35 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-36" d="m 969.1,439 h 30.5 v 69 h -30.5 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1497">Bangunan 36 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-37" d="M 915.3,517 H 941 v 2 h 52.7 v 22.3 H 941 V 538 l -25.7,-2 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1500">Bangunan 37 (belum bernama)</title>
+      </path>
+      <path id="bangunan-pendukung-38" d="m 844,692.4 32,-1.9 V 722 l -32,-2.2 z" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:round">
+        <title id="title1503">Bangunan 38 (belum bernama)</title>
+      </path>
     </g>
-    <g id="gedung-05" inkscape:label="Gedung Biologi (05)">
-      <title>Gedung Biologi (05)</title><desc>Menara digambar perkiraan (tidak ada di peta dasar).</desc>
-      <path id="gedung-05-bentuk-1" d="M 1222,450 L 1262,490 L 1222,530 L 1182,490 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-syawal-gultom" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1507">Gedung Syawal Gultom (01)</title>
+      <desc id="desc1509">Bentuk dan nama mengikuti gambar tim.</desc>
+      <path id="gedung-syawal-gultom-bentuk-1" d="m 1079.1,546.1 37.5,-35.7 h 51.4 l 37.5,35.7 v 52.3 l -37.5,35.7 h -51.4 l -37.5,-35.7 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-kimia" inkscape:label="Gedung Kimia">
-      <title>Gedung Kimia</title><desc>Menara digambar perkiraan (tidak ada di peta dasar).</desc>
-      <path id="gedung-kimia-bentuk-1" d="M 1072,596 L 1112,636 L 1072,676 L 1032,636 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-04" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1513">Gedung Fisika (04)</title>
+      <desc id="desc1515">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-04-bentuk-1" d="m 1079.1,546.1 -40.7,-55.3 37.4,-35.7 40.8,55.3 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-02" inkscape:label="Gedung Matematika (02)">
-      <title>Gedung Matematika (02)</title><desc>Dugaan: satu-satunya menara tanpa label di Google Maps. Perlu dicek.</desc>
-      <path id="gedung-02-bentuk-1" d="M 1196,610 L 1202,616 L 1216,608 L 1256,654 L 1226,684 L 1206,684 L 1170,648 L 1174,626 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-05" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1519">Gedung Biologi (05)</title>
+      <desc id="desc1521">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-05-bentuk-1" d="m 1168,510.4 73.8,-66 37.4,35.7 -73.7,66 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-syawal-gultom" inkscape:label="Gedung Syawal Gultom">
-      <title>Gedung Syawal Gultom</title><desc>Sesuai label Google Maps.</desc>
-      <path id="gedung-syawal-gultom-bentuk-1" d="M 1056,534 L 1080,532 L 1104,506 L 1174,508 L 1200,538 L 1196,608 L 1170,628 L 1100,626 L 1080,598 L 1056,592 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-kimia" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1525">Gedung Kimi (03)</title>
+      <desc id="desc1527">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-kimia-bentuk-1" d="m 1079.1,598.4 37.5,35.7 -41,38.8 -37.4,-35.7 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-12" inkscape:label="Gedung Bersama (12)">
-      <title>Gedung Bersama (12)</title><desc>Tiga sayap dianggap satu gedung. Perlu dicek.</desc>
-      <path id="gedung-12-bentuk-1" d="M 670,411 L 846,414 L 846,465 L 976,467 L 975,515 L 836,514 L 836,548 L 670,548 L 670,498 L 808,498 L 808,459 L 670,457 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-02" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1531">Gedung Matematika (02)</title>
+      <desc id="desc1533">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-02-bentuk-1" d="m 1205.5,598.4 59.7,53.5 -37.5,35.7 -59.7,-53.5 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-lab-fisika" inkscape:label="Gedung Lab Fisika">
-      <title>Gedung Lab Fisika</title><desc>Sesuai label Google Maps.</desc>
-      <path id="gedung-lab-fisika-bentuk-1" d="M 876,393 L 963,393 L 963,458 L 876,458 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-12" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1537">Gedung Bersama (12)</title>
+      <desc id="desc1539">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-12-bentuk-1" d="m 672,410 172,7.5 V 466 l 125,-2 v 47.5 L 836,509 v 53.5 l -166.5,-1 V 509 l 137,-3.5 -4.5,-45 -130,-3.5 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-lab-biologi-barat" inkscape:label="Gedung Lab Biologi (10/11)">
-      <title>Gedung Lab Biologi (10/11)</title><desc>Dugaan: pasangan Lab Biologi. Lama (10) atau Baru (11) belum dipastikan.</desc>
-      <path id="gedung-lab-biologi-barat-bentuk-1" d="M 665.2,739.8 L 626.8,739.2 L 628.8,616.8 L 667.2,617.4 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-lab-fisika" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1543">Lab Fisika (08)</title>
+      <desc id="desc1545">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-lab-fisika-bentuk-1" d="m 887.2,404.5 h 35.1 v -26.2 h 42.2 V 462 h -77.3 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-lab-biologi-timur" inkscape:label="Gedung Lab Biologi (10/11)">
-      <title>Gedung Lab Biologi (10/11)</title><desc>Lama (10) atau Baru (11) belum dipastikan.</desc>
-      <path id="gedung-lab-biologi-timur-bentuk-1" d="M 672,584 L 704,584 L 704,722 L 672,722 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-lab-biologi-barat" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1549">Lab Biologi Baru (11)</title>
+      <desc id="desc1551">Gedung barat. Nama dan nomor mengikuti gambar tim.</desc>
+      <path id="gedung-lab-biologi-barat-bentuk-1" d="m 620.5,603.2 39.8,2.4 v 149.9 h -44.5 v -65.4 l 9.4,-2.4 v -15.5 l -5.9,-2.4 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-09" inkscape:label="Gedung Lab Komputer (09)">
-      <title>Gedung Lab Komputer (09)</title><desc>Sesuai label Google Maps.</desc>
-      <path id="gedung-09-bentuk-1" d="M 712,684 L 874,684 L 874,736 L 712,736 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-lab-biologi-timur" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1555">Lab Biologi Lama (10)</title>
+      <desc id="desc1557">Gedung timur. Nama dan nomor mengikuti gambar tim.</desc>
+      <path id="gedung-lab-biologi-timur-bentuk-1" d="m 667.3,606.8 32.7,-3.6 3.6,92.8 h 3.5 v 38.1 l -44.5,-2.4 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-lab-kimia" inkscape:label="Gedung Lab Kimia">
-      <title>Gedung Lab Kimia</title><desc>Sesuai label Google Maps.</desc>
-      <path id="gedung-lab-kimia-bentuk-1" d="M 879,632 L 1016,632 L 1016,754 L 879,754 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-09" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1561">Lab Matematika (09)</title>
+      <desc id="desc1563">Nama mengikuti gambar tim. Di daftar awal tertulis Gedung Ilmu Komputer (09).</desc>
+      <path id="gedung-09-bentuk-1" d="m 707.1,696 h 51.4 v -8.3 h 24.6 v 11.9 h 46.8 v 44 H 707.1 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-    <g id="gedung-06" inkscape:label="Gedung Bilingual (06)">
-      <title>Gedung Bilingual (06)</title><desc>Sesuai label Google Maps.</desc>
-      <path id="gedung-06-bentuk-1" d="M 1052,690 L 1159,694 L 1158,768 L 1049,761 Z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2;stroke-linejoin:round" />
+    <g id="gedung-lab-kimia" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1567">Lab Kimia (07)</title>
+      <desc id="desc1569">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-lab-kimia-bentuk-1" d="m 882.6,637.7 131,-2.4 1.2,115.4 -134.6,-3.5 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
-  </g>
-  <g inkscape:groupmode="layer" inkscape:label="Nama gedung" id="layer-nama-gedung">
-    <text id="nama-gedung-04" inkscape:label="Nama: Gedung Fisika (04)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1072.0" y="476.7">Gedung</tspan>
-      <tspan x="1072.0" y="490.2">Fisika</tspan>
-      <tspan x="1072.0" y="503.7" style="font-size:11px;font-weight:normal">(04)</tspan>
-    </text>
-    <text id="nama-gedung-05" inkscape:label="Nama: Gedung Biologi (05)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1222.0" y="480.7">Gedung</tspan>
-      <tspan x="1222.0" y="494.2">Biologi</tspan>
-      <tspan x="1222.0" y="507.7" style="font-size:11px;font-weight:normal">(05)</tspan>
-    </text>
-    <text id="nama-gedung-kimia" inkscape:label="Nama: Gedung Kimia" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1072.0" y="633.5">Gedung</tspan>
-      <tspan x="1072.0" y="647.0">Kimia</tspan>
-    </text>
-    <text id="nama-gedung-02" inkscape:label="Nama: Gedung Matematika (02)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1213.0" y="636.7">Gedung</tspan>
-      <tspan x="1213.0" y="650.2">Matematika</tspan>
-      <tspan x="1213.0" y="663.7" style="font-size:11px;font-weight:normal">(02)</tspan>
-    </text>
-    <text id="nama-gedung-syawal-gultom" inkscape:label="Nama: Gedung Syawal Gultom" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1132.0" y="565.5">Gedung</tspan>
-      <tspan x="1132.0" y="579.0">Syawal Gultom</tspan>
-    </text>
-    <text id="nama-gedung-12" inkscape:label="Nama: Gedung Bersama (12)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="892.0" y="494.2">Gedung Bersama (12)</tspan>
-    </text>
-    <text id="nama-gedung-lab-fisika" inkscape:label="Nama: Gedung Lab Fisika" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="920.0" y="429.2">Lab Fisika</tspan>
-    </text>
-    <text id="nama-gedung-lab-biologi-barat" inkscape:label="Nama: Gedung Lab Biologi (10/11)" transform="rotate(-90 646.0 679.0)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="646.0" y="683.2">Lab Biologi</tspan>
-    </text>
-    <text id="nama-gedung-lab-biologi-timur" inkscape:label="Nama: Gedung Lab Biologi (10/11)" transform="rotate(-90 688.0 653.0)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="688.0" y="657.2">Lab Biologi</tspan>
-    </text>
-    <text id="nama-gedung-09" inkscape:label="Nama: Gedung Lab Komputer (09)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="793.0" y="714.2">Lab Komputer (09)</tspan>
-    </text>
-    <text id="nama-gedung-lab-kimia" inkscape:label="Nama: Gedung Lab Kimia" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="948.0" y="697.2">Lab Kimia</tspan>
-    </text>
-    <text id="nama-gedung-06" inkscape:label="Nama: Gedung Bilingual (06)" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#4a1a0e;text-anchor:middle">
-      <tspan x="1104.0" y="719.7">Gedung</tspan>
-      <tspan x="1104.0" y="733.2">Bilingual</tspan>
-      <tspan x="1104.0" y="746.7" style="font-size:11px;font-weight:normal">(06)</tspan>
-    </text>
-  </g>
-  <g inkscape:groupmode="layer" inkscape:label="Nomor gedung (sementara)" id="layer-nomor-gedung">
-    <g id="nomor-01" inkscape:label="Nomor 01">
-      <circle cx="446.5" cy="48" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="446.5" y="52.4" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">01</text>
-    </g>
-    <g id="nomor-02" inkscape:label="Nomor 02">
-      <circle cx="1303" cy="16" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1303" y="19.6" style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;fill:#ffffff;text-anchor:middle">02</text>
-    </g>
-    <g id="nomor-03" inkscape:label="Nomor 03">
-      <circle cx="1508" cy="22" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1508" y="26.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">03</text>
-    </g>
-    <g id="nomor-04" inkscape:label="Nomor 04">
-      <circle cx="1110" cy="217" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1110" y="221.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">04</text>
-    </g>
-    <g id="nomor-05" inkscape:label="Nomor 05">
-      <circle cx="1291.4" cy="132" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1291.4" y="136.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">05</text>
-    </g>
-    <g id="nomor-06" inkscape:label="Nomor 06">
-      <circle cx="1611.1" cy="165.1" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1611.1" y="169.4" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">06</text>
-    </g>
-    <g id="nomor-07" inkscape:label="Nomor 07">
-      <circle cx="1984.1" cy="229.9" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1984.1" y="234.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">07</text>
-    </g>
-    <g id="nomor-08" inkscape:label="Nomor 08">
-      <circle cx="300" cy="320" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="300" y="324.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">08</text>
-    </g>
-    <g id="nomor-09" inkscape:label="Nomor 09">
-      <circle cx="511" cy="324" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="511" y="328.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">09</text>
-    </g>
-    <g id="nomor-10" inkscape:label="Nomor 10">
-      <circle cx="1302" cy="244" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1302" y="248.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">10</text>
-    </g>
-    <g id="nomor-11" inkscape:label="Nomor 11">
-      <circle cx="259" cy="425.8" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="259" y="430.1" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">11</text>
-    </g>
-    <g id="nomor-17" inkscape:label="Nomor 17">
-      <circle cx="430" cy="481" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="430" y="485.4" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">17</text>
-    </g>
-    <g id="nomor-21" inkscape:label="Nomor 21">
-      <circle cx="1602.2" cy="505.1" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1602.2" y="509.4" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">21</text>
-    </g>
-    <g id="nomor-22" inkscape:label="Nomor 22">
-      <circle cx="267.7" cy="599.1" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="267.7" y="603.4" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">22</text>
-    </g>
-    <g id="nomor-23" inkscape:label="Nomor 23">
-      <circle cx="504.7" cy="636" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="504.7" y="640.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">23</text>
-    </g>
-    <g id="nomor-27" inkscape:label="Nomor 27">
-      <circle cx="1000" cy="602" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1000" y="605.6" style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;fill:#ffffff;text-anchor:middle">27</text>
-    </g>
-    <g id="nomor-29" inkscape:label="Nomor 29">
-      <circle cx="687" cy="753" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="687" y="756.6" style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;fill:#ffffff;text-anchor:middle">29</text>
-    </g>
-    <g id="nomor-31" inkscape:label="Nomor 31">
-      <circle cx="1031" cy="724" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1031" y="727.6" style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;fill:#ffffff;text-anchor:middle">31</text>
-    </g>
-    <g id="nomor-33" inkscape:label="Nomor 33">
-      <circle cx="1318" cy="811" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="1318" y="814.6" style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;fill:#ffffff;text-anchor:middle">33</text>
-    </g>
-    <g id="nomor-34" inkscape:label="Nomor 34">
-      <circle cx="887" cy="552" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="887" y="556.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">34</text>
-    </g>
-    <g id="nomor-35" inkscape:label="Nomor 35">
-      <circle cx="867" cy="793" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5" />
-      <text x="867" y="797.3" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;fill:#ffffff;text-anchor:middle">35</text>
+    <g id="gedung-06" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round">
+      <title id="title1573">Gedung Bilingual (06)</title>
+      <desc id="desc1575">Bentuk mengikuti gambar tim.</desc>
+      <path id="gedung-06-bentuk-1" d="m 1020.6,684.1 141.6,3.6 v 70.2 H 1051 v -8.3 l -30.4,-2.4 z" style="fill:#eaa98f;stroke:#b5452b;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:round" />
     </g>
   </g>
-  <g inkscape:groupmode="layer" inkscape:label="Label" id="layer-label">
-    <g id="label-jalan-1" inkscape:label="Jalan Selamat Ketaren">
-      <text x="74" y="430" transform="rotate(-90.8 74 430)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#ffffff;stroke:#ffffff;stroke-width:6;stroke-linejoin:round">Jalan Selamat Ketaren</text>
-      <text x="74" y="430" transform="rotate(-90.8 74 430)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#3b3b3b">Jalan Selamat Ketaren</text>
+
+  <!-- LAYER: NAMA GEDUNG -->
+  <g id="layer-nama-gedung" style="fill:#4a1a0e;stroke:none">
+    <text id="nama-gedung-04" x="1068.6991" y="483.04486" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#4a1a0e">Gedung Fisika (04)</text>
+    <text id="nama-gedung-05" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" x="-25.450447" y="-22.407457">
+      <tspan x="1240.5496" y="511.59253" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1581">Gedung</tspan>
+      <tspan x="1240.5496" y="523.59253" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1583">Biologi</tspan>
+      <tspan x="1240.5496" y="535.59253" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1585">(05)</tspan>
+    </text>
+    <text id="nama-gedung-kimia" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" x="-16.321482" y="-17.704659">
+      <tspan x="1098.6785" y="647.29535" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1588">Gedung</tspan>
+      <tspan x="1098.6785" y="659.29535" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1590">Kimia (03)</tspan>
+    </text>
+    <text id="nama-gedung-02" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" x="-20.471012" y="20.194376">
+      <tspan x="1230.5289" y="612.1944" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1593">Gedung</tspan>
+      <tspan x="1230.5289" y="624.1944" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1595">Matematika</tspan>
+      <tspan x="1230.5289" y="636.1944" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1597">(02)</tspan>
+    </text>
+    <text id="nama-gedung-syawal-gultom" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">
+      <tspan x="1142" y="570" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1600">Gedung</tspan>
+      <tspan x="1142" y="582" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1602">Syawal (01)</tspan>
+    </text>
+    <text id="nama-gedung-12" x="906" y="486" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">Gedung Bersama (12)</text>
+    <text id="nama-gedung-lab-fisika" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">
+      <tspan x="926" y="430" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1606">Lab Fisika</tspan>
+      <tspan x="926" y="443.5" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1608">(08)</tspan>
+    </text>
+    <text id="nama-gedung-lab-biologi-barat" x="631" y="662" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">(11)</text>
+    <text id="nama-gedung-lab-biologi-timur" x="677" y="662" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">(10)</text>
+    <text id="keterangan-lab-biologi" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#4a1a0e">
+      <tspan x="562" y="772" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#4a1a0e" id="tspan1613">(11) Lab Biologi Baru</tspan>
+      <tspan x="562" y="785" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#4a1a0e" id="tspan1615">(10) Lab Biologi Lama</tspan>
+    </text>
+    <text id="nama-gedung-09" x="769" y="730" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">Lab Matematika (09)</text>
+    <text id="nama-gedung-lab-kimia" x="948" y="698" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">Lab Kimia (07)</text>
+    <text id="nama-gedung-06" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e">
+      <tspan x="1096" y="713" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1620">Gedung</tspan>
+      <tspan x="1096" y="726.5" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#4a1a0e" id="tspan1622">Bilingual (06)</tspan>
+    </text>
+  </g>
+
+  <!-- LAYER: NOMOR GEDUNG -->
+  <g id="layer-nomor-gedung" style="fill:#000000;stroke:none">
+    <g id="nomor-01" style="fill:#000000;stroke:none">
+      <circle cx="446.5" cy="48" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1626" />
+      <text x="446.5" y="52.400002" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1628">01</text>
     </g>
-    <g id="label-jalan-2a" inkscape:label="Jalan Williem Iskandar Pasar V Barat">
-      <text x="470" y="875" transform="rotate(1.5 470 875)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#ffffff;stroke:#ffffff;stroke-width:6;stroke-linejoin:round">Jalan Williem Iskandar Pasar V Barat</text>
-      <text x="470" y="875" transform="rotate(1.5 470 875)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#3b3b3b">Jalan Williem Iskandar Pasar V Barat</text>
+    <g id="nomor-02" style="fill:#000000;stroke:none">
+      <circle cx="1303" cy="16" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1631" />
+      <text x="1303" y="19.6" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1633">02</text>
     </g>
-    <g id="label-jalan-2b" inkscape:label="Jalan Williem Iskandar Pasar V Barat">
-      <text x="1336" y="903" transform="rotate(2.3 1336 903)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#ffffff;stroke:#ffffff;stroke-width:6;stroke-linejoin:round">Jalan Williem Iskandar Pasar V Barat</text>
-      <text x="1336" y="903" transform="rotate(2.3 1336 903)" style="font-family:Arial,sans-serif;font-size:17px;text-anchor:middle;fill:#3b3b3b">Jalan Williem Iskandar Pasar V Barat</text>
+    <g id="nomor-03" style="fill:#000000;stroke:none">
+      <circle cx="1508" cy="22" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1636" />
+      <text x="1508" y="26.299999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1638">03</text>
     </g>
-    <text id="label-parkir-1" x="542" y="498" style="font-family:Arial,sans-serif;font-size:22px;font-weight:bold;fill:#0092da;text-anchor:middle">P</text>
-    <text id="label-parkir-2" x="976" y="410" style="font-family:Arial,sans-serif;font-size:22px;font-weight:bold;fill:#0092da;text-anchor:middle">P</text>
-    <text id="label-parkir-3" x="1672" y="38" style="font-family:Arial,sans-serif;font-size:22px;font-weight:bold;fill:#0092da;text-anchor:middle">P</text>
-    <text id="atribusi" x="2016" y="1126" style="font-family:Arial,sans-serif;font-size:13px;fill:#6b6b6b;text-anchor:end">Data dasar © OpenStreetMap contributors</text>
+    <g id="nomor-04" style="fill:#000000;stroke:none">
+      <circle cx="1110" cy="217" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1641" />
+      <text x="1110" y="221.3" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1643">04</text>
+    </g>
+    <g id="nomor-05" style="fill:#000000;stroke:none">
+      <circle cx="1291.4" cy="132" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1646" />
+      <text x="1291.4" y="136.3" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1648">05</text>
+    </g>
+    <g id="nomor-06" style="fill:#000000;stroke:none">
+      <circle cx="1611.1" cy="165.10001" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1651" />
+      <text x="1611.1" y="169.39999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1653">06</text>
+    </g>
+    <g id="nomor-07" style="fill:#000000;stroke:none">
+      <circle cx="1984.1" cy="229.89999" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1656" />
+      <text x="1984.1" y="234.3" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1658">07</text>
+    </g>
+    <g id="nomor-08" style="fill:#000000;stroke:none">
+      <circle cx="300" cy="320" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1661" />
+      <text x="300" y="324.29999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1663">08</text>
+    </g>
+    <g id="nomor-09" style="fill:#000000;stroke:none">
+      <circle cx="511" cy="324" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1666" />
+      <text x="511" y="328.29999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1668">09</text>
+    </g>
+    <g id="nomor-10" style="fill:#000000;stroke:none">
+      <circle cx="1302" cy="244" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1671" />
+      <text x="1302" y="248.3" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1673">10</text>
+    </g>
+    <g id="nomor-11" style="fill:#000000;stroke:none">
+      <circle cx="259" cy="425.79999" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1676" />
+      <text x="259" y="430.10001" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1678">11</text>
+    </g>
+    <g id="nomor-17" style="fill:#000000;stroke:none">
+      <circle cx="430" cy="481" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1681" />
+      <text x="430" y="485.39999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1683">17</text>
+    </g>
+    <g id="nomor-21" style="fill:#000000;stroke:none">
+      <circle cx="1602.2" cy="505.10001" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1686" />
+      <text x="1602.2" y="509.39999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1688">21</text>
+    </g>
+    <g id="nomor-22" style="fill:#000000;stroke:none">
+      <circle cx="267.70001" cy="599.09998" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1691" />
+      <text x="267.70001" y="603.40002" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1693">22</text>
+    </g>
+    <g id="nomor-23" style="fill:#000000;stroke:none">
+      <circle cx="504.70001" cy="636" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1696" />
+      <text x="504.70001" y="640.29999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1698">23</text>
+    </g>
+    <g id="nomor-27" style="fill:#000000;stroke:none">
+      <circle cx="998" cy="596" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1701" />
+      <text x="998" y="599.59998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1703">27</text>
+    </g>
+    <g id="nomor-29" style="fill:#000000;stroke:none">
+      <circle cx="695.5" cy="758" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1706" />
+      <text x="695.5" y="761.59998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1708">29</text>
+    </g>
+    <g id="nomor-33" style="fill:#000000;stroke:none">
+      <circle cx="1318" cy="811" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1711" />
+      <text x="1318" y="814.59998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1713">33</text>
+    </g>
+    <g id="nomor-34" style="fill:#000000;stroke:none">
+      <circle cx="896" cy="552.5" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1716" />
+      <text x="896" y="556.09998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1718">34</text>
+    </g>
+    <g id="nomor-35" style="fill:#000000;stroke:none">
+      <circle cx="872" cy="790" r="11" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1721" />
+      <text x="872" y="794.29999" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1723">35</text>
+    </g>
+    <g id="nomor-36" style="fill:#000000;stroke:none">
+      <circle cx="984.29999" cy="474" r="8.5" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1726" />
+      <text x="984.29999" y="477.60001" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1728">36</text>
+    </g>
+    <g id="nomor-37" style="fill:#000000;stroke:none">
+      <circle cx="966" cy="531.5" r="8" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1731" />
+      <text x="966" y="535.09998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1733">37</text>
+    </g>
+    <g id="nomor-38" style="fill:#000000;stroke:none">
+      <circle cx="860" cy="707.5" r="8" style="fill:#8b8178;stroke:#ffffff;stroke-width:1.5px" id="circle1736" />
+      <text x="860" y="711.09998" style="font-weight:700;font-size:10px;font-family:Arial, sans-serif;text-anchor:middle;fill:#ffffff" id="text1738">38</text>
+    </g>
+  </g>
+
+  <!-- LAYER: NOMOR WAYPOINT -->
+  <g id="layer-nomor-waypoint" style="fill:#0d4a8a;stroke:none">
+    <text x="633" y="306" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1742">01</text>
+    <text x="629" y="426" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1744">02</text>
+    <text x="598" y="506" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1746">03</text>
+    <text x="624" y="588" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1748">04</text>
+    <text x="713" y="580" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1750">05</text>
+    <text x="712" y="642" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1752">06</text>
+    <text x="819" y="609" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1754">07</text>
+    <text x="927" y="609" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1756">08</text>
+    <text x="927" y="558" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1758">09</text>
+    <text x="1042" y="589" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1760">10</text>
+    <text x="1034" y="620" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1762">11</text>
+    <text x="1012" y="672" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1764">12</text>
+    <text x="824" y="311" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1766">13</text>
+    <text x="976" y="317" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1768">14</text>
+    <text x="980" y="358" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1770">15</text>
+    <text x="928" y="353" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1772">16</text>
+    <text x="1020" y="431" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1774">17</text>
+    <text x="1003" y="533" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1776">18</text>
+    <text x="1050" y="432" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1778">19</text>
+    <text x="1240" y="421" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1780">20</text>
+    <text x="1281" y="427" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1782">21</text>
+    <text x="1305" y="453" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1784">22</text>
+    <text x="1319" y="547" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1786">23</text>
+    <text x="1311" y="588" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1788">24</text>
+    <text x="1305" y="642" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1790">25</text>
+    <text x="1293" y="705" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1792">26</text>
+    <text x="1194" y="740" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1794">27</text>
+    <text x="1188" y="692" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1796">28</text>
+    <text x="1168" y="656" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1798">29</text>
+    <text x="1391" y="338" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1800">30</text>
+    <text x="1391" y="488" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1802">31</text>
+    <text x="1340" y="489" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1804">32</text>
+    <text x="1393" y="598" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1806">33</text>
+    <text x="1394" y="664" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1808">34</text>
+    <text x="1196" y="758" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1810">35</text>
+    <text x="1196" y="796" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1812">36</text>
+    <text x="1218" y="797" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1814">37</text>
+    <text x="1248" y="792" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1816">38</text>
+    <text x="1288" y="757" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1818">39</text>
+    <text x="1340" y="714" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1820">40</text>
+    <text x="1222" y="744" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1822">41</text>
+    <text x="745" y="610" style="font-weight:700;font-size:11px;font-family:Arial, sans-serif;text-anchor:start;fill:#0d4a8a" id="text1824">42</text>
+  </g>
+
+  <!-- LAYER: LABEL -->
+  <g id="layer-label" style="fill:#000000;stroke:none">
+    <g id="label-jalan-1" style="fill:#000000;stroke:none">
+      <text x="74" y="430" transform="rotate(-90.8,74,430)" style="font-weight:400;font-size:17px;font-family:Arial, sans-serif;text-anchor:middle;fill:#3b3b3b" id="text1827">Jalan Selamat Ketaren</text>
+    </g>
+    <g id="label-jalan-2a" style="fill:#000000;stroke:none">
+      <text x="470" y="875" transform="rotate(1.5,470,875)" style="font-weight:400;font-size:17px;font-family:Arial, sans-serif;text-anchor:middle;fill:#3b3b3b" id="text1830">Jalan Williem Iskandar Pasar V Barat</text>
+    </g>
+    <g id="label-jalan-2b" style="fill:#000000;stroke:none">
+      <text x="1336" y="903" transform="rotate(2.3,1336,903)" style="font-weight:400;font-size:17px;font-family:Arial, sans-serif;text-anchor:middle;fill:#3b3b3b" id="text1833">Jalan Williem Iskandar Pasar V Barat</text>
+    </g>
+    <text id="label-parkir-1" x="538" y="498" style="font-weight:700;font-size:22px;font-family:Arial, sans-serif;text-anchor:middle;fill:#0092da">P</text>
+    <text id="label-parkir-2" x="976" y="420" style="font-weight:700;font-size:22px;font-family:Arial, sans-serif;text-anchor:middle;fill:#0092da">P</text>
+    <text id="label-parkir-3" x="1672" y="38" style="font-weight:700;font-size:22px;font-family:Arial, sans-serif;text-anchor:middle;fill:#0092da">P</text>
+    <text id="atribusi" x="2016" y="1126" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:end;fill:#6b6b6b">Data dasar © OpenStreetMap contributors</text>
+  </g>
+
+  <!-- LAYER: LEGENDA -->
+  <g id="layer-legenda" style="fill:#000000;stroke:none">
+    <rect id="legenda-latar" x="28" y="968" width="744" height="152" rx="10" style="fill:#fffaf0;stroke:#d8cdb8;stroke-width:1.5px" />
+    <text x="44" y="992" style="font-weight:700;font-size:12px;font-family:Arial, sans-serif;letter-spacing:1.5px;text-anchor:start;fill:#6b5a45" id="text1842">LEGENDA</text>
+    <rect x="44" y="1006" width="26" height="14" rx="2" style="fill:#eaa98f;stroke:#b5452b;stroke-width:1.5px" id="rect1844" />
+    <text x="82" y="1018" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1846">Gedung FMIPA</text>
+    <rect x="44" y="1028" width="26" height="14" rx="2" style="fill:#f3cdb9;stroke:#b5452b;stroke-width:1.5px" id="rect1848" />
+    <text x="82" y="1040" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1850">Bangunan pendukung</text>
+    <rect x="44" y="1050" width="26" height="14" rx="2" style="fill:#d9d0c9;stroke:#b3a497;stroke-width:1.5px" id="rect1852" />
+    <text x="82" y="1062" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1854">Gedung lain</text>
+    <rect x="44" y="1072" width="26" height="14" rx="2" style="fill:#ffffff;stroke:#c9c5bc;stroke-width:1.5px" id="rect1856" />
+    <text x="82" y="1084" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1858">Jalan</text>
+    <path d="M 44,1101 H 70" style="fill:none;stroke:#9aa3ad;stroke-width:2.5px;stroke-linecap:round" id="path1860" />
+    <text x="82" y="1106" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1862">Jalur setapak</text>
+    <path d="m 284,1013 h 26" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round" id="path1864" />
+    <text x="322" y="1018" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1866">Rute (luar dan dalam gedung)</text>
+    <path d="m 284,1035 h 26" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round" id="path1868" />
+    <text x="322" y="1040" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1870">Rute tambahan (peta dasar)</text>
+    <path d="m 284,1057 h 26" style="fill:none;stroke:#e08a00;stroke-width:3px;stroke-linecap:round" id="path1872" />
+    <text x="322" y="1062" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1874">Rute perkiraan</text>
+    <circle cx="557" cy="1013" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" id="circle1876" />
+    <text x="576" y="1018" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1878">Waypoint</text>
+    <circle cx="557" cy="1035" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px" id="circle1880" />
+    <text x="576" y="1040" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1882">Pintu gedung (sesuai sketsa)</text>
+    <circle cx="557" cy="1057" r="3.5" style="fill:#f4b400;stroke:#ffffff;stroke-width:1px" id="circle1884" />
+    <text x="576" y="1062" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:start;fill:#3b3b3b" id="text1886">Pintu gedung (perkiraan)</text>
+    <g id="skala" style="fill:#000000;stroke:none">
+      <path d="m 1877,1092 v 8 h 139 v -8" style="fill:none;stroke:#3b3b3b;stroke-width:2px;stroke-linecap:butt" id="path1888" />
+      <text x="1946.5" y="1086" style="font-weight:400;font-size:13px;font-family:Arial, sans-serif;text-anchor:middle;fill:#3b3b3b" id="text1890">± 50 m</text>
+    </g>
+  </g>
+
+  <!-- LAYER: RUTE -->
+  <g id="layer-rute" data-skala-m-per-px="0.36" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter">
+    <desc id="desc1894">Jaringan rute pejalan kaki. Setiap rute adalah garis lurus antara dua titik (data-dari, data-ke), jadi setiap belokan adalah titik. Rute di luar dan di dalam gedung digambar dengan gaya yang sama; bedanya hanya di atribut data-jenis (luar / koridor). Koordinat dalam viewBox 0 0 2028 1138. Jarak meter = panjang px x 0,36 (perkiraan).</desc>
+    <g id="rute-sketsa" data-sumber="sketsa" data-jenis="luar" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter">
+      <path id="rute-01" data-dari="wp-01" data-ke="wp-02" d="m 622,318 -4,114" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-02" data-dari="wp-02" data-ke="wp-03" d="m 618,432 v 60" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-03" data-dari="wp-03" data-ke="wp-04" d="m 618,492 34,102" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-04" data-dari="wp-04" data-ke="pintu-gedung-lab-biologi-barat" d="m 652,594 v 11.1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-05" data-dari="wp-04" data-ke="wp-05" d="m 652,594 55,-2" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-06" data-dari="wp-05" data-ke="wp-06" d="m 707,592 3,30" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-07" data-dari="wp-06" data-ke="pintu-gedung-lab-biologi-timur" d="m 710,622 h -9.3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-08" data-dari="wp-06" data-ke="wp-42" d="m 710,622 25,-0.3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-09" data-dari="wp-07" data-ke="wp-08" d="m 808,621 142,-1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-10" data-dari="wp-08" data-ke="wp-09" d="M 950,620 V 568" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-11" data-dari="wp-09" data-ke="wp-10" d="m 950,568 h 87" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-12" data-dari="wp-10" data-ke="pintu-gedung-syawal-gultom-barat" d="m 1037,568 42.1,3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-13" data-dari="wp-08" data-ke="wp-11" d="m 950,620 74,8" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-14" data-dari="wp-11" data-ke="wp-12" d="m 1024,628 2,24" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-15" data-dari="wp-12" data-ke="pintu-gedung-kimia" d="m 1026,652 30.9,3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-16" data-dari="wp-01" data-ke="wp-13" d="m 622,318 192,4" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-17" data-dari="wp-13" data-ke="wp-14" d="m 814,322 154,6" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-18" data-dari="wp-13" data-ke="pintu-gedung-12-utara" d="m 814,322 -2,94.1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-19" data-dari="pintu-gedung-12-selatan" data-ke="wp-07" d="M 812,562.4 808,621" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-20" data-dari="wp-07" data-ke="pintu-gedung-09" d="m 808,621 -5,78.6" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-21" data-dari="wp-14" data-ke="wp-15" d="m 968,328 2,36" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-22" data-dari="wp-15" data-ke="wp-16" d="M 970,364 H 947" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-23" data-dari="wp-16" data-ke="pintu-gedung-lab-fisika" d="m 947,364 v 14.3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-24" data-dari="wp-15" data-ke="parkir-2" d="m 970,364 12,16" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-25" data-dari="parkir-2" data-ke="wp-17" d="m 982,380 32,62" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-26" data-dari="wp-17" data-ke="wp-18" d="m 1014,442 10,72.5" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-27" data-dari="pintu-gedung-12-timur" data-ke="wp-18" d="m 958,511.3 66,3.2" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-28" data-dari="wp-18" data-ke="wp-10" d="m 1024,514.5 13,53.5" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-29" data-dari="wp-17" data-ke="wp-19" d="m 1014,442 42,2" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-30" data-dari="wp-19" data-ke="wp-20" d="m 1056,444 192,-12" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-31" data-dari="wp-20" data-ke="wp-21" d="m 1248,432 29,2" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-32" data-dari="wp-21" data-ke="wp-22" d="m 1277,434 17,22" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-33" data-dari="pintu-gedung-05" data-ke="wp-22" d="M 1260.5,462.2 1294,456" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-34" data-dari="wp-22" data-ke="wp-23" d="m 1294,456 16,74" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-35" data-dari="wp-23" data-ke="wp-24" d="m 1310,530 -10,41" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-36" data-dari="pintu-gedung-syawal-gultom-timur" data-ke="wp-24" d="m 1205.5,572 94.5,-1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-37" data-dari="wp-24" data-ke="wp-25" d="m 1300,571 -6,65" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-38" data-dari="wp-25" data-ke="wp-26" d="m 1294,636 -14,74" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-39" data-dari="pintu-gedung-02" data-ke="wp-26" d="M 1246.5,669.8 1280,710" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-40" data-dari="wp-26" data-ke="wp-27" d="m 1280,710 -98,15" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-41" data-dari="wp-27" data-ke="pintu-gedung-06" d="m 1182,725 -19.8,1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-42" data-dari="wp-27" data-ke="wp-28" d="m 1182,725 -5,-39" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-43" data-dari="wp-28" data-ke="wp-29" d="m 1177,686 -19,-26" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-43-7" data-dari="wp-28" data-ke="wp-29" d="M 1056.0113,678.09108 1026.2225,652.2294" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-43-7-5" data-dari="wp-28" data-ke="wp-29" d="m 1177.1776,685.97518 -56.7607,-4.42245" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-43-7-5-6" data-dari="wp-28" data-ke="wp-29" d="m 1056.7028,677.67613 0.088,-22.95702" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-43-7-3" data-dari="wp-28" data-ke="wp-29" d="m 1120.3289,681.82566 -63.9532,-3.45423" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-44" data-dari="wp-29" data-ke="pintu-gedung-syawal-gultom-selatan" d="m 1158,660 -4,-25.9" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-47" data-dari="wp-42" data-ke="wp-07" d="M 735,621.7 808,621" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-48" data-dari="pintu-gedung-12-selatan-barat" data-ke="wp-42" d="m 735,561.9 v 59.8" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-49" data-dari="wp-42" data-ke="pintu-gedung-09-barat" d="M 735,621.7 V 696" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+    </g>
+    <g id="rute-koridor" data-sumber="sketsa" data-jenis="koridor" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter">
+      <path id="koridor-01" data-dari="pintu-gedung-12-utara" data-ke="kor-01" d="M 812,416.1 V 448" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-02" data-dari="kor-01" data-ke="kor-02" d="M 812,448 H 682" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-03" data-dari="kor-01" data-ke="kor-03" d="m 812,448 v 56" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-04" data-dari="kor-03" data-ke="kor-04" d="M 812,504 H 958" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-05" data-dari="kor-04" data-ke="pintu-gedung-12-timur" d="m 958,504 v 7.3" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-06" data-dari="kor-03" data-ke="kor-05" d="m 812,504 v 32" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-07" data-dari="kor-05" data-ke="kor-18" d="M 812,536 H 735" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-08" data-dari="kor-05" data-ke="pintu-gedung-12-selatan" d="m 812,536 v 26.4" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-09" data-dari="pintu-gedung-09" data-ke="kor-07" d="M 803,699.6 V 706" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-10" data-dari="kor-07" data-ke="kor-19" d="M 803,706 H 735" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-11" data-dari="kor-08" data-ke="pintu-gedung-lab-biologi-barat" d="M 652,706 V 605.1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-12" data-dari="kor-09" data-ke="kor-10" d="m 1098,572 13,-32" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-13" data-dari="kor-10" data-ke="kor-11" d="m 1111,540 31,-13" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-14" data-dari="kor-11" data-ke="kor-12" d="m 1142,527 32,13" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-15" data-dari="kor-12" data-ke="kor-13" d="m 1174,540 13,32" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-16" data-dari="kor-13" data-ke="kor-14" d="m 1187,572 -13,32" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-17" data-dari="kor-14" data-ke="kor-15" d="m 1174,604 -32,13" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-18" data-dari="kor-15" data-ke="kor-16" d="m 1142,617 -31,-13" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-19" data-dari="kor-16" data-ke="kor-09" d="m 1111,604 -13,-32" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-20" data-dari="pintu-gedung-syawal-gultom-barat" data-ke="kor-09" d="m 1079.1,571 18.9,1" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-21" data-dari="pintu-gedung-syawal-gultom-timur" data-ke="kor-13" d="M 1205.5,572 H 1187" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-22" data-dari="pintu-gedung-syawal-gultom-selatan" data-ke="kor-15" d="M 1154,634.1 1142,617" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-23" data-dari="kor-10" data-ke="pintu-gedung-04" d="m 1111,540 -54,-67" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-24" data-dari="kor-12" data-ke="pintu-gedung-05" d="m 1174,540 86.5,-77.8" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-25" data-dari="kor-16" data-ke="pintu-gedung-kimia" d="m 1111,604 -54.1,51" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-26" data-dari="kor-14" data-ke="pintu-gedung-02" d="m 1174,604 72.5,65.8" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-27" data-dari="kor-18" data-ke="kor-06" d="M 735,536 H 684" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-28" data-dari="kor-18" data-ke="pintu-gedung-12-selatan-barat" d="m 735,536 v 25.9" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-29" data-dari="kor-19" data-ke="kor-17" d="M 735,706 H 693" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-30" data-dari="kor-17" data-ke="kor-08" d="M 693,706 H 652" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-31" data-dari="pintu-gedung-lab-biologi-timur" data-ke="kor-17" d="M 700.7,622 693,706" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="koridor-32" data-dari="pintu-gedung-09-barat" data-ke="kor-19" d="m 735,696 v 10" style="fill:none;stroke:#1a73c8;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+    </g>
+    <g id="rute-perkiraan" data-sumber="perkiraan" data-status="perkiraan" style="fill:none;stroke:#e08a00;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter">
+      <path id="rute-45" data-dari="pintu-gedung-04" data-ke="wp-19" d="m 1057,473 -1,-29" style="fill:none;stroke:#e08a00;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-46" data-dari="wp-08" data-ke="pintu-gedung-lab-kimia" d="m 950,620 -2,16.5" style="fill:none;stroke:#e08a00;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+    </g>
+    <g id="rute-peta-dasar" data-sumber="osm" data-jenis="luar" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter">
+      <path id="rute-osm-01" data-dari="wp-02" data-ke="parkir-1" d="M 618,432 H 556" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-02" data-dari="wp-14" data-ke="wp-30" d="m 968,328 412,16" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-03" data-dari="wp-30" data-ke="wp-31" d="M 1380,344 V 494" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-04" data-dari="wp-31" data-ke="wp-32" d="m 1380,494 -44,8" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-05" data-dari="wp-32" data-ke="wp-23" d="m 1336,502 -26,28" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-06" data-dari="wp-31" data-ke="wp-33" d="m 1380,494 2,110" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-07" data-dari="wp-33" data-ke="wp-34" d="m 1382,604 1,66" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-08" data-dari="wp-27" data-ke="wp-35" d="m 1182,725 2,31" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-09" data-dari="wp-35" data-ke="wp-36" d="m 1184,756 20,20" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-10" data-dari="wp-36" data-ke="wp-37" d="m 1204,776 32,2" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-11" data-dari="wp-37" data-ke="wp-38" d="m 1236,778 8,-6" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-12" data-dari="wp-38" data-ke="wp-39" d="m 1244,772 36,-28" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-13" data-dari="wp-39" data-ke="wp-40" d="m 1280,744 56,-48" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-14" data-dari="wp-40" data-ke="wp-34" d="m 1336,696 47,-26" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-15" data-dari="wp-26" data-ke="wp-41" d="m 1280,710 -34,36" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+      <path id="rute-osm-16" data-dari="wp-41" data-ke="wp-38" d="m 1246,746 -2,26" style="fill:none;stroke:#7fb2e5;stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter" />
+    </g>
+  </g>
+
+  <!-- LAYER: WAYPOINT -->
+  <g id="layer-waypoint" style="fill:#000000;stroke:none">
+    <g id="waypoint-simpang" data-jenis="simpang" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter">
+      <circle id="wp-01" cx="622" cy="318" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-02" cx="618" cy="432" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-03" cx="618" cy="492" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-04" cx="652" cy="594" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-05" cx="707" cy="592" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-06" cx="710" cy="622" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-07" cx="808" cy="621" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-08" cx="950" cy="620" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-09" cx="950" cy="568" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-10" cx="1037" cy="568" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-11" cx="1024" cy="628" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-12" cx="1026" cy="652" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-13" cx="814" cy="322" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-14" cx="968" cy="328" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-15" cx="970" cy="364" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-16" cx="947" cy="364" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-17" cx="1014" cy="442" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-18" cx="1024" cy="514.5" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-19" cx="1056" cy="444" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-20" cx="1248" cy="432" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-21" cx="1277" cy="434" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-22" cx="1294" cy="456" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-23" cx="1310" cy="530" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-24" cx="1300" cy="571" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-25" cx="1294" cy="636" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-26" cx="1280" cy="710" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-27" cx="1182" cy="725" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-28" cx="1177" cy="686" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-29" cx="1158" cy="660" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-29-6" cx="1120.3728" cy="681.41254" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-29-3" cx="1056.4701" cy="678.36957" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-30" cx="1380" cy="344" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-31" cx="1380" cy="494" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-32" cx="1336" cy="502" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-33" cx="1382" cy="604" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-34" cx="1383" cy="670" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-35" cx="1184" cy="756" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-36" cx="1204" cy="776" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-37" cx="1236" cy="778" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-38" cx="1244" cy="772" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-39" cx="1280" cy="744" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-40" cx="1336" cy="696" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-41" cx="1246" cy="746" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+      <circle id="wp-42" cx="735" cy="621.70001" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px" />
+    </g>
+    <g id="waypoint-koridor" data-jenis="koridor" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter">
+      <circle id="kor-01" data-gedung="gedung-12" cx="812" cy="448" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2041">kor-01: Gedung Bersama, simpang koridor sayap utara</title>
+      </circle>
+      <circle id="kor-02" data-gedung="gedung-12" cx="682" cy="448" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2044">kor-02: Gedung Bersama, ujung barat koridor sayap utara</title>
+      </circle>
+      <circle id="kor-03" data-gedung="gedung-12" cx="812" cy="504" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2047">kor-03: Gedung Bersama, simpang koridor sayap tengah</title>
+      </circle>
+      <circle id="kor-04" data-gedung="gedung-12" cx="958" cy="504" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2050">kor-04: Gedung Bersama, ujung timur koridor sayap tengah</title>
+      </circle>
+      <circle id="kor-05" data-gedung="gedung-12" cx="812" cy="536" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2053">kor-05: Gedung Bersama, simpang koridor sayap selatan</title>
+      </circle>
+      <circle id="kor-06" data-gedung="gedung-12" cx="684" cy="536" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2056">kor-06: Gedung Bersama, ujung barat koridor sayap selatan</title>
+      </circle>
+      <circle id="kor-07" data-gedung="gedung-09" cx="803" cy="706" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2059">kor-07: Lab Matematika, ujung timur koridor</title>
+      </circle>
+      <circle id="kor-08" data-gedung="gedung-lab-biologi-barat" cx="652" cy="706" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2062">kor-08: Lab Biologi Baru, ujung selatan koridor</title>
+      </circle>
+      <circle id="kor-09" data-gedung="gedung-syawal-gultom" cx="1098" cy="572" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2065">kor-09: Gedung Syawal, koridor lingkar sisi barat</title>
+      </circle>
+      <circle id="kor-10" data-gedung="gedung-syawal-gultom" cx="1111" cy="540" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2068">kor-10: Gedung Syawal, koridor lingkar barat laut (ke Fisika)</title>
+      </circle>
+      <circle id="kor-11" data-gedung="gedung-syawal-gultom" cx="1142" cy="527" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2071">kor-11: Gedung Syawal, koridor lingkar sisi utara</title>
+      </circle>
+      <circle id="kor-12" data-gedung="gedung-syawal-gultom" cx="1174" cy="540" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2074">kor-12: Gedung Syawal, koridor lingkar timur laut (ke Biologi)</title>
+      </circle>
+      <circle id="kor-13" data-gedung="gedung-syawal-gultom" cx="1187" cy="572" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2077">kor-13: Gedung Syawal, koridor lingkar sisi timur</title>
+      </circle>
+      <circle id="kor-14" data-gedung="gedung-syawal-gultom" cx="1174" cy="604" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2080">kor-14: Gedung Syawal, koridor lingkar tenggara (ke Matematika)</title>
+      </circle>
+      <circle id="kor-15" data-gedung="gedung-syawal-gultom" cx="1142" cy="617" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2083">kor-15: Gedung Syawal, koridor lingkar sisi selatan</title>
+      </circle>
+      <circle id="kor-16" data-gedung="gedung-syawal-gultom" cx="1111" cy="604" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2086">kor-16: Gedung Syawal, koridor lingkar barat daya (ke Kimia)</title>
+      </circle>
+      <circle id="kor-17" data-gedung="gedung-lab-biologi-timur" cx="693" cy="706" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2089">kor-17: Lab Biologi Lama, ujung selatan koridor</title>
+      </circle>
+      <circle id="kor-18" data-gedung="gedung-12" cx="735" cy="536" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2092">kor-18: Gedung Bersama, tengah koridor sayap selatan</title>
+      </circle>
+      <circle id="kor-19" data-gedung="gedung-09" cx="735" cy="706" r="3" style="fill:#1a73c8;stroke:#ffffff;stroke-width:1px">
+        <title id="title2095">kor-19: Lab Matematika, sisi barat koridor</title>
+      </circle>
+    </g>
+    <g id="waypoint-parkir" data-jenis="parkir" style="fill:#0092da;stroke:#ffffff;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter">
+      <circle id="parkir-1" cx="556" cy="432" r="5" style="fill:#0092da;stroke:#ffffff;stroke-width:1.5px">
+        <title id="title2099">Parkir 1 (barat Gedung Bersama)</title>
+      </circle>
+      <circle id="parkir-2" cx="982" cy="380" r="5" style="fill:#0092da;stroke:#ffffff;stroke-width:1.5px">
+        <title id="title2102">Parkir 2 (timur Lab Fisika)</title>
+      </circle>
+    </g>
+    <g id="waypoint-pintu-sketsa" data-jenis="pintu" data-status="sketsa" style="fill:#34a853;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter">
+      <circle id="pintu-gedung-12-utara" data-gedung="gedung-12" cx="812" cy="416.10001" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2106">Pintu Gedung Bersama (12), utara</title>
+      </circle>
+      <circle id="pintu-gedung-12-selatan" data-gedung="gedung-12" cx="812" cy="562.40002" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2109">Pintu Gedung Bersama (12), selatan</title>
+      </circle>
+      <circle id="pintu-gedung-12-selatan-barat" data-gedung="gedung-12" cx="735" cy="561.90002" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2112">Pintu Gedung Bersama (12), selatan sisi barat</title>
+      </circle>
+      <circle id="pintu-gedung-12-timur" data-gedung="gedung-12" cx="958" cy="511.29999" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2115">Pintu Gedung Bersama (12), ujung timur sayap tengah</title>
+      </circle>
+      <circle id="pintu-gedung-lab-fisika" data-gedung="gedung-lab-fisika" cx="947" cy="378.29999" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2118">Pintu Lab Fisika (08), utara</title>
+      </circle>
+      <circle id="pintu-gedung-04" data-gedung="gedung-04" cx="1057" cy="473" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2121">Pintu Gedung Fisika (04), ujung barat laut</title>
+      </circle>
+      <circle id="pintu-gedung-05" data-gedung="gedung-05" cx="1260.5" cy="462.20001" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2124">Pintu Gedung Biologi (05), ujung timur laut</title>
+      </circle>
+      <circle id="pintu-gedung-kimia" data-gedung="gedung-kimia" cx="1056.9" cy="655" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2127">Pintu Gedung Kimia (03), ujung barat daya</title>
+      </circle>
+      <circle id="pintu-gedung-02" data-gedung="gedung-02" cx="1246.5" cy="669.79999" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2130">Pintu Gedung Matematika (02), ujung tenggara</title>
+      </circle>
+      <circle id="pintu-gedung-syawal-gultom-barat" data-gedung="gedung-syawal-gultom" cx="1079.1" cy="571" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2133">Pintu Gedung Syawal (01), barat</title>
+      </circle>
+      <circle id="pintu-gedung-syawal-gultom-timur" data-gedung="gedung-syawal-gultom" cx="1205.5" cy="572" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2136">Pintu Gedung Syawal (01), timur</title>
+      </circle>
+      <circle id="pintu-gedung-syawal-gultom-selatan" data-gedung="gedung-syawal-gultom" cx="1154" cy="634.09998" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2139">Pintu Gedung Syawal (01), selatan</title>
+      </circle>
+      <circle id="pintu-gedung-lab-biologi-barat" data-gedung="gedung-lab-biologi-barat" cx="652" cy="605.09998" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2142">Pintu Lab Biologi Baru (11), utara</title>
+      </circle>
+      <circle id="pintu-gedung-lab-biologi-timur" data-gedung="gedung-lab-biologi-timur" cx="700.70001" cy="622" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2145">Pintu Lab Biologi Lama (10), timur</title>
+      </circle>
+      <circle id="pintu-gedung-09" data-gedung="gedung-09" cx="803" cy="699.59998" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2148">Pintu Lab Matematika (09), utara sisi timur</title>
+      </circle>
+      <circle id="pintu-gedung-09-barat" data-gedung="gedung-09" cx="735" cy="696" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2151">Pintu Lab Matematika (09), utara sisi barat</title>
+      </circle>
+      <circle id="pintu-gedung-06" data-gedung="gedung-06" cx="1162.2" cy="726" r="3.5" style="fill:#34a853;stroke:#ffffff;stroke-width:1px">
+        <title id="title2154">Pintu Gedung Bilingual (06), timur</title>
+      </circle>
+    </g>
+    <g id="waypoint-pintu" data-jenis="pintu" data-status="perkiraan" style="fill:#f4b400;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter">
+      <circle id="pintu-gedung-lab-kimia" data-gedung="gedung-lab-kimia" cx="948" cy="636.5" r="3.5" style="fill:#f4b400;stroke:#ffffff;stroke-width:1px">
+        <title id="title2158">Pintu Lab Kimia (07), utara - perkiraan (tidak ada di sketsa)</title>
+      </circle>
+    </g>
   </g>
 </svg>

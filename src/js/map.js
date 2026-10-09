@@ -29,7 +29,7 @@ export const NODE_KEY_TO_DROPDOWN = {
   GEDUNG_09: 'lab-matematika',
   GEDUNG_LAB_KIMIA: 'lab-kimia',
   GEDUNG_LAB_BIOLOGI_BARAT: 'lab-biologi',
-  GEDUNG_LAB_BIOLOGI_TIMUR: 'lab-biologi',
+  GEDUNG_LAB_BIOLOGI_TIMUR: 'lab-biologi-timur',
 };
 
 let mapInstance = null;
@@ -39,6 +39,9 @@ let routeGlowLayer = null;
 let routeCoreLayer = null;
 let routeMarkersLayer = null;
 let userPinLayer = null;
+let highlightLayer = null;        // ← BARU
+let activeAsalNodeId = null;      // ← BARU: simpan node ID asal aktif
+let activeTujuanNodeId = null;    // ← BARU: simpan node ID tujuan aktif
 
 let activeCallbackSetAsal = null;
 let activeCallbackSetTujuan = null;
@@ -53,6 +56,71 @@ export function latLngToSvg(lat, lng) {
     x: Math.round(lng),
     y: Math.round(SVG_HEIGHT - lat),
   };
+}
+
+/**
+ * Render marker highlight merah (asal) & biru (tujuan) di atas neutral markers
+ */
+export function updateSelectionHighlight(asalId, tujuanId) {
+  activeAsalNodeId = asalId || null;
+  activeTujuanNodeId = tujuanId || null;
+
+  if (!mapInstance || !highlightLayer) return;
+  highlightLayer.clearLayers();
+
+  const allNodes = graphData.nodes;
+
+  function makeHighlightMarker(nodeId, color, iconChar, label) {
+    const node = allNodes[nodeId];
+    if (!node || !node.x || !node.y) return;
+
+    const latLng = svgToLatLng(node.x, node.y);
+    const icon = L.divIcon({
+      className: 'fmipa-selected-pin',
+      html: `
+        <div style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: ${color};
+          border: 3px solid #ffffff;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: bold;
+          animation: fmipa-pulse 1.2s ease-in-out infinite alternate;
+        " title="${label}">
+          ${iconChar}
+        </div>
+      `,
+      iconSize: [40, 40],
+      iconAnchor: [20, 20],
+    });
+
+    L.marker(latLng, { icon, interactive: false, zIndexOffset: 1000 })
+      .addTo(highlightLayer);
+  }
+
+  if (activeAsalNodeId) {
+    const n = allNodes[activeAsalNodeId];
+    makeHighlightMarker(activeAsalNodeId, '#dc2626', '🔴', n?.label || activeAsalNodeId);
+  }
+  if (activeTujuanNodeId) {
+    const n = allNodes[activeTujuanNodeId];
+    makeHighlightMarker(activeTujuanNodeId, '#2563eb', '🔵', n?.label || activeTujuanNodeId);
+  }
+}
+
+/**
+ * Clear highlight (dipanggil saat reset)
+ */
+export function clearSelectionHighlight() {
+  activeAsalNodeId = null;
+  activeTujuanNodeId = null;
+  if (highlightLayer) highlightLayer.clearLayers();
 }
 
 /**
@@ -121,6 +189,7 @@ export function initMap(containerId = 'map-container', callbacks = {}) {
   routeCoreLayer = L.layerGroup().addTo(mapInstance);
   routeMarkersLayer = L.layerGroup().addTo(mapInstance);
   userPinLayer = L.layerGroup().addTo(mapInstance);
+  highlightLayer = L.layerGroup().addTo(mapInstance);
 
   mapInstance.fitBounds(MAP_BOUNDS);
 
@@ -160,6 +229,7 @@ const onResetClicked = () => {
   resetMapView();
   clearRoute();
   clearUserMarkers();
+  clearSelectionHighlight(); 
   resetBuildingInfoPanel();
 
   // 2. Reset dropdown — pakai dispatchEvent supaya listener lain ikut ter-trigger
@@ -331,7 +401,7 @@ export function renderNeutralMarkers(callbacks = {}) {
           font-size: 14px;
           cursor: pointer;
           transition: transform 0.2s;
-        " title="${node.name}">
+        " title="${node.label || node.name || key}">
           🏛️
         </div>
       `,
@@ -344,11 +414,11 @@ export function renderNeutralMarkers(callbacks = {}) {
     const popupHtml = `
       <div style="font-family: inherit; font-size: 12px; min-width: 190px; line-height: 1.4;">
         <strong style="color: #1e293b; font-size: 13px; display: block; margin-bottom: 2px;">
-          ${node.name}
-        </strong>
-        <span style="font-size: 10px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 1px 6px; border-radius: 4px; display: inline-block; margin-bottom: 6px;">
-          ${node.category || 'Gedung FMIPA'}
-        </span>
+  ${node.label || node.name || key}
+</strong>
+<span style="font-size: 10px; ...">
+  ${node.category || 'Gedung FMIPA'}
+</span>
         <p style="margin: 0 0 8px 0; color: #64748b; font-size: 11px;">
           Koordinat: (${node.x}, ${node.y})
         </p>
@@ -425,8 +495,8 @@ export function updateBuildingInfoPanel(buildingNode, nodeKey, onSetAsal = null,
   const panelActions = document.getElementById('panel-gedung-actions');
 
   if (namaEl && buildingNode) {
-    namaEl.textContent = buildingNode.name;
-  }
+  namaEl.textContent = buildingNode.label || buildingNode.name || 'Gedung';
+}
 
   const dropdownValue = nodeKey ? NODE_KEY_TO_DROPDOWN[nodeKey] : '';
   const cbAsal = onSetAsal || activeCallbackSetAsal;
@@ -451,7 +521,7 @@ export function updateBuildingInfoPanel(buildingNode, nodeKey, onSetAsal = null,
   if (daftarEl) {
     daftarEl.innerHTML = `
       <div class="rounded-xl border border-dashed border-[#D2BE91] bg-[#FFFDF7] px-4 py-3 text-xs text-stone-500">
-        Data ruangan untuk <strong>${buildingNode ? buildingNode.name : 'gedung ini'}</strong> siap diselaraskan dengan pembaruan tim.
+        Data ruangan untuk <strong>${buildingNode ? (buildingNode.label || buildingNode.name) : 'gedung ini'}</strong> siap diselaraskan dengan pembaruan tim.
       </div>
     `;
   }
@@ -539,7 +609,7 @@ export function drawRoute(steps = []) {
         iconAnchor: [5, 5],
       });
       const wpMarker = L.marker(latLng, { icon: dotIcon });
-      wpMarker.bindPopup(`<strong>${step.name}</strong><br><small>Jalan Setapak</small>`);
+      wpMarker.bindPopup(`<strong>${step.name}</strong><br><small>Titik Jalur</small>`);
       routeMarkersLayer.addLayer(wpMarker);
       return;
     }

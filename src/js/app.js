@@ -14,7 +14,9 @@ import {
   resetMapView,
   updateBuildingInfoPanel,
   resetBuildingInfoPanel,
-  NODE_KEY_TO_DROPDOWN
+  NODE_KEY_TO_DROPDOWN,
+  updateSelectionHighlight,        // ← BARU
+  clearSelectionHighlight,         // ← BARU (opsional)
 } from './map.js';
 import { findShortestPath, calculateWalkingTime } from './algorithm.js';
 import { graphData } from './data.js';
@@ -204,25 +206,33 @@ export function initApp() {
   const selectAsal = document.getElementById('select-asal');
   const selectTujuan = document.getElementById('select-tujuan');
   if (selectAsal) {
-    selectAsal.addEventListener('change', () => {
-      const val = selectAsal.value;
-      const nodeId = DROPDOWN_TO_NODE_ID[val];
-      const asalNode = nodeId ? graphData.nodes[nodeId] : null;
-      if (asalNode) {
-        updateBuildingInfoPanel(asalNode, nodeId, setGedungAsal, setGedungTujuan);
-      }
-    });
-  }
-  if (selectTujuan) {
-    selectTujuan.addEventListener('change', () => {
-      const val = selectTujuan.value;
-      const nodeId = DROPDOWN_TO_NODE_ID[val];
-      const tujuanNode = nodeId ? graphData.nodes[nodeId] : null;
-      if (tujuanNode && !selectAsal?.value) {
-        updateBuildingInfoPanel(tujuanNode, nodeId, setGedungAsal, setGedungTujuan);
-      }
-    });
-  }
+  selectAsal.addEventListener('change', () => {
+    const val = selectAsal.value;
+    const nodeId = DROPDOWN_TO_NODE_ID[val];
+    const asalNode = nodeId ? graphData.nodes[nodeId] : null;
+    if (asalNode) {
+      updateBuildingInfoPanel(asalNode, nodeId, setGedungAsal, setGedungTujuan);
+    }
+    // Update highlight
+    const tujuanVal = selectTujuan?.value;
+    const tujuanId = DROPDOWN_TO_NODE_ID[tujuanVal];
+    updateSelectionHighlight(nodeId || null, tujuanId || null);
+  });
+}
+if (selectTujuan) {
+  selectTujuan.addEventListener('change', () => {
+    const val = selectTujuan.value;
+    const nodeId = DROPDOWN_TO_NODE_ID[val];
+    const tujuanNode = nodeId ? graphData.nodes[nodeId] : null;
+    if (tujuanNode && !selectAsal?.value) {
+      updateBuildingInfoPanel(tujuanNode, nodeId, setGedungAsal, setGedungTujuan);
+    }
+    // Update highlight
+    const asalVal = selectAsal?.value;
+    const asalId = DROPDOWN_TO_NODE_ID[asalVal];
+    updateSelectionHighlight(asalId || null, nodeId || null);
+  });
+}
 
   console.log('✅ [app.js] Inisialisasi aplikasi selesai.');
 }

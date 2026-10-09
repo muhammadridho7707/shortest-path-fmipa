@@ -23,13 +23,14 @@ export function buildFMIPAGraph() {
   Object.keys(nodes).forEach((nodeId) => {
     const n = nodes[nodeId];
     g.addNode(nodeId, {
-      name: n.name,
-      category: n.category,
-      x: n.x,
-      y: n.y,
-      svgId: n.svgId,
-      isBuilding: !!n.isBuilding,
-    });
+  name: n.label || n.name || nodeId,       // ← pakai label dulu
+  label: n.label || n.name || nodeId,      // ← simpan juga sebagai label
+  category: n.category || (n.isBuilding ? 'Gedung FMIPA' : 'Jalur'),
+  x: n.x,
+  y: n.y,
+  svgId: n.svgId,
+  isBuilding: !!n.isBuilding,
+});
   });
 
   const edges = graphData.edges || [];
@@ -140,16 +141,16 @@ export function findShortestPath(startNodeId, targetNodeId) {
   }
 
   const steps = result.path.map((nodeId) => {
-    const meta = graph.getNodeDetails(nodeId) || {};
-    return {
-      id: nodeId,
-      name: meta.name || nodeId,
-      x: meta.x || 0,
-      y: meta.y || 0,
-      isBuilding: !!meta.isBuilding,
-      category: meta.category || '',
-    };
-  });
+  const meta = graph.getNodeDetails(nodeId) || {};
+  return {
+    id: nodeId,
+    name: meta.label || meta.name || nodeId,   // ← pakai label dulu
+    x: meta.x || 0,
+    y: meta.y || 0,
+    isBuilding: !!meta.isBuilding,
+    category: meta.category || (meta.isBuilding ? 'Gedung FMIPA' : 'Jalur'),
+  };
+});
 
   return {
     distance: result.distance,

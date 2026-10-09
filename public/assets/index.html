@@ -24,6 +24,50 @@
         href="../output.css"
     >
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <style>
+  /* ===== OVERRIDE PAKSA UNTUK TOMBOL JADIKAN TITIK ===== */
+  #panel-gedung-actions #btn-set-asal,
+  #panel-gedung-actions #btn-set-tujuan {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 10px 12px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    border: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transition: background-color 0.15s ease !important;
+  }
+
+  #panel-gedung-actions #btn-set-asal {
+    background-color: #C54F2D !important;
+    box-shadow: 0 2px 6px rgba(197, 79, 45, 0.25) !important;
+  }
+
+  #panel-gedung-actions #btn-set-asal:hover {
+    background-color: #a84022 !important;
+  }
+
+  #panel-gedung-actions #btn-set-tujuan {
+    background-color: #2563eb !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  #panel-gedung-actions #btn-set-tujuan:hover {
+    background-color: #1d4ed8 !important;
+  }
+
+  /* Pastikan text benar-benar putih solid */
+  #panel-gedung-actions #btn-set-asal span,
+  #panel-gedung-actions #btn-set-tujuan span {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+</style>
 </head>
 
 
@@ -243,9 +287,8 @@
                                     Lab Matematika
                                 </option>
 
-                                <option value="lab-biologi">
-                                    Lab Biologi
-                                </option>
+                                <option value="lab-biologi">Lab Biologi Baru</option>
+<option value="lab-biologi-timur">Lab Biologi Lama</option>
 
                                 <option value="gedung-bersama">
                                     Gedung Bersama
@@ -382,9 +425,8 @@
                                     Lab Matematika
                                 </option>
 
-                                <option value="lab-biologi">
-                                    Lab Biologi
-                                </option>
+                                <option value="lab-biologi">Lab Biologi Baru</option>
+<option value="lab-biologi-timur">Lab Biologi Lama</option>
 
                                 <option value="gedung-bersama">
                                     Gedung Bersama
@@ -846,39 +888,39 @@
                         >
 
                             <!-- LEGENDA RESMI ZULAYKA (Dengan z-index 1000 agar tidak tertimpa peta) -->
-                        <div
-                            id="fmipa-map-legend-container"
-                            class="absolute bottom-4 left-4 right-4 z-[1000] pointer-events-auto sm:bottom-5 sm:left-5 sm:right-auto"
-                            style="z-index: 1000;"
-                        >
-                          <div
-                                class="fmipa-map-legend rounded-2xl border border-stone-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md sm:p-4"
-                                style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(231, 229, 228, 0.9); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.06);"
-                            >
-                                <p class="mb-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-stone-500">
-                                    Legenda Peta FMIPA
-                                </p>
+                       <div
+    id="fmipa-map-legend-container"
+    class="absolute left-4 z-[1000] pointer-events-auto sm:left-5"
+    style="z-index: 1000; bottom: 120px;"
+>
+    <div
+        class="fmipa-map-legend rounded-2xl border border-stone-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md sm:p-4"
+        style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(231, 229, 228, 0.9); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.06);"
+    >
+        <p class="mb-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-stone-500">
+            Legenda Peta FMIPA
+        </p>
 
-                                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-stone-700">
-                                    <div class="flex items-center gap-1.5">
-                                        <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #475569; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                                        <span> Gedung (12) </span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #dc2626; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                                        <span> Titik Awal </span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #2563eb; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                                        <span> Titik Tujuan </span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <span style="display: inline-block; width: 22px; height: 6px; border-radius: 3px; background-color: #16a34a; box-shadow: 0 0 6px #4ade80;"></span>
-                                        <span> Jalur Terpendek </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-stone-700">
+            <div class="flex items-center gap-1.5">
+                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #475569; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                <span> Gedung (12) </span>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #dc2626; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                <span> Titik Awal </span>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #2563eb; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                <span> Titik Tujuan </span>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span style="display: inline-block; width: 22px; height: 6px; border-radius: 3px; background-color: #16a34a; box-shadow: 0 0 6px #4ade80;"></span>
+                <span> Jalur Terpendek </span>
+            </div>
+        </div>
+    </div>
+</div>
 
             </section>
 
