@@ -731,667 +731,667 @@ export const graphData = {
   {
     "from": "pintu_bilingual",
     "to": "node_27",
-    "weight": 5.8
+    "weight": 4.6
   },
   {
     "from": "node_27",
     "to": "node_26",
-    "weight": 28.7
+    "weight": 23
   },
   {
     "from": "node_26",
     "to": "pintu_matematika_outdoor",
-    "weight": 15.2
+    "weight": 12.2
   },
   {
     "from": "pintu_matematika_outdoor",
     "to": "pintu_matematika_indoor",
-    "weight": 23.1
+    "weight": 18.5
   },
   {
     "from": "node_27",
     "to": "node_28",
-    "weight": 11.3
+    "weight": 9
   },
   {
     "from": "node_27",
     "to": "node_35",
-    "weight": 9
+    "weight": 7.2
   },
   {
     "from": "node_35",
     "to": "node_36",
-    "weight": 8.3
+    "weight": 6.6
   },
   {
     "from": "node_36",
     "to": "node_37",
-    "weight": 9.3
+    "weight": 7.4
   },
   {
     "from": "node_37",
     "to": "node_38",
-    "weight": 2.9
+    "weight": 2.3
   },
   {
     "from": "node_38",
     "to": "node_41",
-    "weight": 7.5
+    "weight": 6
   },
   {
     "from": "node_41",
     "to": "node_26",
-    "weight": 14.3
+    "weight": 11.5
   },
   {
     "from": "node_38",
     "to": "node_39",
-    "weight": 13.2
+    "weight": 10.5
   },
   {
     "from": "node_39",
     "to": "node_40",
-    "weight": 21.4
+    "weight": 17.1
   },
   {
     "from": "node_40",
     "to": "node_34",
-    "weight": 15.6
+    "weight": 12.5
   },
   {
     "from": "node_25",
     "to": "node_26",
-    "weight": 21.8
+    "weight": 17.5
   },
   {
     "from": "node_25",
     "to": "node_24",
-    "weight": 18.8
+    "weight": 15.1
   },
   {
     "from": "node_34",
     "to": "node_33",
-    "weight": 19.1
+    "weight": 15.2
   },
   {
     "from": "node_33",
     "to": "node_31",
-    "weight": 31.7
+    "weight": 25.4
   },
   {
     "from": "node_31",
     "to": "node_32",
-    "weight": 12.9
+    "weight": 10.3
   },
   {
     "from": "node_32",
     "to": "node_23",
-    "weight": 11.1
+    "weight": 8.9
   },
   {
     "from": "node_24",
     "to": "node_23",
-    "weight": 12.3
+    "weight": 9.8
   },
   {
     "from": "node_31",
     "to": "node_30",
-    "weight": 43.4
+    "weight": 34.8
   },
   {
     "from": "node_30",
     "to": "node_14",
-    "weight": 119.4
+    "weight": 95.5
   },
   {
     "from": "node_23",
     "to": "node_22",
-    "weight": 21.9
+    "weight": 17.5
   },
   {
     "from": "node_22",
     "to": "pintu_biologi_outdoor",
-    "weight": 9.9
+    "weight": 7.9
   },
   {
     "from": "node_22",
     "to": "node_21",
-    "weight": 8.1
+    "weight": 6.5
   },
   {
     "from": "node_21",
     "to": "node_20",
-    "weight": 8.5
+    "weight": 6.8
   },
   {
     "from": "node_20",
     "to": "node_19",
-    "weight": 55.7
+    "weight": 44.5
   },
   {
     "from": "node_19",
     "to": "pintu_fisika_outdoor",
-    "weight": 8.6
+    "weight": 6.9
   },
   {
     "from": "node_24",
     "to": "pintu_syawal_outdoor_timur",
-    "weight": 27.4
+    "weight": 21.9
   },
   {
     "from": "node_28",
     "to": "node_29",
-    "weight": 9.4
+    "weight": 7.5
   },
   {
     "from": "node_28",
     "to": "node_43",
-    "weight": 16.6
+    "weight": 13.3
   },
   {
     "from": "node_43",
     "to": "node_44",
-    "weight": 18.4
+    "weight": 14.8
   },
   {
     "from": "node_44",
     "to": "node_12",
-    "weight": 11.7
+    "weight": 9.3
   },
   {
     "from": "node_12",
     "to": "node_11",
-    "weight": 7
+    "weight": 5.6
   },
   {
     "from": "node_11",
     "to": "node_08",
-    "weight": 21.5
+    "weight": 17.2
   },
   {
     "from": "node_08",
     "to": "node_09",
-    "weight": 15.1
+    "weight": 12
   },
   {
     "from": "node_09",
     "to": "node_10",
-    "weight": 25.2
+    "weight": 20.2
   },
   {
     "from": "node_10",
     "to": "node_18",
-    "weight": 15.9
+    "weight": 12.7
   },
   {
     "from": "node_18",
     "to": "node_17",
-    "weight": 21.3
+    "weight": 17
   },
   {
     "from": "node_17",
     "to": "node_19",
-    "weight": 12.1
+    "weight": 9.7
   },
   {
     "from": "node_15",
     "to": "node_16",
-    "weight": 6.6
+    "weight": 5.3
   },
   {
     "from": "node_08",
     "to": "node_07",
-    "weight": 41.1
+    "weight": 32.9
   },
   {
     "from": "node_07",
     "to": "node_42",
-    "weight": 21.2
+    "weight": 17
   },
   {
     "from": "node_42",
     "to": "node_06",
-    "weight": 7.2
+    "weight": 5.8
   },
   {
     "from": "node_06",
     "to": "node_05",
-    "weight": 8.6
+    "weight": 6.9
   },
   {
     "from": "node_05",
     "to": "node_04",
-    "weight": 15.8
+    "weight": 12.7
   },
   {
     "from": "node_04",
     "to": "node_03",
-    "weight": 31.1
+    "weight": 24.9
   },
   {
     "from": "node_03",
     "to": "node_02",
-    "weight": 17.3
+    "weight": 13.8
   },
   {
     "from": "node_02",
     "to": "node_01",
-    "weight": 33.1
+    "weight": 26.5
   },
   {
     "from": "node_01",
     "to": "node_13",
-    "weight": 55.6
+    "weight": 44.5
   },
   {
     "from": "node_13",
     "to": "node_14",
-    "weight": 44.5
+    "weight": 35.6
   },
   {
     "from": "node_14",
     "to": "node_15",
-    "weight": 10.4
+    "weight": 8.3
   },
   {
     "from": "node_15",
     "to": "node_parkir_lab_fisika",
-    "weight": 5.8
+    "weight": 4.6
   },
   {
     "from": "node_17",
     "to": "node_parkir_lab_fisika",
-    "weight": 20.1
+    "weight": 16.1
   },
   {
     "from": "node_16",
     "to": "pintu_lab_fisika_outdoor",
-    "weight": 4.2
+    "weight": 3.4
   },
   {
     "from": "pintu_fisika_outdoor",
     "to": "pintu_fisika_indoor",
-    "weight": 19.6
+    "weight": 15.7
   },
   {
     "from": "pintu_biologi_outdoor",
     "to": "pintu_biologi_indoor",
-    "weight": 28.6
+    "weight": 22.9
   },
   {
     "from": "node_10",
     "to": "pintu_syawal_outdoor_barat",
-    "weight": 12.2
+    "weight": 9.8
   },
   {
     "from": "node_44",
     "to": "pintu_kimia_outdoor",
-    "weight": 6.8
+    "weight": 5.5
   },
   {
     "from": "node_12",
     "to": "pintu_kimia_outdoor",
-    "weight": 9
+    "weight": 7.2
   },
   {
     "from": "pintu_kimia_indoor",
     "to": "pintu_kimia_outdoor",
-    "weight": 16.3
+    "weight": 13.1
   },
   {
     "from": "node_29",
     "to": "pintu_syawal_outdoor_selatan",
-    "weight": 7.5
+    "weight": 6
   },
   {
     "from": "pintu_kimia_indoor",
     "to": "node_koridor_syawal_barat_daya",
-    "weight": 5.2
+    "weight": 4.1
   },
   {
     "from": "pintu_syawal_outdoor_barat",
     "to": "node_koridor_syawal_barat",
-    "weight": 5.6
+    "weight": 4.4
   },
   {
     "from": "pintu_fisika_indoor",
     "to": "node_koridor_syawal_barat_laut",
-    "weight": 5.3
+    "weight": 4.3
   },
   {
     "from": "pintu_biologi_indoor",
     "to": "node_koridor_syawal_timur_laut",
-    "weight": 5
+    "weight": 4
   },
   {
     "from": "pintu_syawal_outdoor_timur",
     "to": "node_koridor_syawal_timur",
-    "weight": 5.2
+    "weight": 4.2
   },
   {
     "from": "pintu_syawal_outdoor_selatan",
     "to": "node_koridor_syawal_selatan",
-    "weight": 5.9
+    "weight": 4.8
   },
   {
     "from": "pintu_matematika_indoor",
     "to": "node_koridor_syawal_tenggara",
-    "weight": 5
+    "weight": 4
   },
   {
     "from": "node_koridor_syawal_barat_daya",
     "to": "node_koridor_syawal_selatan",
-    "weight": 9.8
+    "weight": 7.8
   },
   {
     "from": "node_koridor_syawal_barat",
     "to": "node_koridor_syawal_barat_daya",
-    "weight": 10
+    "weight": 8
   },
   {
     "from": "node_koridor_syawal_barat",
     "to": "node_koridor_syawal_barat_laut",
-    "weight": 9.9
+    "weight": 7.9
   },
   {
     "from": "node_koridor_syawal_selatan",
     "to": "node_koridor_syawal_tenggara",
-    "weight": 10
+    "weight": 8
   },
   {
     "from": "node_koridor_syawal_tenggara",
     "to": "node_koridor_syawal_timur",
-    "weight": 10
+    "weight": 8
   },
   {
     "from": "node_koridor_syawal_timur",
     "to": "node_koridor_syawal_timur_laut",
-    "weight": 10
+    "weight": 8
   },
   {
     "from": "node_koridor_syawal_barat_laut",
     "to": "node_koridor_syawal_utara",
-    "weight": 9.7
+    "weight": 7.8
   },
   {
     "from": "node_koridor_syawal_timur_laut",
     "to": "node_koridor_syawal_utara",
-    "weight": 10.1
+    "weight": 8.1
   },
   {
     "from": "node_07",
     "to": "pintu_lab_matematika_outdoor_1",
-    "weight": 22.7
+    "weight": 18.2
   },
   {
     "from": "node_42",
     "to": "pintu_lab_matematika_outdoor_2",
-    "weight": 21.4
+    "weight": 17.2
   },
   {
     "from": "node_06",
     "to": "pintu_lab_biologi_lama_outdoor",
-    "weight": 2.8
+    "weight": 2.2
   },
   {
     "from": "node_04",
     "to": "pintu_lab_biologi_baru_outdoor",
-    "weight": 3.2
+    "weight": 2.5
   },
   {
     "from": "pintu_lab_matematika_outdoor_1",
     "to": "node_koridor_lab_matematika_1",
-    "weight": 1.9
+    "weight": 1.5
   },
   {
     "from": "pintu_lab_matematika_outdoor_2",
     "to": "node_koridor_lab_matematika_2",
-    "weight": 2.9
+    "weight": 2.3
   },
   {
     "from": "node_koridor_lab_matematika_1",
     "to": "node_koridor_lab_matematika_2",
-    "weight": 19.6
+    "weight": 15.7
   },
   {
     "from": "node_koridor_lab_matematika_2",
     "to": "node_koridor_lab_biologi_lama_2",
-    "weight": 12.2
+    "weight": 9.7
   },
   {
     "from": "pintu_lab_biologi_lama_outdoor",
     "to": "node_koridor_lab_biologi_lama_1",
-    "weight": 10.4
+    "weight": 8.3
   },
   {
     "from": "node_koridor_lab_biologi_lama_1",
     "to": "node_koridor_lab_biologi_lama_2",
-    "weight": 14
+    "weight": 11.2
   },
   {
     "from": "node_koridor_lab_biologi_lama_2",
     "to": "node_koridor_lab_biologi_baru_2",
-    "weight": 11.9
+    "weight": 9.5
   },
   {
     "from": "node_koridor_lab_biologi_baru_2",
     "to": "node_koridor_lab_biologi_baru_1",
-    "weight": 13.6
+    "weight": 10.9
   },
   {
     "from": "node_koridor_lab_biologi_baru_1",
     "to": "pintu_lab_biologi_baru_outdoor",
-    "weight": 15.5
+    "weight": 12.4
   },
   {
     "from": "node_13",
     "to": "pintu_bersama_outdoor_utara",
-    "weight": 27.2
+    "weight": 21.7
   },
   {
     "from": "node_08",
     "to": "pintu_lab_kimia_outdoor",
-    "weight": 4.8
+    "weight": 3.9
   },
   {
     "from": "node_42",
     "to": "pintu_bersama_outdoor_barat_daya",
-    "weight": 17.4
+    "weight": 13.9
   },
   {
     "from": "node_07",
     "to": "pintu_bersama_outdoor_selatan",
-    "weight": 17.1
+    "weight": 13.7
   },
   {
     "from": "node_18",
     "to": "pintu_bersama_outdoor_timur",
-    "weight": 19.1
+    "weight": 15.3
   },
   {
     "from": "pintu_bersama_outdoor_barat_daya",
     "to": "node_koridor_bersama_2",
-    "weight": 7.5
+    "weight": 6
   },
   {
     "from": "node_koridor_bersama_2",
     "to": "node_koridor_bersama_1",
-    "weight": 14.8
+    "weight": 11.8
   },
   {
     "from": "node_koridor_bersama_2",
     "to": "node_koridor_bersama_3",
-    "weight": 22.2
+    "weight": 17.8
   },
   {
     "from": "pintu_bersama_outdoor_selatan",
     "to": "node_koridor_bersama_3",
-    "weight": 7.4
+    "weight": 6
   },
   {
     "from": "pintu_bersama_outdoor_timur",
     "to": "node_koridor_bersama_5",
-    "weight": 2
+    "weight": 1.6
   },
   {
     "from": "node_koridor_bersama_5",
     "to": "node_koridor_bersama_4",
-    "weight": 42.3
+    "weight": 33.8
   },
   {
     "from": "node_koridor_bersama_3",
     "to": "node_koridor_bersama_4",
-    "weight": 9.3
+    "weight": 7.4
   },
   {
     "from": "node_koridor_bersama_4",
     "to": "node_koridor_bersama_6",
-    "weight": 16.2
+    "weight": 13
   },
   {
     "from": "node_koridor_bersama_6",
     "to": "node_koridor_bersama_7",
-    "weight": 37.6
+    "weight": 30
   },
   {
     "from": "node_koridor_bersama_6",
     "to": "pintu_bersama_outdoor_utara",
-    "weight": 9.2
+    "weight": 7.4
   },
   {
     "from": "building_matematika",
     "to": "pintu_matematika_indoor",
-    "weight": 11.4
+    "weight": 9.1
   },
   {
     "from": "building_matematika",
     "to": "pintu_matematika_outdoor",
-    "weight": 13.1
+    "weight": 10.5
   },
   {
     "from": "building_bilingual",
     "to": "pintu_bilingual",
-    "weight": 6
+    "weight": 4.8
   },
   {
     "from": "building_kimia",
     "to": "pintu_kimia_outdoor",
-    "weight": 9.1
+    "weight": 7.3
   },
   {
     "from": "building_kimia",
     "to": "pintu_kimia_indoor",
-    "weight": 8.6
+    "weight": 6.9
   },
   {
     "from": "building_fisika",
     "to": "pintu_fisika_outdoor",
-    "weight": 9.7
+    "weight": 7.7
   },
   {
     "from": "building_fisika",
     "to": "pintu_fisika_indoor",
-    "weight": 11.3
+    "weight": 9
   },
   {
     "from": "building_biologi",
     "to": "pintu_biologi_outdoor",
-    "weight": 15.3
+    "weight": 12.3
   },
   {
     "from": "building_biologi",
     "to": "pintu_biologi_indoor",
-    "weight": 14.2
+    "weight": 11.4
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_utara",
-    "weight": 13.4
+    "weight": 10.7
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_timur_laut",
-    "weight": 13.6
+    "weight": 10.9
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_timur",
-    "weight": 13.4
+    "weight": 10.7
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_tenggara",
-    "weight": 13.2
+    "weight": 10.5
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_selatan",
-    "weight": 12.7
+    "weight": 10.1
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_barat_daya",
-    "weight": 12.4
+    "weight": 9.9
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_barat",
-    "weight": 12.4
+    "weight": 9.9
   },
   {
     "from": "building_syawal",
     "to": "node_koridor_syawal_barat_laut",
-    "weight": 12.9
+    "weight": 10.3
   },
   {
     "from": "lab_kimia",
     "to": "pintu_lab_kimia_outdoor",
-    "weight": 6.2
+    "weight": 5
   },
   {
     "from": "lab_math",
     "to": "pintu_lab_matematika_outdoor_1",
-    "weight": 10.3
+    "weight": 8.2
   },
   {
     "from": "lab_math",
     "to": "pintu_lab_matematika_outdoor_2",
-    "weight": 11.3
+    "weight": 9.1
   },
   {
     "from": "lab_bio-old",
     "to": "pintu_lab_biologi_lama_outdoor",
-    "weight": 6.2
+    "weight": 5
   },
   {
     "from": "lab_bio_new",
     "to": "pintu_lab_biologi_baru_outdoor",
-    "weight": 7
+    "weight": 5.6
   },
   {
     "from": "building_bersama",
     "to": "pintu_bersama_outdoor_utara",
-    "weight": 19.5
+    "weight": 15.6
   },
   {
     "from": "building_bersama",
     "to": "pintu_bersama_outdoor_barat_daya",
-    "weight": 34.2
+    "weight": 27.4
   },
   {
     "from": "building_bersama",
     "to": "pintu_bersama_outdoor_selatan",
-    "weight": 23.2
+    "weight": 18.5
   },
   {
     "from": "building_bersama",
     "to": "pintu_bersama_outdoor_timur",
-    "weight": 40.1
+    "weight": 32.1
   },
   {
     "from": "lab_fisika",
     "to": "pintu_lab_fisika_outdoor",
-    "weight": 6.6
+    "weight": 5.3
   }
 ]
 };

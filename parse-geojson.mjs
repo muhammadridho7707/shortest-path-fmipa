@@ -55,8 +55,8 @@ console.log(`📦 Total node terbaca: ${validNodeIds.size}`);
 // STEP 3: Faktor konversi QGIS → meter
 // ============================================================
 // Kalibrasi: Syawal ke Bilingual ≈ 60 m, jarak Euclidean QGIS ≈ 951
-// Jadi 1 unit QGIS ≈ 0.0631 meter
-const QGIS_TO_METER = 0.0468; 
+// Jadi 1 unit QGIS
+const QGIS_TO_METER = 0.03744; 
 
 // ============================================================
 // STEP 4: Baca edges + validasi
