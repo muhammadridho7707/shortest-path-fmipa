@@ -2,136 +2,157 @@
 import fs from 'fs';
 import path from 'path';
 
-const geojsonPath = path.join(process.cwd(), 'jalur_fmipa.geojson');
-const outputPath = path.join(process.cwd(), 'src', 'js', 'data.js');
+// Baca file geojson
+const nodesPath = path.join(process.cwd(), 'public', 'assets', 'nodes.geojson');
+const edgesPath = path.join(process.cwd(), 'public', 'assets', 'edges.geojson');
 
-if (!fs.existsSync(geojsonPath)) {
-  console.error(`[ERROR] File jalur_fmipa.geojson tidak ditemukan!`);
-  process.exit(1);
-}
+const nodesData = JSON.parse(fs.readFileSync(nodesPath, 'utf8'));
+const edgesData = JSON.parse(fs.readFileSync(edgesPath, 'utf8'));
 
-const geojsonData = JSON.parse(fs.readFileSync(geojsonPath, 'utf8'));
-
-if (!geojsonData.features || geojsonData.features.length === 0) {
-  console.error(`[ERROR] File jalur_fmipa.geojson kosong!`);
-  process.exit(1);
-}
-
-// Master Gedung (ID & Label untuk UI)
-const gedungMaster = {
-  'GEDUNG_SYAWAL_GULTOM': { id: 'GEDUNG_SYAWAL_GULTOM', label: 'Gedung Syawal (01)', isBuilding: true },
-  'GEDUNG_04': { id: 'GEDUNG_04', label: 'Gedung Fisika (04)', isBuilding: true },
-  'GEDUNG_05': { id: 'GEDUNG_05', label: 'Gedung Biologi (05)', isBuilding: true },
-  'GEDUNG_KIMIA': { id: 'GEDUNG_KIMIA', label: 'Gedung Kimia (03)', isBuilding: true },
-  'GEDUNG_02': { id: 'GEDUNG_02', label: 'Gedung Matematika (02)', isBuilding: true },
-  'GEDUNG_06': { id: 'GEDUNG_06', label: 'Gedung Bilingual (06)', isBuilding: true },
-  'GEDUNG_12': { id: 'GEDUNG_12', label: 'Gedung Bersama (12)', isBuilding: true },
-  'GEDUNG_LAB_FISIKA': { id: 'GEDUNG_LAB_FISIKA', label: 'Lab Fisika (08)', isBuilding: true },
-  'GEDUNG_09': { id: 'GEDUNG_09', label: 'Lab Matematika (09)', isBuilding: true },
-  'GEDUNG_LAB_KIMIA': { id: 'GEDUNG_LAB_KIMIA', label: 'Lab Kimia (07)', isBuilding: true },
-  'GEDUNG_LAB_BIOLOGI_BARAT': { id: 'GEDUNG_LAB_BIOLOGI_BARAT', label: 'Lab Biologi Baru (11)', isBuilding: true },
-  'GEDUNG_LAB_BIOLOGI_TIMUR': { id: 'GEDUNG_LAB_BIOLOGI_TIMUR', label: 'Lab Biologi Lama (10)', isBuilding: true }
-};
-
+// ============================================================
+// STEP 1: Baca semua node
+// ============================================================
 const nodes = {};
-const edges = [];
-const processedPairs = new Set();
 
-function getNodeKey(x, y) {
-  // Format presisi 5 angka desimal agar snapping titik QGIS konsisten
-  return `node_${x.toFixed(5)}_${y.toFixed(5)}`;
-}
+nodesData.features.forEach(feature => {
+  const props = feature.properties;
+  const coords = feature.geometry.coordinates;
+  
+  if (!coords || coords.length < 2) return;
+  
+  const [x, y] = coords;
+  const id = props.node_id;
 
-function calculateDistance(x1, y1, x2, y2) {
-  const dx = x1 - x2;
-  const dy = y1 - y2;
-  return Math.sqrt(dx * dx + dy * dy) || 0.0001;
-}
-
-// 1. Ekstrak Semua Titik & Garis Murni dari QGIS
-const qgisNodeList = [];
-
-geojsonData.features.forEach((feature) => {
-  const geom = feature.geometry;
-  if (!geom) return;
-
-  const lines = geom.type === 'LineString' ? [geom.coordinates] : geom.coordinates;
-
-  lines.forEach((line) => {
-    for (let i = 0; i < line.length - 1; i++) {
-      const [x1, y1] = line[i];
-      const [x2, y2] = line[i + 1];
-
-      const keyA = getNodeKey(x1, y1);
-      const keyB = getNodeKey(x2, y2);
-
-      if (!nodes[keyA]) {
-        nodes[keyA] = { id: keyA, x: x1, y: y1, label: keyA };
-        qgisNodeList.push(nodes[keyA]);
-      }
-      if (!nodes[keyB]) {
-        nodes[keyB] = { id: keyB, x: x2, y: y2, label: keyB };
-        qgisNodeList.push(nodes[keyB]);
-      }
-
-      const pairKey = [keyA, keyB].sort().join('--');
-      if (!processedPairs.has(pairKey)) {
-        processedPairs.add(pairKey);
-        edges.push({
-          from: keyA,
-          to: keyB,
-          weight: calculateDistance(x1, y1, x2, y2)
-        });
-      }
-    }
-  });
-});
-
-// Mapping manual kedekatan urutan node di QGIS ke ID Gedung agar tidak tebak koordinat piksel
-// Skrip ini menyambungkan node QGIS yang posisinya persis dekat gedung
-const buildingMapping = {
-  'GEDUNG_06': ['GEDUNG_06', 'GEDUNG_BILINGUAL'],
-  'GEDUNG_02': ['GEDUNG_02', 'GEDUNG_MATEMATIKA'],
-  'GEDUNG_KIMIA': ['GEDUNG_KIMIA', 'GEDUNG_03'],
-  'GEDUNG_12': ['GEDUNG_12', 'GEDUNG_BERSAMA'],
-  'GEDUNG_04': ['GEDUNG_04', 'GEDUNG_FISIKA'],
-  'GEDUNG_05': ['GEDUNG_05', 'GEDUNG_BIOLOGI'],
-  'GEDUNG_SYAWAL_GULTOM': ['GEDUNG_SYAWAL_GULTOM', 'GEDUNG_01']
-};
-
-// 2. Tautkan Node Gedung Utama
-Object.keys(gedungMaster).forEach((bldKey) => {
-  nodes[bldKey] = {
-    ...gedungMaster[bldKey],
-    // Jika ada node QGIS, ambil koordinat node QGIS terdekat sebagai pengganti koordinat piksel
-    x: qgisNodeList[0] ? qgisNodeList[0].x : 0,
-    y: qgisNodeList[0] ? qgisNodeList[0].y : 0
+  // Klasifikasi
+  const isBuilding = props.type === 'building';
+  const category = 
+    isBuilding ? 'Gedung FMIPA' :
+    props.type === 'entrance_outdoor' ? 'Pintu Outdoor' :
+    props.type === 'entrance' ? 'Pintu Indoor' :
+    props.type === 'corridor' ? 'Koridor' :
+    props.type === 'intersection' ? 'Simpang' :
+    props.type === 'parking' ? 'Parkir' :
+    'Node';
+  
+  nodes[id] = {
+    id,
+    x,
+    y,
+    label: props.name || id,
+    category,
+    isBuilding,
   };
 });
 
-// Sambungkan node gedung ke node jaringan QGIS terdekat dalam RUANG KOORDINAT QGIS SAMA
-Object.keys(gedungMaster).forEach((bldKey, idx) => {
-  if (qgisNodeList.length > 0) {
-    // Distribusikan koneksi gedung ke node-node QGIS terdekat secara proporsional
-    const targetQgisNode = qgisNodeList[idx % qgisNodeList.length];
-    
-    // Set koordinat gedung mengikuti koordinat geografis QGIS
-    nodes[bldKey].x = targetQgisNode.x;
-    nodes[bldKey].y = targetQgisNode.y;
+// ============================================================
+// STEP 2: Buat Set ID node yang valid (SETELAH nodes terisi!)
+// ============================================================
+const validNodeIds = new Set(Object.keys(nodes));
 
-    const pairKey = [bldKey, targetQgisNode.id].sort().join('--');
-    if (!processedPairs.has(pairKey)) {
-      processedPairs.add(pairKey);
-      edges.push({
-        from: bldKey,
-        to: targetQgisNode.id,
-        weight: 0.0001
-      });
-    }
+console.log(`📦 Total node terbaca: ${validNodeIds.size}`);
+
+// ============================================================
+// STEP 3: Faktor konversi QGIS → meter
+// ============================================================
+// Kalibrasi: Syawal ke Bilingual ≈ 60 m, jarak Euclidean QGIS ≈ 951
+// Jadi 1 unit QGIS ≈ 0.0631 meter
+const QGIS_TO_METER = 0.0468; 
+
+// ============================================================
+// STEP 4: Baca edges + validasi
+// ============================================================
+const invalidEdges = [];
+const edges = [];
+
+edgesData.features.forEach(feature => {
+  const props = feature.properties;
+  const coords = feature.geometry.coordinates;
+  
+  // Validasi source & target
+  if (!validNodeIds.has(props.source)) {
+    invalidEdges.push({ fid: props.fid, field: 'source', value: props.source });
+  }
+  if (!validNodeIds.has(props.target)) {
+    invalidEdges.push({ fid: props.fid, field: 'target', value: props.target });
+  }
+  
+  // Hitung jarak Euclidean dari koordinat
+  let dx = coords[1][0] - coords[0][0];
+  let dy = coords[1][1] - coords[0][1];
+  let distQGIS = Math.sqrt(dx*dx + dy*dy);
+  const distMeter = distQGIS * QGIS_TO_METER;
+  
+  edges.push({
+    from: props.source,
+    to: props.target,
+    weight: Math.round(distMeter * 10) / 10,
+  });
+});
+
+// ============================================================
+// STEP 5: Laporkan edge yang invalid
+// ============================================================
+if (invalidEdges.length > 0) {
+  console.error('\n❌ EDGE DENGAN NODE ID TIDAK VALID:');
+  invalidEdges.forEach(e => {
+    console.error(`   fid=${e.fid}, ${e.field}="${e.value}" → tidak ada di nodes.geojson`);
+  });
+  console.error('\n⚠️  Perbaiki edges.geojson sebelum regenerate!\n');
+  process.exit(1);
+}
+
+console.log(`✅ Semua ${edges.length} edge valid.`);
+
+// ============================================================
+// STEP 6: Pisahkan gedung & waypoint
+// ============================================================
+const gedung = {};
+const waypoints = {};
+
+Object.keys(nodes).forEach(id => {
+  const n = nodes[id];
+  if (n.isBuilding) {
+    gedung[id] = { 
+      svgId: id,
+      label: n.label,
+      x: n.x,
+      y: n.y,
+      isBuilding: true,
+      category: n.category,
+    };
+  } else {
+    waypoints[id] = {
+      id,
+      x: n.x,
+      y: n.y,
+      label: n.label,
+      category: n.category,
+    };
   }
 });
 
-const outputContent = `export const graphNodes = ${JSON.stringify(nodes, null, 2)};\n\nexport const graphData = {\n  nodes: graphNodes,\n  edges: ${JSON.stringify(edges, null, 2)}\n};\n`;
+// ============================================================
+// STEP 7: Tulis data.js
+// ============================================================
+const output = `// AUTO-GENERATED by parse-geojson.mjs
+// Source: nodes.geojson + edges.geojson (QGIS)
+// Coordinate System: QGIS UTM (bukan SVG)
+// PENTING: Jangan edit manual. Regenerate dengan: node parse-geojson.mjs
 
-fs.writeFileSync(outputPath, outputContent);
-console.log(`\n[SUCCESS] Berhasil sinkronisasi skala QGIS! Total ${Object.keys(nodes).length} nodes & ${edges.length} edges.`);
+export const graphNodes = ${JSON.stringify({ gedung, waypoints }, null, 2)};
+
+export const graphData = {
+  nodes: {
+    ...graphNodes.gedung,
+    ...graphNodes.waypoints
+  },
+  edges: ${JSON.stringify(edges, null, 2)}
+};
+`;
+
+fs.writeFileSync(path.join(process.cwd(), 'src', 'js', 'data.js'), output);
+
+console.log(`✅ Berhasil generate data.js`);
+console.log(`   - ${Object.keys(gedung).length} gedung`);
+console.log(`   - ${Object.keys(waypoints).length} waypoint`);
+console.log(`   - ${edges.length} edge`);
