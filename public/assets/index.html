@@ -2,7 +2,7 @@
 <html lang="id">
 
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta charset="UTF-8">
 
     <meta
@@ -25,53 +25,747 @@
     >
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <style>
-  /* ===== OVERRIDE PAKSA UNTUK TOMBOL JADIKAN TITIK ===== */
-  #panel-gedung-actions #btn-set-asal,
-  #panel-gedung-actions #btn-set-tujuan {
-    display: inline-flex !important;
+        /* ===== LAYOUT GRID UTAMA ===== */
+#fmipa-map-legend-container {
+    left: 0px !important;
+    bottom: 0px !important;
+}
+
+.fmipa-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;   /* default: 1 kolom (mobile) */
+    gap: 20px;
+}
+
+/* ≥ 1024px: 3 kolom */
+@media (min-width: 1024px) {
+    .fmipa-main-grid {
+        grid-template-columns: 260px minmax(0, 1fr) 300px;
+    }
+}
+
+/* ≥ 1280px: 3 kolom lebih lebar */
+@media (min-width: 1280px) {
+    .fmipa-main-grid {
+        grid-template-columns: 300px minmax(0, 1fr) 340px;
+    }
+}
+
+/* ≥ 1536px: paling lebar */
+@media (min-width: 1536px) {
+    .fmipa-main-grid {
+        grid-template-columns: 320px minmax(0, 1fr) 380px;
+    }
+}
+        /* ===== ROOM LIST ===== */
+        .room-tabs {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .tab-btn {
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid #E4D5B6;
+            background: #FFFDF7;
+            color: #57534e;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .tab-btn:hover { background: #f5efe0; }
+        .tab-btn.active {
+            background: #C54F2D;
+            color: #fff;
+            border-color: #C54F2D;
+        }
+        .room-search input {
+            width: 100%;
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid #E4D5B6;
+            border-radius: 8px;
+            background: #FFFDF7;
+            margin-bottom: 8px;
+            outline: none;
+        }
+        .room-search input:focus { border-color: #C54F2D; }
+        .room-list {
+            max-height: 420px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-right: 4px;
+        }
+        .room-list::-webkit-scrollbar { width: 6px; }
+        .room-list::-webkit-scrollbar-thumb { background: #D2BE91; border-radius: 3px; }
+        .room-item {
+            padding: 8px 10px;
+            border: 1px solid #E4D5B6;
+            border-radius: 8px;
+            background: #FFFDF7;
+            font-size: 12px;
+            transition: all 0.1s;
+        }
+        .room-item:hover { background: #f9f4e8; }
+        .room-code {
+            font-family: monospace;
+            font-size: 10px;
+            color: #C54F2D;
+            font-weight: 700;
+        }
+        .room-name {
+            font-weight: 600;
+            color: #292524;
+            margin: 2px 0;
+        }
+        .room-floor {
+            font-size: 10px;
+            color: #78716c;
+        }
+
+        /* ===== OVERRIDE PAKSA UNTUK TOMBOL JADIKAN TITIK ===== */
+        #panel-gedung-actions #btn-set-asal,
+        #panel-gedung-actions #btn-set-tujuan {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            padding: 10px 12px !important;
+            border-radius: 12px !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+            border: none !important;
+            opacity: 1 !important;
+            filter: none !important;
+            transition: background-color 0.15s ease !important;
+        }
+
+        #panel-gedung-actions #btn-set-asal {
+            background-color: #C54F2D !important;
+            box-shadow: 0 2px 6px rgba(197, 79, 45, 0.25) !important;
+        }
+
+        #panel-gedung-actions #btn-set-asal:hover {
+            background-color: #a84022 !important;
+        }
+
+        #panel-gedung-actions #btn-set-tujuan {
+            background-color: #2563eb !important;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+        }
+
+        #panel-gedung-actions #btn-set-tujuan:hover {
+            background-color: #1d4ed8 !important;
+        }
+
+        #panel-gedung-actions #btn-set-asal span,
+        #panel-gedung-actions #btn-set-tujuan span {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+        /* ===== TOAST NOTIFICATION (tengah atas) ===== */
+.fmipa-toast-container {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+    width: 90%;
+    max-width: 420px;
+}
+
+.fmipa-toast {
+    pointer-events: auto;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2), 0 8px 10px -6px rgba(0,0,0,0.1);
+    animation: toastSlideIn 0.3s ease-out;
+    backdrop-filter: blur(8px);
+    border: 1px solid;
+}
+
+.fmipa-toast.toast-success {
+    background: rgba(232, 245, 233, 0.98);
+    border-color: #94B38A;
+    color: #2e5d3a;
+}
+
+.fmipa-toast.toast-error {
+    background: rgba(254, 226, 226, 0.98);
+    border-color: #f87171;
+    color: #991b1b;
+}
+
+.fmipa-toast.toast-warning {
+    background: rgba(254, 249, 195, 0.98);
+    border-color: #fbbf24;
+    color: #854d0e;
+}
+
+.fmipa-toast.toast-info {
+    background: rgba(219, 234, 254, 0.98);
+    border-color: #60a5fa;
+    color: #1e40af;
+}
+
+.fmipa-toast .toast-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.fmipa-toast .toast-message {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.fmipa-toast .toast-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.5;
+    padding: 0 4px;
+    color: inherit;
+}
+
+.fmipa-toast .toast-close:hover {
+    opacity: 1;
+}
+
+.fmipa-toast.toast-out {
+    animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ===== LOADING SPINNER pada tombol ===== */
+.fmipa-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#btn-cari.is-loading {
+    pointer-events: none;
+    opacity: 0.85;
+}
+.fmipa-input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    border: 1px solid #E4D5B6;
+    border-radius: 10px;
+    background: #FFFDF7;
+    outline: none;
+    color: #292524;
+    transition: border-color 0.15s;
+}
+.fmipa-input:focus {
+    border-color: #C54F2D;
+    box-shadow: 0 0 0 3px rgba(197, 79, 45, 0.1);
+}
+.fmipa-input::placeholder {
+    color: #a8a29e;
+}
+
+/* ===== SEARCH RESULT ITEM ===== */
+.search-result-item {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1ede2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    transition: background 0.1s;
+}
+.search-result-item:last-child {
+    border-bottom: none;
+}
+.search-result-item:hover {
+    background: #faf6ec;
+}
+.search-result-info {
+    flex: 1;
+    min-width: 0;
+}
+.search-result-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #292524;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-result-code {
+    font-family: monospace;
+    font-size: 10px;
+    color: #C54F2D;
+    font-weight: 700;
+}
+.search-result-meta {
+    font-size: 10px;
+    color: #78716c;
+    margin-top: 2px;
+}
+.search-result-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.search-result-empty {
+    padding: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: #78716c;
+}
+.search-result-highlight {
+    background: #fef08a;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+/* ===== DROPDOWN SEARCH FLOATING ===== */
+.search-results-floating {
+    position: fixed;
+    z-index: 9998;
+    background: #ffffff;
+    border: 1px solid #E4D5B6;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px -8px rgba(0,0,0,0.25), 0 8px 16px -8px rgba(0,0,0,0.15);
+    max-height: 400px;
+    overflow-y: auto;
+    width: 400px;   /* ← fixed width */
+    max-width: calc(100vw - 40px);   /* ← jangan lebih dari layar */
+    animation: searchDropdownIn 0.15s ease-out;
+}
+
+.search-results-floating::-webkit-scrollbar {
+    width: 8px;
+}
+.search-results-floating::-webkit-scrollbar-thumb {
+    background: #D2BE91;
+    border-radius: 4px;
+}
+.search-results-floating::-webkit-scrollbar-track {
+    background: #f9f6ee;
+}
+
+@keyframes searchDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== ITEM HASIL ===== */
+.search-result-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1ede2;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.search-result-item:last-child {
+    border-bottom: none;
+}
+.search-result-item:hover {
+    background: #faf6ec;
+}
+
+
+
+.search-result-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-result-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #292524;
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.search-result-code {
+    font-family: monospace;
+    font-size: 10px;
+    color: #C54F2D;
+    font-weight: 700;
+    background: #fef4f0;
+    padding: 1px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.search-result-meta {
+    font-size: 10.5px;
+    color: #78716c;
+    margin-top: 4px;
+}
+
+
+
+/* ===== ACTION BUTTONS (muncul saat item di-klik) ===== */
+
+
+.search-result-empty {
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #78716c;
+}
+
+.search-result-highlight {
+    background: #fef08a;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 800;
+}
+/* ===== SEARCH RESULT — CLEAN ===== */
+.search-result-item {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1ede2;
+    cursor: pointer;
+    transition: background 0.1s;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.search-result-item:last-child {
+    border-bottom: none;
+}
+.search-result-item:hover {
+    background: #faf6ec;
+}
+.search-result-item.is-active {
+    background: #f5efe0;
+}
+
+.search-result-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: 100% !important;
+    cursor: pointer;
+}
+
+.search-result-info {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: block !important;
+}
+
+.search-result-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #292524;
+    margin-bottom: 3px;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+.search-result-code {
+    font-family: monospace;
+    font-size: 10px;
+    color: #C54F2D;
+    font-weight: 700;
+    background: #fef4f0;
+    padding: 1px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.search-result-meta {
+    font-size: 10.5px;
+    color: #78716c;
+    margin-top: 4px;
+}
+
+.search-result-chevron {
+    color: #a8a29e;
+    font-size: 16px;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s;
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.search-result-item.is-active .search-result-chevron {
+    transform: rotate(90deg);
+    color: #C54F2D;
+}
+
+/* Tombol Awal/Tujuan — muncul di BAWAH info */
+.search-result-actions {
+    display: none !important;
+    width: 100% !important;
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px dashed #E4D5B6 !important;
+    box-sizing: border-box !important;
+}
+
+.search-result-item.is-active .search-result-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+}
+
+.search-result-actions button {
+    width: 100% !important;
+    padding: 10px 8px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background 0.15s !important;
+    color: #ffffff !important;
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
-    padding: 10px 12px !important;
-    border-radius: 12px !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    border: none !important;
-    opacity: 1 !important;
-    filter: none !important;
-    transition: background-color 0.15s ease !important;
-  }
+    gap: 4px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+}
 
-  #panel-gedung-actions #btn-set-asal {
-    background-color: #C54F2D !important;
-    box-shadow: 0 2px 6px rgba(197, 79, 45, 0.25) !important;
-  }
+.search-result-actions .btn-set-awal {
+    background: #C54F2D !important;
+}
+.search-result-actions .btn-set-awal:hover {
+    background: #a84022 !important;
+}
 
-  #panel-gedung-actions #btn-set-asal:hover {
-    background-color: #a84022 !important;
-  }
+.search-result-actions .btn-set-tujuan {
+    background: #2563eb !important;
+}
+.search-result-actions .btn-set-tujuan:hover {
+    background: #1d4ed8 !important;
+}
+/* ===== MODAL KONFIRMASI CUSTOM ===== */
+.fmipa-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 37, 36, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: confirmFadeIn 0.2s ease-out;
+}
 
-  #panel-gedung-actions #btn-set-tujuan {
-    background-color: #2563eb !important;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
-  }
+.fmipa-confirm-overlay.hidden {
+  display: none !important;
+}
 
-  #panel-gedung-actions #btn-set-tujuan:hover {
-    background-color: #1d4ed8 !important;
-  }
+@keyframes confirmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  /* Pastikan text benar-benar putih solid */
-  #panel-gedung-actions #btn-set-asal span,
-  #panel-gedung-actions #btn-set-tujuan span {
-    color: #ffffff !important;
-    opacity: 1 !important;
+.fmipa-confirm-box {
+  background: #FFFDF7;
+  border: 1px solid #E4D5B6;
+  border-radius: 18px;
+  padding: 28px 24px 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+  animation: confirmSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+@keyframes confirmSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
   }
-</style>
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fmipa-confirm-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 14px;
+  background: #FEF3C7;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FCD34D;
+}
+
+.fmipa-confirm-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #292524;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+}
+
+.fmipa-confirm-message {
+  font-size: 13px;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.fmipa-confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.fmipa-confirm-btn {
+  flex: 1;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.fmipa-confirm-btn:active {
+  transform: scale(0.97);
+}
+
+.fmipa-confirm-btn-cancel {
+  background: #FFFDF7;
+  color: #57534e;
+  border: 1.5px solid #E4D5B6;
+}
+
+.fmipa-confirm-btn-cancel:hover {
+  background: #f5efe0;
+  border-color: #D2BE91;
+}
+
+.fmipa-confirm-btn-ok {
+  background: #C54F2D;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(197, 79, 45, 0.3);
+}
+
+.fmipa-confirm-btn-ok:hover {
+  background: #a84022;
+}
+
+/* Varian danger (untuk aksi destruktif) */
+.fmipa-confirm-btn-ok.is-danger {
+  background: #dc2626;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.fmipa-confirm-btn-ok.is-danger:hover {
+  background: #b91c1c;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .fmipa-confirm-box {
+    padding: 24px 20px 18px;
+    border-radius: 16px;
+  }
+  .fmipa-confirm-title {
+    font-size: 16px;
+  }
+  .fmipa-confirm-message {
+    font-size: 12.5px;
+  }
+  .fmipa-confirm-actions {
+    flex-direction: column-reverse;
+  }
+}
+    </style>
 </head>
 
 
 <body>
+     <!-- Container Toast Notification -->
+    <div id="fmipa-toast-container" class="fmipa-toast-container"></div>
+     <!-- ===== DROPDOWN HASIL SEARCH (fixed, di luar panel) ===== -->
+    <div
+        id="search-results"
+        class="search-results-floating hidden"
+    ></div>
+
+    <!-- Modal Konfirmasi Custom -->
+<div id="fmipa-confirm-modal" class="fmipa-confirm-overlay hidden">
+  <div class="fmipa-confirm-box">
+    <div class="fmipa-confirm-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+    </div>
+    <h3 id="fmipa-confirm-title" class="fmipa-confirm-title">Konfirmasi</h3>
+    <p id="fmipa-confirm-message" class="fmipa-confirm-message">Apakah Anda yakin?</p>
+    <div class="fmipa-confirm-actions">
+      <button id="fmipa-confirm-cancel" class="fmipa-confirm-btn fmipa-confirm-btn-cancel">
+        Batal
+      </button>
+      <button id="fmipa-confirm-ok" class="fmipa-confirm-btn fmipa-confirm-btn-ok">
+        Ya, Lanjutkan
+      </button>
+    </div>
+  </div>
+</div>
 
     <header class="fmipa-header sticky top-0 z-50">
 
@@ -146,10 +840,10 @@
         class="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7 lg:px-8 lg:py-8"
     >
 
-        <div
-            class="grid gap-5 xl:grid-cols-[355px_minmax(0,1fr)] xl:items-start"
-        >
+        <!-- GRID 3 KOLOM: Navigasi | Peta | Info Gedung -->
+     <div class="fmipa-main-grid">
 
+            <!-- ============ KOLOM 1: NAVIGASI & HASIL ============ -->
             <aside class="space-y-5">
 
                 <section
@@ -196,7 +890,27 @@
 
                     </div>
 
-
+                    <!-- ===== SEARCH RUANGAN GLOBAL ===== -->
+<div class="mb-5">
+    <label for="search-ruangan-global" class="fmipa-label">
+        🔍 Cari ruangan (nama / kode / gedung)
+    </label>
+    <div class="relative">
+        <input
+            type="text"
+            id="search-ruangan-global"
+            class="fmipa-input"
+            placeholder="Contoh: aula, 001.3, toilet..."
+            autocomplete="off"
+        />
+        <button
+            type="button"
+            id="btn-clear-search"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 text-lg hidden"
+            aria-label="Bersihkan"
+        >✕</button>
+    </div>
+</div>
 
                     <!-- ASAL -->
 
@@ -288,7 +1002,7 @@
                                 </option>
 
                                 <option value="lab-biologi">Lab Biologi Baru</option>
-<option value="lab-biologi-timur">Lab Biologi Lama</option>
+                                <option value="lab-biologi-timur">Lab Biologi Lama</option>
 
                                 <option value="gedung-bersama">
                                     Gedung Bersama
@@ -426,7 +1140,7 @@
                                 </option>
 
                                 <option value="lab-biologi">Lab Biologi Baru</option>
-<option value="lab-biologi-timur">Lab Biologi Lama</option>
+                                <option value="lab-biologi-timur">Lab Biologi Lama</option>
 
                                 <option value="gedung-bersama">
                                     Gedung Bersama
@@ -439,28 +1153,28 @@
                     </div>
 
                     <div class="mt-4 flex items-center gap-3">
-    <button
-        id="btn-cari"
-        type="button"
-        class="fmipa-button flex-1"
-    >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.35-5.65a8 8 0 11-16 0 8 8 0 0116 0z" />
-        </svg>
-        Cari rute
-    </button>
-    <button
-        id="btn-restart"
-        type="button"
-        class="fmipa-button flex-1"
-        title="Reset formulir dan rute peta"
-    >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-        Reset
-    </button>
-</div>
+                        <button
+                            id="btn-cari"
+                            type="button"
+                            class="fmipa-button flex-1"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.35-5.65a8 8 0 11-16 0 8 8 0 0116 0z" />
+                            </svg>
+                            Cari rute
+                        </button>
+                        <button
+                            id="btn-restart"
+                            type="button"
+                            class="fmipa-button flex-1"
+                            title="Reset formulir dan rute peta"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            Reset
+                        </button>
+                    </div>
 
                 </section>
 
@@ -569,126 +1283,9 @@
 
                 </section>
 
-                <section
-                    id="panel-gedung"
-                    class="fmipa-card fmipa-building-card p-5 sm:p-6"
-                >
-
-                    <div
-                        class="mb-5 flex items-start justify-between gap-3"
-                    >
-
-                        <div>
-
-                            <span class="fmipa-badge-primary mb-3">
-                                Informasi
-                            </span>
-
-                            <h2
-                                id="nama-gedung"
-                                class="fmipa-section-title text-xl"
-                            >
-                                Informasi gedung
-                            </h2>
-
-                            <p
-                                class="fmipa-section-description"
-                            >
-                                Pilih gedung pada peta untuk melihat
-                                informasi ruangan yang tersedia.
-                            </p>
-
-                        </div>
-
-
-                        <div
-                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-[#EEBF43] bg-[#FFF4D3] text-[#C54F2D]"
-                        >
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                stroke-width="2"
-                            >
-
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"
-                                />
-
-                            </svg>
-
-                        </div>
-
-                    </div>
-
-                    <!-- QUICK ACTIONS: SET ASAL & TUJUAN -->
-                    <div id="panel-gedung-actions" class="hidden mb-5">
-                        <div class="flex gap-2">
-                            <button
-                                id="btn-set-asal"
-                                type="button"
-                                class="flex-1 bg-[#C54F2D] hover:bg-[#a84022] text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
-                            >
-                                <span>📍</span> Jadikan Titik Awal
-                            </button>
-                            <button
-                                id="btn-set-tujuan"
-                                type="button"
-                                class="flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
-                            >
-                                <span>🎯</span> Jadikan Tujuan
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- ROOMS -->
-
-                    <div>
-
-                        <div
-                            class="mb-3 flex items-center justify-between"
-                        >
-
-                            <div
-                                class="fmipa-accent-title mb-0"
-                            >
-                                Daftar ruangan
-                            </div>
-
-
-                            <span
-                                class="rounded-full bg-[#E8F0E4] px-2.5 py-1 text-[10px] font-bold text-[#657F5C]"
-                            >
-                                Data
-                            </span>
-
-                        </div>
-
-
-                        <div
-                            id="daftar-ruangan"
-                            class="space-y-2"
-                        >
-
-                            <div
-                                class="rounded-xl border border-dashed border-[#D2BE91] bg-[#FFFDF7] px-4 py-3 text-sm text-stone-500"
-                            >
-                                Belum ada gedung yang dipilih.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
             </aside>
 
+            <!-- ============ KOLOM 2: PETA ============ -->
             <section class="min-w-0">
 
                 <div
@@ -810,6 +1407,33 @@
                                     />
                                 </svg>
                             </button>
+                             <button
+        id="btn-export-map"
+        type="button"
+        class="fmipa-map-control"
+        title="Export peta sebagai gambar"
+        aria-label="Export peta sebagai gambar"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+            />
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+        </svg>
+    </button>
                         </div>
 
                     </div>
@@ -888,39 +1512,167 @@
                         >
 
                             <!-- LEGENDA RESMI ZULAYKA (Dengan z-index 1000 agar tidak tertimpa peta) -->
-                       <div
+                           <div
     id="fmipa-map-legend-container"
-    class="absolute left-4 z-[1000] pointer-events-auto sm:left-5"
-    style="z-index: 1000; bottom: 120px;"
+    class="absolute z-[1000] pointer-events-auto"
 >
-    <div
-        class="fmipa-map-legend rounded-2xl border border-stone-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md sm:p-4"
-        style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(231, 229, 228, 0.9); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.06);"
-    >
-        <p class="mb-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-stone-500">
-            Legenda Peta FMIPA
-        </p>
+                                <div
+                                    class="fmipa-map-legend rounded-2xl border border-stone-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-md sm:p-4"
+                                    style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(231, 229, 228, 0.9); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.06);"
+                                >
+                                    <p class="mb-2.5 text-[10px] font-extrabold uppercase tracking-[0.12em] text-stone-500">
+                                        Legenda Peta FMIPA
+                                    </p>
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-stone-700">
-            <div class="flex items-center gap-1.5">
-                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #475569; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                <span> Gedung (12) </span>
-            </div>
-            <div class="flex items-center gap-1.5">
-                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #dc2626; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                <span> Titik Awal </span>
-            </div>
-            <div class="flex items-center gap-1.5">
-                <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #2563eb; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
-                <span> Titik Tujuan </span>
-            </div>
-            <div class="flex items-center gap-1.5">
-                <span style="display: inline-block; width: 22px; height: 6px; border-radius: 3px; background-color: #16a34a; box-shadow: 0 0 6px #4ade80;"></span>
-                <span> Jalur Terpendek </span>
-            </div>
-        </div>
-    </div>
-</div>
+                                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold text-stone-700">
+                                        <div class="flex items-center gap-1.5">
+                                            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #475569; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                                            <span> Gedung (12) </span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #dc2626; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                                            <span> Titik Awal </span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #2563eb; border: 1.5px solid #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></span>
+                                            <span> Titik Tujuan </span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span style="display: inline-block; width: 22px; height: 6px; border-radius: 3px; background-color: #16a34a; box-shadow: 0 0 6px #4ade80;"></span>
+                                            <span> Jalur Terpendek </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ============ KOLOM 3: INFO GEDUNG & DAFTAR RUANGAN ============ -->
+            <section class="min-w-0">
+
+                <section
+                    id="panel-gedung"
+                    class="fmipa-card fmipa-building-card p-5 sm:p-6"
+                >
+
+                    <div
+                        class="mb-5 flex items-start justify-between gap-3"
+                    >
+
+                        <div>
+
+                            <span class="fmipa-badge-primary mb-3">
+                                Informasi
+                            </span>
+
+                            <h2
+                                id="nama-gedung"
+                                class="fmipa-section-title text-xl"
+                            >
+                                Informasi gedung
+                            </h2>
+
+                            <p
+                                class="fmipa-section-description"
+                            >
+                                Pilih gedung pada peta untuk melihat
+                                informasi ruangan yang tersedia.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-2 border-[#EEBF43] bg-[#FFF4D3] text-[#C54F2D]"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <!-- QUICK ACTIONS: SET ASAL & TUJUAN -->
+                    <div id="panel-gedung-actions" class="hidden mb-5">
+                        <div class="flex gap-2">
+                            <button
+                                id="btn-set-asal"
+                                type="button"
+                                class="flex-1 bg-[#C54F2D] hover:bg-[#a84022] text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
+                            >
+                                Jadikan Titik Awal
+                            </button>
+                            <button
+                                id="btn-set-tujuan"
+                                type="button"
+                                class="flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition shadow-sm active:scale-95"
+                            >
+                                Jadikan Tujuan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ROOMS -->
+
+                    <div>
+
+                        <div
+                            class="mb-3 flex items-center justify-between"
+                        >
+
+                            <div
+                                class="fmipa-accent-title mb-0"
+                            >
+                                Daftar ruangan
+                            </div>
+
+
+                            <span
+                                class="rounded-full bg-[#E8F0E4] px-2.5 py-1 text-[10px] font-bold text-[#657F5C]"
+                            >
+                                Data
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="daftar-ruangan"
+                            class="space-y-2"
+                        >
+
+                            <div
+                                class="rounded-xl border border-dashed border-[#D2BE91] bg-[#FFFDF7] px-4 py-3 text-sm text-stone-500"
+                            >
+                                Belum ada gedung yang dipilih.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
             </section>
 
@@ -952,7 +1704,7 @@
         </div>
 
     </footer>
-
+    <script src="https://unpkg.com/html-to-image@1.11.11/dist/html-to-image.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script type="module" src="../../src/js/app.js"></script>
 </body>
