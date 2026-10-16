@@ -216,6 +216,75 @@ export function handleTukarRute() {
 }
 
 /**
+ * Tampilkan modal konfirmasi custom.
+ * @param {Object} opts
+ * @param {string} opts.title - Judul modal
+ * @param {string} opts.message - Pesan konfirmasi
+ * @param {string} [opts.okText='Ya, Lanjutkan'] - Teks tombol OK
+ * @param {string} [opts.cancelText='Batal'] - Teks tombol Cancel
+ * @param {boolean} [opts.danger=false] - Kalau true, tombol OK warna merah
+ * @returns {Promise<boolean>} - true kalau OK, false kalau Batal
+ */
+export function showConfirm({
+  title = 'Konfirmasi',
+  message = 'Apakah Anda yakin?',
+  okText = 'Ya, Lanjutkan',
+  cancelText = 'Batal',
+  danger = false,
+} = {}) {
+  return new Promise((resolve) => {
+    const overlay = document.getElementById('fmipa-confirm-modal');
+    const titleEl = document.getElementById('fmipa-confirm-title');
+    const msgEl = document.getElementById('fmipa-confirm-message');
+    const okBtn = document.getElementById('fmipa-confirm-ok');
+    const cancelBtn = document.getElementById('fmipa-confirm-cancel');
+
+    if (!overlay || !titleEl || !msgEl || !okBtn || !cancelBtn) {
+      console.warn('[showConfirm] Modal tidak ditemukan, fallback ke confirm() bawaan.');
+      resolve(window.confirm(message));
+      return;
+    }
+
+    // Set konten
+    titleEl.textContent = title;
+    msgEl.textContent = message;
+    okBtn.textContent = okText;
+    cancelBtn.textContent = cancelText;
+
+    // Danger variant
+    okBtn.classList.toggle('is-danger', !!danger);
+
+    // Tampilkan
+    overlay.classList.remove('hidden');
+
+    // Cleanup function
+    const cleanup = () => {
+      overlay.classList.add('hidden');
+      okBtn.onclick = null;
+      cancelBtn.onclick = null;
+      overlay.onclick = null;
+      document.removeEventListener('keydown', onKey);
+    };
+
+    // Handler
+    const onOk = () => { cleanup(); resolve(true); };
+    const onCancel = () => { cleanup(); resolve(false); };
+    const onKey = (e) => {
+      if (e.key === 'Escape') onCancel();
+      if (e.key === 'Enter') onOk();
+    };
+
+    okBtn.onclick = onOk;
+    cancelBtn.onclick = onCancel;
+    overlay.onclick = (e) => {
+      // Klik di luar box → cancel
+      if (e.target === overlay) onCancel();
+    };
+    document.addEventListener('keydown', onKey);
+  });
+}
+
+/**
  * Mulai Ulang / Reset Keseluruhan Status Aplikasi & Peta
  */
 export function handleRestartApp() {
@@ -669,19 +738,53 @@ export function initApp() {
 
   const btnRestart = document.getElementById('btn-restart');
 if (btnRestart) {
-  btnRestart.onclick = handleRestartApp;
+  btnRestart.onclick = async () => {
+    // Cek apakah ada rute aktif
+    const panelHasil = document.getElementById('panel-hasil');
+    const adaRuteAktif = panelHasil && !panelHasil.classList.contains('hidden');
+
+    // Kalau ada rute aktif, minta konfirmasi custom
+    if (adaRuteAktif) {
+      const ok = await showConfirm({
+        title: 'Reset Aplikasi?',
+        message: 'Reset akan menghapus rute yang sedang ditampilkan, pin manual, dan highlight gedung. Dropdown akan dikosongkan.',
+        okText: 'Ya, Reset',
+        cancelText: 'Batal',
+        danger: true,
+      });
+      if (!ok) return;
+    }
+
+    handleRestartApp();
+  };
 }
 
 const btnResetMap = document.getElementById('btn-reset-map');
 if (btnResetMap) {
   btnResetMap.onclick = () => {
+    // 1. Reset peta (rute, pin, highlight)
     handleResetMap();
-    // Reset dropdown & panel
-    const selectAsal = document.getElementById('select-asal');
-    const selectTujuan = document.getElementById('select-tujuan');
-    if (selectAsal) selectAsal.value = '';
-    if (selectTujuan) selectTujuan.value = '';
+
+    // 2. Reset panel info gedung
     resetBuildingInfoPanel();
+
+    // 3. Reset panel hasil rute ← INI YANG BARU
+    const panelHasil = document.getElementById('panel-hasil');
+    if (panelHasil) {
+      panelHasil.classList.add('hidden');
+      panelHasil.style.display = 'none';
+    }
+
+    // 4. Kosongkan teks hasil (biar tidak ada "450 m" nyangkut)
+    const hasilRute = document.getElementById('hasil-rute');
+    const hasilJarak = document.getElementById('hasil-jarak');
+    const hasilWaktu = document.getElementById('hasil-waktu');
+    if (hasilRute) hasilRute.textContent = '-';
+    if (hasilJarak) hasilJarak.textContent = '-';
+    if (hasilWaktu) hasilWaktu.textContent = '-';
+
+    // 5. Dropdown TIDAK di-reset (biarkan terisi)
+    // → user bisa langsung klik "Cari rute" lagi
   };
 }
 

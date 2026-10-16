@@ -591,6 +591,148 @@
 .search-result-actions .btn-set-tujuan:hover {
     background: #1d4ed8 !important;
 }
+/* ===== MODAL KONFIRMASI CUSTOM ===== */
+.fmipa-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 37, 36, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: confirmFadeIn 0.2s ease-out;
+}
+
+.fmipa-confirm-overlay.hidden {
+  display: none !important;
+}
+
+@keyframes confirmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fmipa-confirm-box {
+  background: #FFFDF7;
+  border: 1px solid #E4D5B6;
+  border-radius: 18px;
+  padding: 28px 24px 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+  animation: confirmSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+}
+
+@keyframes confirmSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fmipa-confirm-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 14px;
+  background: #FEF3C7;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FCD34D;
+}
+
+.fmipa-confirm-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #292524;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+}
+
+.fmipa-confirm-message {
+  font-size: 13px;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.fmipa-confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.fmipa-confirm-btn {
+  flex: 1;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.fmipa-confirm-btn:active {
+  transform: scale(0.97);
+}
+
+.fmipa-confirm-btn-cancel {
+  background: #FFFDF7;
+  color: #57534e;
+  border: 1.5px solid #E4D5B6;
+}
+
+.fmipa-confirm-btn-cancel:hover {
+  background: #f5efe0;
+  border-color: #D2BE91;
+}
+
+.fmipa-confirm-btn-ok {
+  background: #C54F2D;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(197, 79, 45, 0.3);
+}
+
+.fmipa-confirm-btn-ok:hover {
+  background: #a84022;
+}
+
+/* Varian danger (untuk aksi destruktif) */
+.fmipa-confirm-btn-ok.is-danger {
+  background: #dc2626;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.fmipa-confirm-btn-ok.is-danger:hover {
+  background: #b91c1c;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .fmipa-confirm-box {
+    padding: 24px 20px 18px;
+    border-radius: 16px;
+  }
+  .fmipa-confirm-title {
+    font-size: 16px;
+  }
+  .fmipa-confirm-message {
+    font-size: 12.5px;
+  }
+  .fmipa-confirm-actions {
+    flex-direction: column-reverse;
+  }
+}
     </style>
 </head>
 
@@ -603,6 +745,28 @@
         id="search-results"
         class="search-results-floating hidden"
     ></div>
+
+    <!-- Modal Konfirmasi Custom -->
+<div id="fmipa-confirm-modal" class="fmipa-confirm-overlay hidden">
+  <div class="fmipa-confirm-box">
+    <div class="fmipa-confirm-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+    </div>
+    <h3 id="fmipa-confirm-title" class="fmipa-confirm-title">Konfirmasi</h3>
+    <p id="fmipa-confirm-message" class="fmipa-confirm-message">Apakah Anda yakin?</p>
+    <div class="fmipa-confirm-actions">
+      <button id="fmipa-confirm-cancel" class="fmipa-confirm-btn fmipa-confirm-btn-cancel">
+        Batal
+      </button>
+      <button id="fmipa-confirm-ok" class="fmipa-confirm-btn fmipa-confirm-btn-ok">
+        Ya, Lanjutkan
+      </button>
+    </div>
+  </div>
+</div>
+
     <header class="fmipa-header sticky top-0 z-50">
 
         <div
